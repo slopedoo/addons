@@ -1,0 +1,209 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+
+<Script file="MUSE.lua"/>
+
+<!-- Localization (None) -->
+
+<Frame name="MUSE_CoreFrame"> 
+	<!-- MUSE Control Frame Scripts -->
+	<Scripts> 
+		<OnLoad> 
+			MUSE_OnLoad();
+		</OnLoad> 
+
+		<OnEvent> 
+			MUSE_EventHandler(event,arg1);
+		</OnEvent> 
+		
+	</Scripts> 
+	
+</Frame>
+
+
+
+<Frame name="MUSE_StatusBarFrame" frameStrata="LOW" enableMouse="true" movable="true" hidden="true">
+	<Size>
+		<AbsDimension x="256" y="64"/>
+	</Size>
+		
+	<Anchors>
+		<Anchor point="TOP"/>
+	</Anchors>
+	
+		
+	<Layers>
+	
+		<Layer level="ARTWORK">
+		
+			<Texture name="MUSEStatusBarFrameBorder" file="Interface\CastingBar\UI-CastingBar-Border">
+				<Size>
+					<AbsDimension x="256" y="64" />
+				</Size>
+				
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="MUSE_StatusBarFrame" relativePoint="CENTER" />
+				</Anchors>
+			</Texture>
+			
+		</Layer>
+			
+		<Layer level="OVERLAY">
+			<FontString name="MUSEStatusBarText" inherits="GameFontNormalSmall">
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="MUSE_StatusBarFrame" relativePoint="CENTER" />
+				</Anchors>
+			</FontString>
+		</Layer>
+		
+	</Layers>
+	
+	<Frames>
+		<StatusBar name="MUSE_StatusBarSB"> movable="false">
+			<Size>
+				<AbsDimension x="195" y="13" />
+			</Size>
+			
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="MUSE_StatusBarFrame" relativePoint="CENTER" />
+			</Anchors>
+			
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="MUSESBSpark" file="Interface\CastingBar\UI-CastingBar-Spark" alphaMode="ADD">
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						
+						<Anchors>
+							<Anchor point="CENTER" />
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			
+			<BarTexture file="Interface\TargetingFrame\UI-StatusBar" />
+			
+			<BarColor r="1" g="0" b="1" a="1" />
+		</StatusBar>
+	</Frames>
+			
+	<!-- StatusBarFrame scripts -->
+	<Scripts>
+	
+		<!-- Movement Scripts -->
+		<OnLoad> 
+			this:RegisterForDrag("LeftButton");
+			MUSE_StatusBarSB:SetFrameLevel("1");
+			MUSE_StatusBarFrame:SetFrameLevel("2");
+		</OnLoad> 
+		
+
+		<OnDragStart>
+			this:StartMoving();
+			this.isMoving=true;
+		</OnDragStart>
+		
+		
+		<OnDragStop>
+			this:StopMovingOrSizing();
+			this.isMoving=false;
+		</OnDragStop>
+
+		<!-- This frame is the simplest one and just displays FSR status every update -->
+		<OnUpdate>
+			MUSE_StatusBarUpdate(arg1);
+		</OnUpdate>
+
+	</Scripts>
+
+</Frame> -- end StatusBarFrame
+
+
+<Frame name="MUSE_DashboardFrame" frameStrata="MEDIUM" toplevel="true" enableMouse="true" movable="true" hidden="true">
+
+	<Size>
+		<AbsDimension x="140" y="55"/>
+	</Size>
+		
+	<Anchors>
+		<Anchor point="TOP"/>
+	</Anchors>
+		
+	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+
+		<BackgroundInsets>
+			<AbsInset left="5" right="5" top="5" bottom="5"/>
+		</BackgroundInsets>
+
+		<EdgeSize>
+			<AbsValue val="16"/>
+		</EdgeSize>
+		
+		<TileSize>
+			<AbsValue val="36"/>
+		</TileSize>
+			
+	</Backdrop>
+	
+	<Layers>
+		<Layer level="OVERLAY">
+		
+			<FontString name="MUSEDashboardText" inherits="GameFontNormalSmall" justifyh="left" justifyv="top">
+			
+				<Size>
+					<AbsDimension x="130" y="50"/>
+				</Size>
+					
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="7" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</FontString>
+				
+			<FontString name="MUSEDashboardRecordingIndicator" inherits="GameFontNormalSmall">
+				<Size>
+					<AbsDimension x="10" y="7"/>
+				</Size>
+					
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="MUSEDashboardText" relativePoint="TOPRIGHT">
+
+					</Anchor>
+				</Anchors>
+			</FontString>				
+				
+			
+		</Layer>
+	</Layers>
+
+	<!-- StatusBarFrame scripts -->
+	<Scripts>
+	
+		<!-- Movement Scripts -->
+		<OnLoad> 
+			this:RegisterForDrag("LeftButton");
+		</OnLoad> 
+		
+
+		<OnDragStart>
+			this:StartMoving();
+			this.isMoving=true;
+		</OnDragStart>
+		
+		
+		<OnDragStop>
+			this:StopMovingOrSizing();
+			this.isMoving=false;
+		</OnDragStop>
+
+
+	</Scripts>
+
+</Frame> --StatusBarFrame
+
+</Ui>

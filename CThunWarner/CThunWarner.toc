@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: C'Thun Warner
+## Version: 1.05
+## Author: Freddy aka Alason
+## Notes: Shows a little dot which changes color to yellow/red if you're to near to somebody and some more information
+## OptionalDeps: CT_RaidAssist
+## SavedVariables: CThunWarnerStatus_PlaySound, CThunWarnerStatus_Scale, CThunWarnerStatus_ShowList, CThunWarnerStatus_SoundPhase2
+CThunWarner.xml

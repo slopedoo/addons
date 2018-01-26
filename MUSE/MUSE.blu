@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blua_project>
+	<project_name>MUSE</project_name>
+	<home_root>C:\Program Files\World of Warcraft\Interface\AddOns\MUSE</home_root>
+	<library />
+	<wow_resource use="true" />
+	<open_tabs>
+		<file caret="16909">C:\Program Files\World of Warcraft\Interface\AddOns\MUSE\MUSE.lua</file>
+	</open_tabs>
+	<active_sheet>C:\Program Files\World of Warcraft\Interface\AddOns\MUSE\MUSE.lua</active_sheet>
+</blua_project>
+

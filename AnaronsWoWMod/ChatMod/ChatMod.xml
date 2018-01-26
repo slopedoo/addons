@@ -1,0 +1,52 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMChatModButton" toplevel="true" parent="AWMMainMenu" hidden="false" movable="true">
+		<Scripts>
+			<OnLoad>
+				AWMLoadIcon(this,'misc')
+			</OnLoad>
+			<OnMouseDown>
+				print('\124cffFF9900Slash commands:')
+				print('/cm [message] - Sends the message to the default class chat.')
+				print('/cmo set [class] - Sets a default class chat.')
+				print('/cmo join [class] - Joins a class chat.')
+				print('/cmo leave [class] - Leaves a class chat.')
+				print('/cmo set [class] - Joins and sets a default class chat.')
+			</OnMouseDown>
+			<OnEnter>
+				GameTooltip:SetOwner(this, "ANCHOR_LEFT");
+				GameTooltip:SetText("Class chat");
+				GameTooltip:AddLine('Sends a message to players of a specific', 1,1,1)
+				GameTooltip:AddLine('class, works for raid and guild chat.', 1,1,1)
+				GameTooltip:AddLine('Click for more information.', 1,1,1)
+				GameTooltip:Show()
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<Size>
+			<AbsDimension x="30" y="30" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOP">
+			<Offset>
+				<AbsDimension x="-35" y="-58"/>
+			</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\Icons\Spell_Holy_BlessingOfStrength">
+					<Size>
+						<AbsDimension x="30" y="30" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>				
+</Ui>

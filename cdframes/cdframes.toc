@@ -1,0 +1,11 @@
+## Interface: 11200
+## Title: cdframes
+## Notes: Cooldown timer frames
+## Author: shirsig
+## SavedVariables: cdframes
+libs\module.lua
+libs\T.lua
+core.lua
+frame.lua
+player.lua
+other.lua

@@ -1,0 +1,105 @@
+<Bindings>
+	<Binding name="Show AWM UI" header="ANARONSWOWMOD">
+		AWMToggleMainMenu()
+	</Binding>
+	<Binding name="Show Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMBuffSearchMenu)
+	</Binding>
+	<Binding name="Show Missing Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMMissingBuffSearchMenu)
+	</Binding>
+	<Binding name="Show Advanced Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMCustomRaidSearchMenu)	
+	</Binding>
+	<Binding name="Gear Check">
+		DoGearCheck()
+	</Binding>
+	<Binding name="Ready Check">
+		DoReadyCheck()
+	</Binding>
+	<Binding name="Show Ready Check Results">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMReadyCheckMenu)
+	</Binding>
+	<Binding name="Request Summon">
+		SendAddonMessage('AWMSummon','REQUEST','RAID')
+	</Binding>
+	<Binding name="Show Summon Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMSummonMenu)
+	</Binding>
+	<Binding name="Show Scrub List">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMScrubListMenu)
+	</Binding>
+	<Binding name="Show Missing Buffs (not finished)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMinigameLEFTSticky = false
+			AWMMinigameDOWNSticky = false
+			AWMMinigameRIGHTSticky = false
+			AWMMinigameUPSticky = false
+			
+			AWMMissingBuffActive = true
+		else
+			AWMMissingBuffActive = false
+		end
+	</Binding>
+	
+	
+	<Binding name="UP (AWM Minigames)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMinigameLEFTSticky = false
+			AWMMinigameDOWNSticky = false
+			AWMMinigameRIGHTSticky = false
+			AWMMinigameUPSticky = false
+			
+			AWMMinigameUPSticky = true
+			AWMMinigameUP = true
+		else
+			AWMMinigameUP = false
+		end
+	</Binding>
+	<Binding name="DOWN (AWM Minigames)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMinigameLEFTSticky = false
+			AWMMinigameDOWNSticky = false
+			AWMMinigameRIGHTSticky = false
+			AWMMinigameUPSticky = false
+			
+			AWMMinigameDOWNSticky = true
+			AWMMinigameDOWN = true
+		else
+			AWMMinigameDOWN = false
+		end
+	</Binding>
+	<Binding name="LEFT (AWM Minigames)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMinigameLEFTSticky = false
+			AWMMinigameDOWNSticky = false
+			AWMMinigameRIGHTSticky = false
+			AWMMinigameUPSticky = false
+			
+			AWMMinigameLEFTSticky = true
+			AWMMinigameLEFT = true
+		else
+			AWMMinigameLEFT = false
+		end
+	</Binding>
+	<Binding name="RIGHT (AWM Minigames)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMinigameLEFTSticky = false
+			AWMMinigameDOWNSticky = false
+			AWMMinigameRIGHTSticky = false
+			AWMMinigameUPSticky = false
+			
+			AWMMinigameRIGHTSticky = true
+			AWMMinigameRIGHT = true
+		else
+			AWMMinigameRIGHT = false
+		end
+	</Binding>
+	
+</Bindings>

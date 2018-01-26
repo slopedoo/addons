@@ -1,0 +1,69 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMIcon" movable="true" enableMouse="true" hidden="false" parent="Minimap" frameStrata="MEDIUM">
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset>
+					<AbsDimension x="-75" y="-20" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="33" y="33" />
+		</Size>
+		<Frames>
+			<Button name="$parentButton">
+				<Size>
+					<AbsDimension x="24" y="24" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"></Anchor>
+				</Anchors>
+				<Scripts>
+					<OnMouseUp>
+						AWMIconOnMouseUp(arg1)
+					</OnMouseUp>
+					<OnMouseDown>
+						AWMIconOnMouseDown(arg1)
+					</OnMouseDown>
+					<OnUpdate>
+						AWMIconOnUpdate()
+					</OnUpdate>
+					<OnEnter>
+						AWMIconOnEnter()
+					</OnEnter>
+					<OnLeave>
+						AWMIconOnLeave()
+					</OnLeave>
+				</Scripts>
+				<Layers>
+					<Layer>
+						<Texture file="Interface\Addons\AnaronsWoWMod\Default\Icon\Icon">
+							<Size>
+								<AbsDimension x="22" y="22" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT">
+									<Offset>
+										<AbsDimension x="5" y="-4" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</Texture>
+					</Layer>
+					<Layer>
+						<Texture file="Interface\Minimap\MiniMap-TrackingBorder">
+							<Size>
+								<AbsDimension x="52" y="52" />
+							</Size>
+							<Anchors>
+								<Anchor point="TOPLEFT" />
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Button>
+		</Frames>
+	</Frame>
+	
+</Ui>

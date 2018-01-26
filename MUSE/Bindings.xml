@@ -1,0 +1,10 @@
+<Bindings>
+	<Binding name="MUSE_TOGGLE_MANUAL" header="MUSE_TITLE">
+		MUSE_ToggleManual();
+  	</Binding>
+	
+	<Binding name="MUSE_TOGGLE_RECORDING">
+		MUSE_ToggleRecording();
+	</Binding>
+
+</Bindings>

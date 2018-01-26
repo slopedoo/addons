@@ -1,0 +1,1088 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMScrubListMenu" toplevel="true" parent="AWMMainMenu" hidden="true" movable="true" frameStrata="HIGH">
+		<Scripts>
+			<OnEvent>
+				AWMScrubListRaidCheck()
+			</OnEvent>
+			<OnShow>
+				AWMScrubListShow()
+			</OnShow>
+			<OnHide>
+				this:Hide()
+			</OnHide>
+			<OnMouseDown>
+				AWMMainMenu:StartMoving()
+			</OnMouseDown>
+			<OnMouseUp>
+				AWMMainMenu:StopMovingOrSizing()
+			</OnMouseUp>
+		</Scripts>
+		<Anchors>
+			<Anchor point="CENTER"></Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="300" y="400" />
+		</Size>
+		<Backdrop bgFile="Interface\AddOns\AnaronsWoWMod\ScrubList\ScrubListMenu" edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+			<EdgeSize>
+				<AbsValue val="25" />
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5" />
+			</BackgroundInsets>
+		</Backdrop>
+		<Frames>
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+					<Offset>
+						<AbsDimension x="-3" y="-3"/>
+					</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<ScrollFrame name="$parentScrollFrame" inherits="UIPanelScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="217" y="266"/>
+				</Size>
+				<Anchors>
+   					<Anchor point="TOP">
+   						<Offset>
+   							<AbsDimension x="-14" y="-88"></AbsDimension>
+   						</Offset>
+   					</Anchor>
+   				</Anchors>
+				<ScrollChild>
+					<Frame name="$parentChild">
+						<Size>
+							<AbsDimension x="280" y="300"/>
+						</Size>
+						<Scripts>
+							<OnShow>
+								local scrollBar = getglobal(this:GetParent():GetName().."ScrollBar")
+								this:GetParent():UpdateScrollChildRect();
+								local min;
+								local max;
+								min, max = scrollBar:GetMinMaxValues();
+								if ( max > 0 and (this.max ~= max) ) then
+									this.max = max;
+									scrollBar:SetValue(min);
+								end
+							</OnShow>
+						</Scripts>
+						<Frames>
+							<Frame name="$parent1" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="TOPLEFT" relativeto="$parent"><Offset><AbsDimension x="12" y="0" /></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent2" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent1"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent3" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent2"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent4" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent3"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent5" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent4"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent6" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent5"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent7" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent6"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent8" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent7"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent9" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent8"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent10" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent9"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent11" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent10"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent12" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent11"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent13" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent12"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent14" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent13"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent15" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent14"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent16" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent15"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent17" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent16"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent18" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent17"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent19" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent18"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent20" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent19"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent21" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent20"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent22" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent21"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent23" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent22"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent24" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent23"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent25" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent24"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent26" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent25"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent27" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent26"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent28" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent27"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent29" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent28"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent30" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent29"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent31" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent30"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent32" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent31"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent33" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent32"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent34" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent33"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent35" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent34"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent36" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent35"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent37" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent36"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent38" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent37"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent39" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent38"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent40" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent39"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent41" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent40"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent42" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent41"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent43" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent42"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent44" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent42"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent45" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent44"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent46" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent45"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent47" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent46"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent48" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent47"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent49" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent48"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent50" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent49"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent51" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent50"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent52" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent51"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent53" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent52"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent54" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent53"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent55" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent54"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent56" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent55"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent57" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent56"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent58" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent57"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent59" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent58"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent60" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent59"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent61" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent60"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent62" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent21"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent63" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent62"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent64" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent63"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent65" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent64"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent66" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent65"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent67" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent66"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent68" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent67"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent69" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent68"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent70" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent69"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent71" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent70"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>
+							
+							<Frame name="$parent72" hidden="true">
+								<Size><AbsDimension x="213" y="20" /></Size>
+								<Anchors><Anchor point="TOPLEFT" relativepoint="BOTTOMLEFT" relativeto="$parent71"><Offset></Offset></Anchor></Anchors>
+								<Layers><Layer level="ARTWORK">
+									<FontString name="$parentText" inherits="GameFontNormal" text="">
+										<Anchors><Anchor point="LEFT"></Anchor></Anchors>
+									</FontString>
+								</Layer></Layers>
+								<Frames><Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+									<Anchors><Anchor point="RIGHT"></Anchor></Anchors>
+								</Button></Frames>
+								<Scripts><OnHide>if (this:GetParent():IsVisible()) then AWMScrubListUnScrub(this) end</OnHide></Scripts>
+							</Frame>					
+						</Frames>
+					</Frame>
+				</ScrollChild>
+			</ScrollFrame>
+		</Frames>
+	</Frame>		
+</Ui>

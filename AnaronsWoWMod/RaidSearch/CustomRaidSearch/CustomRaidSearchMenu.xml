@@ -1,0 +1,222 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMCustomRaidSearchMenu" toplevel="true" parent="AWMMainMenu" hidden="true" movable="true" frameStrata="HIGH">
+		<Scripts>
+			<OnLoad>
+				--AWMCustomRaidSearchMenuOnLoad()
+			</OnLoad>
+			<OnEnter>
+			
+			</OnEnter>
+			<OnMouseDown>
+				AWMMainMenu:StartMoving()
+			</OnMouseDown>
+			<OnMouseUp>
+				AWMMainMenu:StopMovingOrSizing()
+			</OnMouseUp>
+			<OnHide>
+				this:Hide()
+			</OnHide>
+		</Scripts>
+		<Anchors>
+			<Anchor point="CENTER"></Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="300" y="400" />
+		</Size>
+		<Backdrop bgFile="Interface\AddOns\AnaronsWoWMod\RaidSearch\CustomRaidSearch\CustomRaidSearchMenu" edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+			<EdgeSize>
+				<AbsValue val="25" />
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5" />
+			</BackgroundInsets>
+		</Backdrop>
+		<Frames>
+			<Button frameStrata="HIGH" hidden="false">
+				<Scripts>
+					<OnMouseDown>
+						if (AWMCustomRaidSearchMenuSelectIconFrameContainer:IsVisible()) then
+							AWMCustomRaidSearchMenuSelectIconFrameContainer:Hide()
+						else
+							ShowUIPanel(AWMCustomRaidSearchMenuSelectIconFrameContainer)						
+						end
+					</OnMouseDown>
+					<OnEnter>
+						GameTooltip:SetOwner(this,"ANCHOR_RIGHT")
+						GameTooltip:SetText('Texture')
+						GameTooltip:AddLine('Click to toggle texture window.', 1,1,1)
+						GameTooltip:Show()
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide()
+					</OnLeave>
+				</Scripts>
+				<Size>
+                  	<AbsDimension x="20" y="20" />
+                </Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="232" y="-92"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+        		<Layers>
+        			<Layer level="ARTWORK">
+                		<Texture name="AWMCustomRaidSearchMenuTextBoxTexture" file="Interface\Icons\Spell_Fire_MasterOfElements">
+                  			<Size>
+                    			<AbsDimension x="20" y="20" />
+                    		</Size>
+        				</Texture>
+        			</Layer>
+        		</Layers>
+    		</Button>
+	    	<Frame name="$parentActivate">
+        		<Scripts>
+        			<OnMouseDown>
+						AWMCustomRaidSearchMenuTextBoxText:SetFocus()
+        			</OnMouseDown>
+        		</Scripts>
+        		<Anchors>
+        			<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="50" y="-127"></AbsDimension>
+						</Offset>
+					</Anchor>
+        		</Anchors>
+        		<Size>
+        			<AbsDimension x="180" y="75"/>
+        		</Size>
+    		</Frame>
+	
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+    					<Offset>
+    						<AbsDimension x="-3" y="-3"/>
+    					</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>			
+			<EditBox name="$parentTextBoxName" autofocus="false">
+				<Scripts>
+					<OnTextChanged>
+						AWMCustomSearchMacros[this:GetParent().activemacro]['name'] = this:GetText()
+					</OnTextChanged>
+					<OnEscapePressed>
+						this:ClearFocus()
+					</OnEscapePressed>
+				</Scripts>
+				<Size>
+					<AbsDimension x="175" y="32"></AbsDimension>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent" relativepoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="50" y="-88"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"></FontString>
+			</EditBox>
+			
+			
+			<Frame name="AWMCustomRaidSearchMenuSelectIconFrameContainer" toplevel="true" frameStrata="HIGH" hidden="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent" relativepoint="TOPRIGHT">
+						<Offset>
+   							<AbsDimension x="-22" y="-55"></AbsDimension>
+   						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="190" y="255" />
+				</Size>
+				<Backdrop bgFile="Interface\AddOns\AnaronsWoWMod\RaidSearch\CustomRaidSearch\CustomRaidSearchIconBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+					<EdgeSize>
+						<AbsValue val="25" />
+					</EdgeSize>
+					<BackgroundInsets>
+						<AbsInset left="5" right="5" top="5" bottom="5" />
+					</BackgroundInsets>
+				</Backdrop>
+				
+				<Frames>
+					<ScrollFrame name="AWMCustomRaidSearchMenuSelectIconScrollFrame" inherits="UIPanelScrollFrameTemplate">
+						<Size>
+							<AbsDimension x="143" y="232"/>
+						</Size>
+						<Anchors>
+		   					<Anchor point="LEFT">
+		   						<Offset>
+		   							<AbsDimension x="12" y="0"></AbsDimension>
+		   						</Offset>
+		   					</Anchor>
+		   				</Anchors>
+						<ScrollChild>
+							<Frame name="AWMCustomRaidSearchMenuSelectIconFrame">
+								<Size>
+									<AbsDimension x="143" y="232"/>
+								</Size>
+								<Scripts>
+									<OnShow>
+										local scrollBar = getglobal(this:GetParent():GetName().."ScrollBar")
+										this:GetParent():UpdateScrollChildRect();
+										local min;
+										local max;
+										min, max = scrollBar:GetMinMaxValues();
+										if ( max > 0 and (this.max ~= max) ) then
+											this.max = max;
+											scrollBar:SetValue(max);
+										end
+									</OnShow>
+								</Scripts>
+								<FontString inherits="GameFontHighlightSmall"/>
+							</Frame>
+						</ScrollChild>
+					</ScrollFrame>
+				</Frames>
+			</Frame>
+			
+			<ScrollFrame name="$parentScrollFrame" inherits="UIPanelScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="180" y="75"/>
+				</Size>
+				<Anchors>
+   					<Anchor point="TOPLEFT" relativeto="$parent" relativepoint="TOPLEFT">
+   						<Offset>
+   							<AbsDimension x="50" y="-127"></AbsDimension>
+   						</Offset>
+   					</Anchor>
+   				</Anchors>
+				<ScrollChild>
+					<EditBox name="AWMCustomRaidSearchMenuTextBoxText" multiLine="true" autoFocus="false">
+						<Size>
+							<AbsDimension x="180" y="75"/>
+						</Size>
+						<Scripts>
+							<OnTextChanged>
+								AWMCustomSearchMacros[AWMCustomRaidSearchMenu.activemacro]['text'] = this:GetText()
+								local scrollBar = getglobal(this:GetParent():GetName().."ScrollBar")
+								this:GetParent():UpdateScrollChildRect();
+								local min;
+								local max;
+								min, max = scrollBar:GetMinMaxValues();
+								if ( max > 0 and (this.max ~= max) ) then
+									this.max = max;
+									scrollBar:SetValue(max);
+								end
+							</OnTextChanged>
+							<OnEscapePressed>
+								this:ClearFocus();
+							</OnEscapePressed>
+						</Scripts>
+						<FontString inherits="GameFontHighlightSmall"/>
+					</EditBox>
+				</ScrollChild>
+			</ScrollFrame>
+			
+		</Frames>
+	</Frame>		
+</Ui>

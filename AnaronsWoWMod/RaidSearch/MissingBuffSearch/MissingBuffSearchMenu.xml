@@ -1,0 +1,101 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMMissingBuffSearchMenu" toplevel="true" parent="AWMMainMenu" hidden="true" movable="true" frameStrata="HIGH">
+		<Scripts>
+			<OnLoad>
+				AWMMissingBuffSearchMenuOnLoad()
+			</OnLoad>
+			<OnEnter>
+			
+			</OnEnter>
+			<OnHide>
+				this:Hide()
+			</OnHide>
+			<OnMouseDown>
+				AWMMainMenu:StartMoving()
+			</OnMouseDown>
+			<OnMouseUp>
+				AWMMainMenu:StopMovingOrSizing()
+			</OnMouseUp>
+		</Scripts>
+		<Anchors>
+			<Anchor point="CENTER"></Anchor>
+		</Anchors>
+		<Size>
+			<AbsDimension x="300" y="400" />
+		</Size>
+		<Backdrop bgFile="Interface\AddOns\AnaronsWoWMod\RaidSearch\MissingBuffSearch\MissingBuffSearchMenu" edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+			<EdgeSize>
+				<AbsValue val="25" />
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5" />
+			</BackgroundInsets>
+		</Backdrop>
+		<Frames>
+			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+					<Offset>
+						<AbsDimension x="-3" y="-3"/>
+					</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>			
+			<EditBox name="$parentTextBox" autofocus="false">
+				<Scripts>
+					<OnEnterPressed>
+						BuffSearch(this:GetParent(),this:GetText(),false)
+						this:ClearFocus()
+					</OnEnterPressed>
+					<OnEscapePressed>
+						this:ClearFocus()
+					</OnEscapePressed>
+				</Scripts>
+				<Size>
+					<AbsDimension x="180" y="32"></AbsDimension>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeto="$parent" relativepoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="50" y="-88"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"></FontString>
+			</EditBox>
+			
+			<Frame name="AWMBuffStart" toplevel="true">
+        		<Scripts>
+        			<OnMouseDown>
+        				BuffSearch(this:GetParent(),AWMMissingBuffSearchMenuTextBox:GetText(),true)
+        			</OnMouseDown>
+        			<OnEnter>
+        				GameTooltip:SetOwner(this, "ANCHOR_LEFT");
+        				GameTooltip:SetText("Go!");
+        				if UnitInRaid('player') then
+        					GameTooltip:AddLine('Perform Missing Buff Search', 1,1,1)
+        				else
+        					GameTooltip:AddLine('You must be in a raid group', 1,1,1)
+        					GameTooltip:AddLine('to use this feature.', 1,1,1)
+        				end
+        				GameTooltip:Show()
+        			</OnEnter>
+        			<OnLeave>
+        				GameTooltip:Hide();
+        			</OnLeave>
+        		</Scripts>
+        		<Size>
+        			<AbsDimension x="20" y="20" />
+        		</Size>
+        		<Anchors>
+        			<Anchor point="TOPLEFT">
+        			<Offset>
+        				<AbsDimension x="232" y="-91"/>
+        			</Offset>
+        			</Anchor>
+        		</Anchors>
+	    	</Frame>
+		</Frames>
+	</Frame>		
+</Ui>

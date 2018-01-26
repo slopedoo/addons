@@ -1,0 +1,50 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMMissingBuffSearchIcon" toplevel="true" parent="AWMMainMenu" hidden="false" movable="true">
+		<Scripts>
+			<OnLoad>
+				AWMLoadIcon(this,'raid')
+			</OnLoad>
+			<OnMouseDown>
+				ShowUIPanel(AWMMissingBuffSearchMenu)
+			</OnMouseDown>
+			<OnEnter>
+				GameTooltip:SetOwner(this, "ANCHOR_LEFT");
+				GameTooltip:SetText("Missing Buff Search");
+				if UnitInRaid('player') then
+					GameTooltip:AddLine('Open Missing Buff Search UI', 1,1,1)
+				else
+					GameTooltip:AddLine('You must be in a raid group', 1,1,1)
+					GameTooltip:AddLine('to use this feature.', 1,1,1)
+				end
+				GameTooltip:Show()
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<Size>
+			<AbsDimension x="30" y="30" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOP">
+			<Offset>
+				<AbsDimension x="-35" y="-58"/>
+			</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\Icons\Ability_Creature_Cursed_02">
+					<Size>
+						<AbsDimension x="30" y="30" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>				
+</Ui>

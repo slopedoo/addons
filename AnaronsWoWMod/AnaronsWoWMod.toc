@@ -1,0 +1,88 @@
+## Interface: 11200
+## Title: Anaron's WoW Mod |cff00FF003.7.0|r
+## Notes: Special thanks to |cff00FF00Final Exit|r and |cff00FF00Omega|r for powering the development of this addon!
+## Author: Anaron (ehaugw@aim.com)
+## Version: 3.7.0
+## Dependencies:
+
+## SavedVariables: AWMCustomSearchMacros
+## SavedVariables: AWMScrubs
+## SavedVariablesPerCharacter: AWMIconX, AWMIconY, AWMHiddenIcon
+## SavedVariablesPerCharacter: ARM_ActiveChannel, ARM_JoinedClassChannels
+## SavedVariablesPerCharacter: AWMDKP
+
+AnaronsWoWMod.lua
+
+## DEFAULT
+Default\Tooltip\Tooltip.xml
+
+Default\MainMenu\MainMenu.lua
+Default\MainMenu\MainMenu.xml
+
+Default\Icon\Icon.lua
+Default\Icon\Icon.xml
+
+Default\Cookies\Cookies.lua
+
+
+## RAID SEARCH
+RaidSearch\RaidSearch.lua
+
+RaidSearch\BuffSearch\BuffSearchIcon.lua
+RaidSearch\BuffSearch\BuffSearchIcon.xml
+RaidSearch\BuffSearch\BuffSearchMenu.lua
+RaidSearch\BuffSearch\BuffSearchMenu.xml
+
+RaidSearch\CustomRaidSearch\CustomRaidSearchIcon.lua
+RaidSearch\CustomRaidSearch\CustomRaidSearchIcon.xml
+RaidSearch\CustomRaidSearch\CustomRaidSearchMenu.lua
+RaidSearch\CustomRaidSearch\CustomRaidSearchMenu.xml
+RaidSearch\CustomRaidSearch\CustomRaidSearchListOfTextures.lua
+
+RaidSearch\MissingBuffSearch\MissingBuffSearchIcon.lua
+RaidSearch\MissingBuffSearch\MissingBuffSearchIcon.xml
+RaidSearch\MissingBuffSearch\MissingBuffSearchMenu.lua
+RaidSearch\MissingBuffSearch\MissingBuffSearchMenu.xml
+
+
+## READY CHECK
+ReadyCheck\ReadyCheckMenu.lua
+ReadyCheck\ReadyCheckMenu.xml
+ReadyCheck\ReadyCheckIcon.xml
+
+
+## GEAR CHECK
+GearCheck\GearCheck.lua
+GearCheck\GearCheckIcon.xml
+GearCheck\GearCheckMenu.xml
+
+
+## RAID ASSIST
+RaidAssist\ArynaRaidAssist.lua
+
+## COIN COUNTER
+CoinCounter\CoinCounter.lua
+
+## CHAT MOD
+ChatMod\ChatMod.lua
+ChatMod\ChatMod.xml
+
+## SUMMON
+Summon\Summon.lua
+Summon\SummonIcon.xml
+Summon\SummonMenu.xml
+
+## SCRUB LIST
+ScrubList\ScrubList.luaScrubList\ScrubListIcon.xmlScrubList\ScrubListMenu.xml
+
+## GUILD MOD
+GuildMod\GuildMod.lua
+GuildMod\GuildModIcon.xml
+
+## DKP
+DKP\DKP.luaDKP\DKPIcon.xmlDKP\DKPMenu.tgaDKP\DKPMenu.xml
+
+## SNAKE
+Snake\Snake.lua
+Snake\SnakeIcon.xml
+Snake\SnakeMenu.xml

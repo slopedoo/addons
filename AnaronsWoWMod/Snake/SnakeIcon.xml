@@ -1,0 +1,46 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="AWMSnakeButton" toplevel="true" parent="AWMMainMenu" hidden="false" movable="true">
+		<Scripts>
+			<OnLoad>
+				AWMLoadIcon(this,'misc')
+			</OnLoad>
+			<OnMouseDown>
+				SendChatMessage('starts playing snake.','EMOTE');
+				ShowUIPanel(AWMSnakeMenu)
+			</OnMouseDown>
+			<OnEnter>
+				GameTooltip:SetOwner(this, "ANCHOR_LEFT");
+				GameTooltip:SetText("Snake");
+				GameTooltip:AddLine('Press to play Snake', 1,1,1)
+				GameTooltip:Show()
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<Size>
+			<AbsDimension x="30" y="30" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOP">
+			<Offset>
+				<AbsDimension x="-35" y="-58"/>
+			</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\Icons\INV_Misc_Head_Dragon_01">
+					<Size>
+						<AbsDimension x="30" y="30" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>				
+</Ui>
