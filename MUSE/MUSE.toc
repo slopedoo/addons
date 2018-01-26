@@ -1,5 +1,0 @@
-## Interface: 10900
-## Title: MUSE
-## Notes: Mana Use & Stat Evaluation
-## SavedVariablesPerCharacter: MUSESettings, MUSESavedData
-MUSE.xml
