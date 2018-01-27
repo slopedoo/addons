@@ -462,7 +462,7 @@ function CandyBar:SetFontSize(name, fontsize)
 
 	if not CandyBar.var.handlers[name] then return end
 
-	local font, _, _ = GameFontHighlight:GetFont()
+	local font, _, _ = [[Fonts\big_noodle_titling.ttf]]
 	local timertextwidth = fontsize * 3
 	local width = CandyBar.var.handlers[name].width or CandyBar.var.defaults.width
 	local f = CandyBar.var.handlers[name].frame
@@ -1151,7 +1151,7 @@ function CandyBar:AcquireBarFrame( name )
 	local scale = CandyBar.var.handlers[name].scale or CandyBar.var.defaults.scale
 	if not scale then scale = 1 end
 	local timertextwidth = fontsize * 3
-	local font, _, _ = GameFontHighlight:GetFont()
+	local font, _, _ = [[Fonts\big_noodle_titling.ttf]]
 
 
 	if not f and table.getn(CandyBar.var.framepool) > 0 then
