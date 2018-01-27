@@ -131,12 +131,24 @@ function KLHTM_SetupGui()
 	
 	isInitialised = true;
 	
+	KLHTM_FontDefault:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	KLHTM_FontLeft:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	KLHTM_FontCenter:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	KLHTM_FontRight:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	KLHTM_FontYellowRight:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	KLHTM_FontYellowLeft:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	--KLHTM_StringTemplateText:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	--KLHTM_NumberTemplateText:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	--KLHTM_RaidNumberHeaderTemplateText:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	--KLHTM_RaidStringHeaderTemplateText:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	--KLHTM_TitleStringTemplateText:SetFont("Fonts\\big_noodle_titling.ttf",14,"OUTLINE");
+	
 	-- probably going to cause some dumb error...
 	KLHTM_Redraw(true);
 	
 	KLHTM_UpdateFrame();
 	KLHTM_SetGuiScale(options.scale);
-	
+
 	if (state.closed ~= true) then
 		gui.frame:Show();
 	end
