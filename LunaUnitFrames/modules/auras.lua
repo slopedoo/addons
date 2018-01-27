@@ -556,7 +556,7 @@ function Auras:UpdateLayout(frame)
 	elseif config.buffpos == "LEFT" then
 		frame.auras.buffbuttons:SetPoint("BOTTOMRIGHT", frame, "LEFT", -3, 1)
 	else
-		frame.auras.buffbuttons:SetPoint("BOTTOMLEFT", frame, "RIGHT", 3, 1)
+		frame.auras.buffbuttons:SetPoint("BOTTOMLEFT", frame, "RIGHT", 3, -11)
 	end
 	if config.debuffpos == "BOTTOM" then
 		frame.auras.debuffbuttons:SetPoint("TOP", debuffanchor, "BOTTOM", 0, (config.buffs or config.weaponbuffs) and -3 or 0)
@@ -565,10 +565,10 @@ function Auras:UpdateLayout(frame)
 	elseif config.debuffpos == "LEFT" then
 		frame.auras.debuffbuttons:SetPoint("TOPRIGHT", frame, "LEFT", -3, -1)
 	else
-		frame.auras.debuffbuttons:SetPoint("TOPLEFT", frame, "RIGHT", 3, -1)
+		frame.auras.debuffbuttons:SetPoint("TOPLEFT", frame, "RIGHT", 3, -13)
 	end
 	
-	local framelength = frame:GetWidth()
+	local framelength = 200
 	local frameheight = 1
 	local buttonsize, lastButton, firstButton, rowlenght
 	local rowheight = 0
@@ -705,6 +705,7 @@ function Auras:UpdateLayout(frame)
 	frame.auras.buffbuttons:SetWidth(framelength)
 	frameheight = 1
 	rowheight = 0
+	framelength = 250
 	if config.debuffpos == "BOTTOM" then
 		for i,button in ipairs(frame.auras.debuffbuttons.buttons) do
 			if not button:IsVisible() then break end

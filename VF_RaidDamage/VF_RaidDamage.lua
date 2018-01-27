@@ -2524,4 +2524,4 @@ else--if not string.find(GetBuildInfo(), "^1%.") then
 	end
 end--if string.find(GetBuildInfo(), "^1%.") then
 
-VF_RD_LastUploadedData = "2018-01-25 21.28.25";
+VF_RD_LastUploadedData = "2018-01-26 22.45.47";
