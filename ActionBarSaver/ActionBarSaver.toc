@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: Action Bar Saver
+## Notes: Saves and restores your action bars
+## Author: Hosq
+## SavedVariablesPerCharacter: ActionBarSaverDB
+ActionBarSaver.xml
+ActionBarSaver.lua
