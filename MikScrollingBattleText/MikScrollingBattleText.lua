@@ -1,6 +1,7 @@
 ﻿-------------------------------------------------------------------------------------
 -- Title: Mik's Scrolling Battle Text
 -- Author: Mik
+-- Maintainer: Athene
 -------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------
@@ -59,6 +60,7 @@ ICON_CACHE["colère de ragnaros"] =				"Interface\\Icons\\Spell_Fire_Soulburn"
 ICON_CACHE["choc"] =							"Interface\\Icons\\Ability_Smash"
 ICON_CACHE["secousse violente"] =				"Interface\\Icons\\Ability_Smash"
 ICON_CACHE["nova de feu"] =						"Interface\\Icons\\Spell_Fire_SealOfFire"
+ICON_CACHE["marque de détonation"] =			"Interface\\Icons\\spell_fire_selfdestruct"
 ICON_CACHE["cône de feu"] =						"Interface\\Icons\\Spell_Fire_WindsOfWoe"
 ICON_CACHE["volée de boules de feu"] =			"Interface\\Icons\\Spell_Fire_Flamebolt"
 ICON_CACHE["vague de foudre"] =					"Interface\\Icons\\Spell_Nature_Chainlightning"
@@ -91,17 +93,26 @@ ICON_CACHE["potion de soins"] =					"Interface\\Icons\\inv_potion_54"
 ICON_CACHE["restauration du mana"] =			"Interface\\Icons\\inv_potion_76"
 ICON_CACHE["rune démoniaque"] =					"Interface\\Icons\\inv_misc_rune_04"
 ICON_CACHE["rune ténébreuse"] =					"Interface\\Icons\\spell_shadow_sealofkings"
-
+ICON_CACHE["absorption de magie"] =				"Interface\\Icons\\spell_nature_astralrecalgroup"
+ICON_CACHE["gel"] =								"Interface\\Icons\\spell_frost_glacier"
 ICON_CACHE["lésions cérébrales"] =				"Interface\\Icons\\ability_gouge"
 ICON_CACHE["décharge électrique"] =				"Interface\\Icons\\spell_lightning_lightningbolt01"
 ICON_CACHE["foudre"] =							"Interface\\Icons\\spell_lightning_lightningbolt01"
 ICON_CACHE["enchantement flamboyant"] =			"Interface\\Icons\\spell_fire_selfdestruct"
+ICON_CACHE["pierre de soins supérieure"] =		"Interface\\Icons\\inv_stone_04"
+ICON_CACHE["pierre de soins mineure"] =			"Interface\\Icons\\inv_stone_04"
+ICON_CACHE["pierre de soins inférieure"] =		"Interface\\Icons\\inv_stone_04"
+ICON_CACHE["pierre de soins majeure"] =			"Interface\\Icons\\inv_stone_04"
+ICON_CACHE["pierre de soins"] =					"Interface\\Icons\\inv_stone_04"
+ICON_CACHE["capturer un esprit"] =				"Interface\\Icons\\Spell_Shadow_Haunting"
+ICON_CACHE["récupération du mana"] =			"Interface\\Icons\\inv_misc_gem_ruby_01"
+ICON_CACHE["maître des éléments"] =				"Interface\\Icons\\spell_fire_masterofelements"
 
 
 -- Cache des spells dont l'icone n'a pas été trouvée
 NO_ICON_CACHE = {}
 
--- Babble-Spell pour les icones des spells de class
+-- Babble-Spell pour les icones des spells de classe
 local BS = AceLibrary("Babble-Spell-2.2")
 
 -- Number of font strings.
@@ -223,6 +234,7 @@ end
 function MikSBT.OnLoad()
  -- Register for the ADDON_LOADED event.
  MSBTEventFrame:RegisterEvent("ADDON_LOADED");
+ MSBTEventFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
 end
 
 -- **********************************************************************************
@@ -231,11 +243,14 @@ end
 function MikSBT.OnEvent()
  -- When an addon is loaded.
  if (event == "ADDON_LOADED") then
+ 
+  -- Set Game Damage font
+ if MikSBT_Save and MikSBT_Save.Profiles[MikSBT_Save.CurrentProfile].BlizzardFontSettings then
+	DAMAGE_TEXT_FONT = MikSBT.AVAILABLE_FONTS[MikSBT_Save.Profiles[MikSBT_Save.CurrentProfile].BlizzardFontSettings.Normal.FontIndex].Path or "Fonts\\FRIZQT__.TTF"
+ end
+ 
   -- Make sure it's this addon.
   if (arg1 == MikSBT.MOD_NAME) then
-
-   -- Don't get notification for other addons being loaded.
-   this:UnregisterEvent("ADDON_LOADED");
 
    -- Register for the events the helper is interested in receiving.
    MikSBT.RegisterEvents();
@@ -244,6 +259,11 @@ function MikSBT.OnEvent()
    MikSBT.Init();
   end
 
+ end
+ 
+ if (event == "PLAYER_ENTERING_WORLD") then
+	this:UnregisterEvent("ADDON_LOADED");
+	this:UnregisterEvent("PLAYER_ENTERING_WORLD");
  end
 end
 
@@ -353,7 +373,6 @@ function MikSBT.Init()
  -- Updates profiles created by older versions.
  MikSBT.UpdateProfiles();
 
-
  -- Set the current profile.
  MikSBT.CurrentProfile = MikSBT_Save.Profiles[MikSBT_Save.CurrentProfile];
 
@@ -444,6 +463,9 @@ function MikSBT.CombatEventsHandler(combatEvent)
  elseif (combatEvent.DirectionType == MikCEH.DIRECTIONTYPE_PET_OUTGOING) then
   animationEvent.ScrollArea = scrollAreas.Outgoing;
   eventTypeString = eventTypeString .. "OUTGOING_PET_";
+ elseif (combatEvent.DirectionType == MikCEH.DIRECTIONTYPE_PET_INCOMING) then
+  animationEvent.ScrollArea = scrollAreas.Incoming;
+  eventTypeString = eventTypeString .. "INCOMING_PET_";
  end
 
  -- Check if it's a damage event.
@@ -561,7 +583,11 @@ function MikSBT.CombatEventsHandler(combatEvent)
  end
 
  -- Copy the amount, effect name, and player/enemy name from the passed combat event data.
- animationEvent.Amount = combatEvent.Amount;
+ -- if combatEvent.Amount then
+ -- animationEvent.Amount = combatEvent.Amount * 420;
+ -- else
+  animationEvent.Amount = combatEvent.Amount;
+ -- end
  animationEvent.EffectName = combatEvent.EffectName;
  animationEvent.Name = combatEvent.Name;
 
@@ -720,8 +746,8 @@ function MikSBT.MergeEvents(mergeData, numEvents)
 
     -- If the events have an amount then total them.
     if (animationEvent.Amount ~= nil and mergeData.UnmergedEvents[x].Amount ~= nil) then
-	 animationEvent.Amount = tonumber (animationEvent.Amount, 10)
-		if animationEvent.Amount and mergeData.UnmergedEvents[x].Amount then
+	 animationEvent.Amount = tonumber(animationEvent.Amount, 10)
+		if animationEvent.Amount and type(animationEvent.Amount) == "number" and mergeData.UnmergedEvents[x].Amount then
 			animationEvent.Amount = animationEvent.Amount + mergeData.UnmergedEvents[x].Amount;
 		end
      -- animationEvent.Amount = animationEvent.Amount + mergeData.UnmergedEvents[x].Amount;
@@ -776,7 +802,7 @@ function MikSBT.MergeEvents(mergeData, numEvents)
   -- Check if there were any events merged.
   if (animationEvent.NumMerged > 0) then
    -- Create trailer text with the number of merged events.
-   local trailerText = " [" .. animationEvent.NumMerged + 1 .. " " .. MikSBT.MSG_HITS;
+   local trailerText = " [" .. 1 + animationEvent.NumMerged.. " " .. MikSBT.MSG_HITS;
 
    -- Check if there were any crits merged.
    if (animationEvent.NumCrits > 1) then
@@ -1026,10 +1052,6 @@ function MikSBT.FormatEventText(animationEvent)
 			outputString = string.gsub(outputString, "%%a", "\124cffA000A0\124h%%a\124h\124r");
 		elseif animationEvent.DamageType == SPELL_SCHOOL6_CAP then
 			outputString = string.gsub(outputString, "%%a", "\124cffFFB9FF\124h%%a\124h\124r");
-		elseif animationEvent.DamageType == SPELL_SCHOOL0_CAP and animationEvent.EffectName and animationEvent.ScrollArea.AssociatedFrame == "MSBTFrameOutgoing" then
-			outputString = string.gsub(outputString, "%%a", "\124cffFFFF00\124h%%a\124h\124r");
-		elseif animationEvent.DamageType == SPELL_SCHOOL0_CAP then
-			outputString = string.gsub(outputString, "%%a", "\124cffFFFFFF\124h%%a\124h\124r");
 		elseif animationEvent.DamageType == "Inconnu" then
 			outputString = string.gsub(outputString, "%%a", "\124cffFFB9FF\124h%%a\124h\124r");
 			-- DEFAULT_CHAT_FRAME:AddMessage(animationEvent.DamageType)
@@ -1130,6 +1152,12 @@ end
 function MikSBT.UpdateProfiles()
  -- Loop through all the profiles.
  for _, profile in MikSBT_Save.Profiles do
+
+  if not profile.CreationVersion then
+	-- There is an error in this Profile, we need to reset it.
+	MikSBT.ResetProfile(profile);
+  end
+  
   -- Check if the profile was created prior to version 2.0.
   if (profile.CreationVersion < 2.0) then
    -- Update the profile's structure.
@@ -1203,6 +1231,62 @@ function MikSBT.UpdateProfiles()
    profile.CreationVersion = 3.0;
   end
 
+  -- Check if the profile was created prior to version 4.0.
+  if (profile.CreationVersion < 4.0) then
+  
+   profile.ShowAllManaGains = false;
+   profile.LowHealthSound = true;
+   profile.LowManaSound	 = true;
+  
+   profile.CreationVersion = 4.0;
+  end
+  
+  -- Check if the profile was created prior to version 4.1.
+  if (profile.CreationVersion < 4.1) then
+  
+   if profile.Triggers.MSBT_TRIGGER_WINDFURY then -- Fix Windfury Trigger
+	   profile.Triggers.MSBT_TRIGGER_WINDFURY.TriggerSettings.SearchPatterns[1] = string.format(AURAADDEDSELFHELPFUL, string.gsub(BS["Windfury Totem"], "-", "%%-"))
+   end
+   
+   if profile.Triggers.MSBT_TRIGGER_HAND_OF_JUSTICE then -- Delete Hand of Justice Trigger
+	   profile.Triggers["MSBT_TRIGGER_HAND_OF_JUSTICE"] = nil;
+   end
+   
+   profile.CreationVersion = 4.1;
+  end
+  
+  if (profile.CreationVersion < 4.3) then
+  
+  -- The pet update !
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_DAMAGE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_DAMAGE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_MISS"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_MISS"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_DODGE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_DODGE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_PARRY"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_PARRY"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_BLOCK"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_BLOCK"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_ABSORB"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_ABSORB"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_IMMUNE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_IMMUNE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DAMAGE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DAMAGE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DOT"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DOT"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_MISS"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_MISS"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DODGE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_DODGE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_PARRY"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_PARRY"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_BLOCK"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_BLOCK"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_RESIST"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_RESIST"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_ABSORB"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_ABSORB"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_IMMUNE"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_SPELL_IMMUNE"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_HEAL"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_HEAL"]);
+   profile.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_HOT"] = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.EventSettings["MSBT_EVENTTYPE_INCOMING_PET_HOT"]);
+   
+   profile.CreationVersion = 4.3;
+  end
+  
+  if (profile.CreationVersion < 4.4) then
+  
+	 profile.BlizzardFontSettings = MikSBT.CopyTable(MikSBT.DEFAULT_CONFIG.BlizzardFontSettings);
+	 
+  profile.CreationVersion = 4.4;
+  end
+  
  end
 end
 
@@ -1503,6 +1587,10 @@ function MikSBT.AddAnimation(animationEvent)
    return;
   end
  end
+ 
+ if animationEvent.EventType == "MSBT_EVENTTYPE_NOTIFICATION_POWER_GAIN" and animationEvent.EffectName ~= 0 and MikSBT.CurrentProfile.ShowAllManaGains then
+	return
+ end
 
 
  -- Check if the animation event is to be displayed sticky style.
@@ -1513,24 +1601,24 @@ function MikSBT.AddAnimation(animationEvent)
  -- Color UnitName by class
  local UnitID = MikCEH.GetUnitIDFromName(animationEvent.Name)
  if UnitID then
-	local Class = UnitClass(UnitID)
-	if Class and Class == "Paladin" then
+	local _, Class = UnitClass(UnitID)
+	if Class and Class == "PALADIN" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffF58CBA|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Druide" then
+	elseif Class and Class == "DRUID" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffFF7D0A|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Chasseur" then
+	elseif Class and Class == "HUNTER" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffABD473|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Mage" then
+	elseif Class and Class == "MAGE" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cff69CCF0|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Prêtre" then
+	elseif Class and Class == "PRIEST" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffFFFFFF|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Voleur" then
+	elseif Class and Class == "ROGUE" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffFFF569|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Chaman" then
+	elseif Class and Class == "SHAMAN" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cff0070DE|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Démoniste" then
+	elseif Class and Class == "WARLOCK" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cff9482C9|h"..animationEvent.Name.."|h|r")
-	elseif Class and Class == "Guerrier" then
+	elseif Class and Class == "WARRIOR" then
 		animationEvent.Text = string.gsub(animationEvent.Text, animationEvent.Name, "|cffC79C6E|h"..animationEvent.Name.."|h|r")
 	end
  end
@@ -1785,6 +1873,97 @@ function MikSBT.FindBuff( obuff, unit, item)
 	end
 	tooltip:Hide();
 end
+
+-- **********************************************************************************
+-- This function return some debug stuff
+-- for real.
+-- **********************************************************************************
+
+local depth = 0
+
+local function dump(...)
+	local out = "";
+	for i = 1, arg.n, 1 do
+		if depth > 30 then
+			out = out .. "|cffffd800... Too many things here!|r"
+			return out;
+		end
+		local d = arg[i];
+		local t = type(d);
+		if (t == "table") then
+			out = out .. "{ |cff9f9f9f--[[" .. tostring(arg[i]) .. "]]|r\n";
+			local first = true;
+			if (d) then
+				for k, v in pairs(d) do
+					if (not first) then out = out .. ", \n"; end
+					first = false;
+					depth = depth + 1
+					out = out .. "  " .. dump(k);
+					out = out .. " = ";
+					out = out .. dump(v);
+				end
+			end
+			out = out .. "\n}, |cff9f9f9f--[[" .. tostring(arg[i]) .. "]]|r\n";
+		elseif (t == "nil") then
+			out = out .. "|cffff7f7fnil|r";
+		elseif (t == "number") then
+			out = out .. "|cffff7fff" .. d .. "|r";
+		elseif (t == "string") then
+			out = out .. '"|cff7fd5ff' .. d .. '|r"';
+		elseif (t == "boolean") then
+			if (d) then
+				out = out .. "|cffff9100true|r";
+			else
+				out = out .. "|cffff9100false|r";
+			end
+		elseif (t == "function") then
+			out = out .. "|cff7fd5ff" .. tostring(d) .. "|r";
+		elseif (t == "userdata") then
+			out = out .. string.format("|cffffea00<%s:%s>|r", t, getmetatable(d) or "(anon)")
+		else
+			out = out .. string.upper(t) .. "??";
+		end
+
+		if (i < arg.n) then out = out .. ", "; end
+	end
+	return out;
+end
+
+function MikSBT.debugPrint(...)
+	local debugWin = 0;
+	local name, shown;
+	for i=1, NUM_CHAT_WINDOWS do
+		name,_,_,_,_,_,shown = GetChatWindowInfo(i);
+		if (string.lower(name) == "debug") then debugWin = i; break; end
+	end
+	if (debugWin == 0) then return end
+	local out = "";
+	depth = 0
+	for i = 1, arg.n, 1 do
+		if (i > 1) then out = out .. ", "; end
+		out = arg[i].." = "
+		arg[i] = getglobal(arg[i])
+		local t = type(arg[i]);
+		if (t == "string") then
+			out = out .. '"|cff7fd5ff'..arg[i]..'|r"';
+		elseif (t == "number") then
+			out = out .. "|cffff7fff" .. arg[i] .. "|r";
+		elseif (t == "boolean") then
+			out = out .. "|cffff9100" .. arg[i] .. "|r";
+		elseif (t == nil) then
+			out = out .. "|cffff7f7f" .. arg[i] .. "|r";
+		else
+			out = out .. dump(arg[i]);
+		end
+	end
+	local start = GetTime()
+	getglobal("ChatFrame"..debugWin):AddMessage("|cffffd800<|r\n" .. out, 1.0, 1.0, 1.0);
+	getglobal("ChatFrame"..debugWin):AddMessage("|cffffd800> displayed in:|r "..string.format( "%.4f",GetTime()-start).."|cffffd800s|r", 1.0, 1.0, 1.0);
+end
+
+SLASH_MSBTDUMPCMD1 = "/bump"
+SlashCmdList["MSBTDUMPCMD"] = MikSBT.debugPrint
+
 
 -- **********************************************************************************
 -- This function gets the next animation display info object for the correct
@@ -2504,7 +2683,7 @@ end
 -- Displays the passed message in the passed scroll area with the passed parameters.
 -- This function is for easy displaying of messages from external sources.
 -- **********************************************************************************
-function MikSBT.DisplayMessage(message, displayType, isSticky, colorR, colorG, colorB, fontSize, fontIndex, outlineIndex)
+function MikSBT.DisplayMessage(message, displayType, isSticky, colorR, colorG, colorB, fontSize, fontIndex, outlineIndex, Texture)
  -- Check if no message was passed and do nothing.
  if (message == nil) then
   return;
@@ -2588,6 +2767,7 @@ function MikSBT.DisplayMessage(message, displayType, isSticky, colorR, colorG, c
  animationEvent.ColorR = colorR;
  animationEvent.ColorG = colorG;
  animationEvent.ColorB = colorB;
+ animationEvent.Texture = Texture;
 
 
  -- Add the event to the animation system.
