@@ -1,4 +1,3 @@
--- reset orb in p2
 
 ----------------------------------
 --      Module Declaration      --
@@ -48,9 +47,10 @@ L:RegisterTranslations("enUS", function() return {
 	conflagration_bar = "Conflagration",
 	warstomp_bar = "War Stomp",
 	orb_bar = "Orb control: %s",
-	destroyegg_yell1 = "You'll pay for forcing me to do this\.",
+	destroyegg_yell1 = "You'll pay for forcing me to do this!",
 	destroyegg_yell2 = "Fools! These eggs are more precious than you know!",
-	destroyegg_yell3 = "No - not another one! I'll have your heads for this atrocity!",
+	destroyegg_yell3 = "No! Not another one! I'll have your heads for this atrocity!",
+	["Eggs destroyed"] = true,
 
 	mc_cmd = "mindcontrol",
 	mc_name = "Mind Control",
@@ -87,6 +87,86 @@ L:RegisterTranslations("enUS", function() return {
 	icon_cmd = "icon",
 	icon_name = "Raid Icon on Mind Control",
 	icon_desc = "Place a raid icon on the mind controlled player for the duration of the debuff.\n\n(Requires assistant or higher)",
+} end)
+
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Razorgore",
+
+	start_trigger = "Intruders have breached",
+	start_message = "Fase 1",
+	mobs_soon = "¡Primera oleada en 5 segundos!",
+	mobs_bar = "Primera oleada",
+	orbcontrolother_trigger = "(.+) sufre de Extenuación mental\.",
+	orbcontrolyou_trigger = "Sufres de Extenuación mental\.",
+	mindcontrolother_trigger = "(.+) sufre de Subyugar mente\.",
+	mindcontrolyou_trigger = "sufre de Subyugar mental\.",
+	mindcontrol_message = "¡%s está controlado por mente!",
+	mindcontrol_message_you = "¡Estás controlado por mente!",
+	mindcontrol_bar = "CM: %s",
+	mindcontrolyouend_trigger = "Subyugar mente acaba de disiparse\.",
+	mindcontrolotherend_trigger = "Subyugar mente desaparece de (.+)\.",
+	polymorphother_trigger = "(.+) sufre de Polimorfia superior\.",
+	polymorphyou_trigger = "Sufres de Polimorfia superior\.",
+	polymorph_message = "¡%s está en polimorfia! Disípala!",
+	polymorph_message_you = "¡Estás en polimorfia!",
+	polymorph_bar = "Polimorfia: %s",
+	polymorphyouend_trigger = "Polimorfia superior acaba de disiparse\.",
+	polymorphotherend_trigger = "Polimorfia superior desaparece de (.+)\.",
+	deathyou_trigger = "Has muerto\.",
+	deathother_trigger = "(.+) ha muerto\.",
+	egg_trigger = "Sangrevaja el Indomable comienza a lanzar Destruir huevo\.",
+	egg_message = "¡%d/30 huevos destruidos!",
+	egg_bar = "Destruir huevo",
+	-- there is no clear phase2 trigger
+	phase2_trigger = "I'm free! That device shall never torment me again!", --"You'll pay for forcing me to do this.",
+	phase2_message = "Fase 2",
+	volley_trigger = "Sangrevaja el Indomable comienza a lanzar Lluvia de bolas de Fuego\.",
+	volley_bar = "Lluvia de bolas de Fuego",
+	volley_message = "¡Ocúltate!",
+	conflagration_trigger = "sufre de Conflagración",
+	conflagration_bar = "Conflagración",
+	warstomp_bar = "Pisotón de guerra",
+	orb_bar = "Control del Orbe: %s",
+	destroyegg_yell1 = "You'll pay for forcing me to do this\.",
+	destroyegg_yell2 = "Fools! These eggs are more precious than you know!",
+	destroyegg_yell3 = "No - not another one! I'll have your heads for this atrocity!",
+	["Eggs destroyed"] = "Huevos destruidos",
+
+	--mc_cmd = "mindcontrol",
+	mc_name = "Control mental",
+	mc_desc = "Anuncia quién está controlado por mente y muestra una barra cliqueable para seleccionarlo fácilmente.",
+
+	--eggs_cmd = "eggs",
+	eggs_name = "Huevos",
+	eggs_desc = "Contador para los Huevos de dragón Negro destruidos.",
+
+	--phase_cmd = "phase",
+	phase_name = "Fase",
+	phase_desc = "Avisa para cambio de fase.",
+
+	--mobs_cmd = "mobs",
+	mobs_name = "Primera oleada",
+	mobs_desc = "Muestra cuando llegue la primera oleada.",
+
+	--orb_cmd = "orb",
+	orb_name = "Control del Orbe",
+	orb_desc = "Muestra quien está controlando el jefe y muestra una barra cliqueable para seleccionarlo fácilmente.",
+
+	--fireballvolley_cmd = "fireballvolley",
+	fireballvolley_name = "Lluvia de bolas de Fuego",
+	fireballvolley_desc = "Anuncia cuando el jefe lance Lluvia de bolas de Fuego.",
+
+	--conflagration_cmd = "conflagration",
+	conflagration_name = "Conflagración",
+	conflagration_desc = "Muestra una barra con la duración de Conflagración.",
+
+	--polymorph_cmd = "polymorph",
+	polymorph_name = "Polimorfia superior",
+	polymorph_desc = "Muestra quién está en polimorfia por Grethok el Controlador y muestra una barra cliqueable para seleccionarlo fácilmente.",
+
+	--icon_cmd = "icon",
+	icon_name = "Marcar para Control mental",
+	icon_desc = "Marca con un icono el jugador controlado por mente para la duración del debuff.\n\n(Require asistente o líder)",
 } end)
 
 L:RegisterTranslations("deDE", function() return {
@@ -174,7 +254,7 @@ L:RegisterTranslations("deDE", function() return {
 
 -- module variables
 local controller = AceLibrary("Babble-Boss-2.2")["Grethok the Controller"]
-module.revision = 20004 -- To be overridden by the module!
+module.revision = 20006 -- To be overridden by the module!
 module.enabletrigger = {module.translatedName, controller} -- string or table {boss, add1, add2}
 --module.wipemobs = { L["add_name"] } -- adds which will be considered in CheckForEngage
 module.toggleoptions = {"phase", "mobs", "eggs", "polymorph", "mc", "icon", "orb", "fireballvolley", "conflagration", "bosskill"}
@@ -185,10 +265,10 @@ local timer = {
 	mobspawn = 46,
 	mc = 15,
 	polymorph = 20,
-	conflagrate = 15,
+	conflagrate = 14,
 	firstConflagrate = 12,
-	firstVolley = 7,
-	firstWarStomp = 22,
+	firstVolley = 6,
+	firstWarStomp = 21,
 	volley = 2,
 	egg = 3,
 	orb = 90,
@@ -202,8 +282,8 @@ local icon = {
 local syncName = {
 	egg = "RazorgoreEgg"..module.revision,
 	eggStart = "RazorgoreEggStart"..module.revision,
-	orb = "RazorgoreOrbStart_"..module.revision, -- 19 characters
-	orbOver = "RazorgoreOrbStop_"..module.revision,
+	orb = "RazorgoreOrbStart"..module.revision,
+	orbOver = "RazorgoreOrbStop"..module.revision,
 	volley = "RazorgoreVolleyCast"..module.revision,
 	phase2 = "RazorgorePhaseTwo"..module.revision,
 }
@@ -232,8 +312,8 @@ function module:OnEnable()
 	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE")
 
 	self:ThrottleSync(5, syncName.egg)
-	self:ThrottleSync(5, syncName.orb .. "(.+)")
-	self:ThrottleSync(5, syncName.orbOver .. "(.+)")
+	self:ThrottleSync(5, syncName.orb)
+	self:ThrottleSync(5, syncName.orbOver)
 	self:ThrottleSync(3, syncName.volley)
 end
 
@@ -244,10 +324,14 @@ function module:OnSetup()
 	self.phase          = 0
 	self.previousorb    = nil
 	self.eggs           = 0
+	self.freetime		= 0
+	self.orbOverTime 	= 0
 end
 
 -- called after boss is engaged
 function module:OnEngage()
+	self.orbOverTime = GetTime()
+	self.freetime = 0
 	if self.db.profile.phase then
 		self:Message(L["start_message"], "Attention")
 	end
@@ -255,8 +339,8 @@ function module:OnEngage()
 		self:Bar(L["mobs_bar"], timer.mobspawn, icon.mobspawn)
 		self:Message(timer.mobspawn - 5, L["mobs_soon"], "Important")
 	end
-	self:TriggerEvent("BigWigs_StartCounterBar", self, "Eggs destroyed", 30, "Interface\\Icons\\inv_egg_01")
-	self:TriggerEvent("BigWigs_SetCounterBar", self, "Eggs destroyed", (30 - 0.1))
+	self:TriggerEvent("BigWigs_StartCounterBar", self, L["Eggs destroyed"], 30, "Interface\\Icons\\inv_egg_01")
+	self:TriggerEvent("BigWigs_SetCounterBar", self, L["Eggs destroyed"], (30 - 0.1))
 end
 
 -- called after boss is disengaged (wipe(retreat) or victory)
@@ -271,8 +355,8 @@ end
 function module:CHAT_MSG_MONSTER_YELL(msg)
 	if msg == L["phase2_trigger"] then
 		self:Sync(syncName.phase2)
-	elseif msg == L["destroyegg_yell1"] or msg == L["destroyegg_yell2"] or msg == L["destroyegg_yell3"] then
-		self:Sync(syncName.egg .. " " .. tostring(self.eggs + 1))
+		--elseif msg == L["destroyegg_yell1"] or msg == L["destroyegg_yell2"] or msg == L["destroyegg_yell3"] then
+		--	self:Sync(syncName.egg .. " " .. tostring(self.eggs + 1))
 	end
 end
 
@@ -283,7 +367,7 @@ function module:CHAT_MSG_SPELL_FRIENDLYPLAYER_BUFF(msg)
 end
 
 function module:CHAT_MSG_MONSTER_EMOTE(msg)
-	if string.find(msg, "Razorgore the Untamed casts Destroy Egg") then
+	if string.find(msg, "casts Destroy Egg") then
 		-- as of now, this does also fire on finished 'Destroy Egg' cast.
 		-- but only after a successful one and the range is shitty of this emote.
 		self:Sync(syncName.egg .. " " .. tostring(self.eggs + 1))
@@ -345,9 +429,9 @@ function module:Events(msg)
 
 	if self.db.profile.orb then
 		if orbother then
-			self:Sync(syncName.orb .. orbother)
+			self:Sync(syncName.orb .." ".. orbother)
 		elseif msg == L["orbcontrolyou_trigger"] then
-			self:Sync(syncName.orb .. UnitName("player"))
+			self:Sync(syncName.orb .." ".. UnitName("player"))
 		end
 	end
 
@@ -403,7 +487,7 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 			if self.db.profile.eggs then
 				self:Message(string.format(L["egg_message"], self.eggs), "Positive")
 			end
-			self:TriggerEvent("BigWigs_SetCounterBar", self, "Eggs destroyed", (30 - self.eggs))
+			self:TriggerEvent("BigWigs_SetCounterBar", self, L["Eggs destroyed"], (30 - self.eggs))
 		elseif rest == (self.eggs + 1) and rest == 30 and self.phase ~= 2 then
 			self:Sync(syncName.phase2)
 		end
@@ -413,9 +497,12 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		if self.db.profile.eggs then
 			self:Bar(L["egg_bar"], timer.egg, icon.egg, true, "purple")
 		end
-		self:Sync(syncName.egg .. " " .. tostring(self.eggs + 1))
-	elseif string.find(sync, syncName.orb) then
-		rest = string.sub(sync, 24)
+		--self:Sync(syncName.egg .. " " .. tostring(self.eggs + 1))
+	elseif sync == syncName.orb then
+		if self.orbOverTime then
+			self.freetime = self.freetime + GetTime() - self.orbOverTime
+			self.orbOverTime = 0
+		end
 		self:CancelScheduledEvent("destroyegg_check")
 		self:CancelScheduledEvent("orbcontrol_check")
 		if self.db.profile.orb then
@@ -425,13 +512,14 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 			self:Bar(string.format(L["orb_bar"], rest), timer.orb, icon.orb, true, "white")
 			self:SetCandyBarOnClick("BigWigsBar "..string.format(L["orb_bar"], rest), function(name, button, extra) TargetByName(extra, true) end, rest)
 		end
-		self:ScheduleEvent("orbcontrol_check", self.OrbControlCheck, 1, self)
+		self:ScheduleEvent("orbcontrol_check", self.OrbControlCheck, 0.5, self)
 		self.previousorb = rest
-	elseif string.find(sync, syncName.orbOver) then
+	elseif sync == syncName.orbOver then
+		self.orbOverTime = GetTime()
 		self:CancelScheduledEvent("destroyegg_check")
 		self:CancelScheduledEvent("orbcontrol_check")
 		if self.db.profile.orb and self.previousorb then
-			self:Bar(string.format(L["orb_bar"], self.previousorb), timer.orb, icon.orb, true, "white")
+			self:RemoveBar(string.format(L["orb_bar"], self.previousorb))
 		end
 		if self.db.profile.fireballvolley then
 			self:RemoveBar(L["volley_bar"])
@@ -456,10 +544,10 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		if self.db.profile.phase then
 			self:Message(L["phase2_message"], "Attention")
 		end
-		self:TriggerEvent("BigWigs_StopCounterBar", self, "Eggs destroyed")
-		self:Bar(L["conflagration_bar"], timer.firstConflagrate, "Spell_Fire_Incinerate", true, "red")
-		self:Bar(L["volley_bar"], timer.firstVolley, icon.volley, true, "blue")
-		self:Bar(L["warstomp_bar"], timer.firstWarStomp, "Ability_BullRush")
+		self:TriggerEvent("BigWigs_StopCounterBar", self, L["Eggs destroyed"])
+		self:Bar(L["conflagration_bar"], timer.firstConflagrate-self.freetime, "Spell_Fire_Incinerate", true, "red")
+		self:Bar(L["volley_bar"], timer.firstVolley-self.freetime, icon.volley, true, "blue")
+		self:Bar(L["warstomp_bar"], timer.firstWarStomp-self.freetime, "Ability_BullRush")
 
 		self:KTM_SetTarget(self.translatedName)
 		self:KTM_Reset()
@@ -479,9 +567,9 @@ function module:OrbControlCheck()
 		end
 	end
 	if bosscontrol then
-		self:ScheduleEvent("orbcontrol_check", self.OrbControlCheck, 1, self)
+		self:ScheduleEvent("orbcontrol_check", self.OrbControlCheck, 0.5, self)
 	elseif GetRealZoneText() == "Blackwing Lair" then
-		self:Sync(syncName.orbOver .. self.previousorb)
+		self:Sync(syncName.orbOver)
 	end
 end
 

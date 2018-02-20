@@ -46,7 +46,23 @@ L:RegisterTranslations("deDE", function() return {
 	lightningcloud_desc = "Warnt dich wenn du in Blitzschlagwolke stehst.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Wushoolay",
 
+	chainlightning_trigger = "Wushoolay comienza a lanzar Cadena de relámpagos\.",
+	chainlightning_bar = "Cadena de relámpagos",
+	chainlightning_message = "¡Cadena de relámpagos! Interrúmpela!",
+	lightningcloud_trigger = "Estás afligido por Nube de relámpagos\.",
+	lightningcloud_message = "¡Muévate del Nube de relámpagos!",
+
+	--chainlightning_cmd = "chainlightning",
+	chainlightning_name = "Alerta de Cadena de relámpagos",
+	chainlightning_desc = "Avisa cuando lance Cadena de relámpagos el jefe.",
+
+	--lightningcloud_cmd = "lightningcloud",
+	lightningcloud_name = "Alerta de Nube de relámpagos",
+	lightningcloud_desc = "Avisa cuando estás en el Nube de relámpagos.",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

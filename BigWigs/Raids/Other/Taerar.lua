@@ -67,6 +67,34 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Taerar",
+
+	--noxious_cmd = "noxious",
+	noxious_name = "Alerta de Aliento nocivo",
+	noxious_desc = "Avisa para Aliento nocivo",
+
+	--fear_cmd = "fear",
+	fear_name = "Miedo",
+	fear_desc = "Avisa para Clamor bramante",
+
+	fear_trigger = "Taerar comienza a lanzar Clamor bramante.",
+	breath_trigger = "afligido por Aliento nocivo",
+	engage_trigger = "Peace is but a fleeting dream! Let the NIGHTMARE reign!",
+	shades_trigger = "Children of Madness - I release you upon this world!",
+	shadedies_trigger = "Sombra de Taerar muere.",
+
+	shades_warn = "¡Taerar desterrado! Matan las Sombras!",
+	fearCast_warn = "¡Miedo en 1.5 segundos!",
+	breathSoon_warn = "¡Aliento nocivo pronto!",
+	breath_warn = "¡Aliento nocivo!",
+	fear_warn = "¡Rugido bramante pronto!",
+
+	breath_bar = "Aliento nocivo",
+	banish_bar = "Desterrar",
+	fear_bar = "Clamor bramante",
+
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

@@ -52,6 +52,24 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	ThunderClap = "Trueno",
+	KnockBack = "Empujar",
+	Fear = "Clamor intimidador",
+
+	trigger1 = "sufre de Clamor intimidador",
+	trigger2 = "Falla(.+) inmune Clamor intimidador.",
+	trigger3 = "Resistido Clamor intimidador",
+
+	-- AceConsole strings
+	--cmd = "Berserker",
+
+	bars_cmd = "barras",
+	bars_name = "Alternar barras",
+	bars_desc = "Alterna de mostrar barras temporizadoras.",
+
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	ThunderClap = "ThunderClap",
 	KnockBack = "KnockBack",

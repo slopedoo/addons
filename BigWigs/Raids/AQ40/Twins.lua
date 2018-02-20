@@ -84,6 +84,71 @@ L:RegisterTranslations("enUS", function() return {
 	kill_trigger = "My brother...NO!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Twins",
+
+	--bug_cmd = "bug",
+	bug_name = "Alerta de Explotar insecto",
+	bug_desc = "Avisa para Explotar insecto",
+
+	--teleport_cmd = "teleport",
+	teleport_name = "Alerta de Teletransporte",
+	teleport_desc = "Avisa para Teletransporte",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	--heal_cmd = "heal",
+	heal_name = "Alerta de Curación",
+	heal_desc = "Avisa para Curación de los Gemelos",
+
+	--blizzard_cmd = "blizzard",
+	blizzard_name = "Alerta de Gélido",
+	blizzard_desc = "Muestra un icono si estás en Gélido",
+
+	porttrigger = "gana Teletransporte gemelo.",
+	portwarn = "¡Teletransporte!",
+	portdelaywarn = "¡Teletransporte en 5 segundos!",
+	portdelaywarn10 = "¡Teletransporte en 10 segundos!",
+	bartext = "Teletransporte",
+	explodebugtrigger = "gana Explotar insecto",
+	explodebugwarn = "¡Insecto explotando cercano!",
+	enragetrigger = "enfurecido.",
+	--trigger = "Blizzard",
+	enragewarn = "Gemelos están enfurecidos",
+	healtrigger1 = "Curar a hermano cura",
+	healtrigger2 = " Curar a hermano cura",
+	healwarn = "¡Curando",
+	startwarn = "¡Entrando en combate con Los Emperadores Gemelos! Enfurecer en 15 minutos!",
+	enragebartext = "Enrage",
+	warn1 = "Enfurecer en 10 minutos",
+	warn2 = "Enfurecer en 5 minutos",
+	warn3 = "Enfurecer en 3 minutos",
+	warn4 = "Enfurecer en 90 segundos",
+	warn5 = "Enfurecer en 60 segundos",
+	warn6 = "Enfurecer en 30 segundos",
+	warn7 = "Enfurecer en 10 segundos",
+
+	blizzard_trigger = "Sufres de Gélido.",
+	blizzard_gone_trigger = "Gélido acaba de disiparse",
+	blizzard_warn = "¡Váyate del Gélido!",
+
+
+	pull_trigger1 = "Ah, lambs to the slaughter.",
+	pull_trigger2 = "Prepare to embrace oblivion!",
+	pull_trigger3 = "Join me brother, there is blood to be shed.",
+	pull_trigger4 = "To decorate our halls.",
+	pull_trigger5 = "Let none survive!",
+	pull_trigger6 = "It's too late to turn away.",
+	pull_trigger7 = "Look brother, fresh blood.",
+	pull_trigger8 = "Like a fly in a web.",
+	pull_trigger9 = "Shall be your undoing!",
+	pull_trigger10 = "Your brash arrogance",
+
+	kill_trigger = "My brother...NO!",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 
 		bug_name = "Explodierende K\195\164fer",

@@ -85,6 +85,78 @@ L:RegisterTranslations("enUS", function() return {
 	enrage_desc = "Enrage timers.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "BugFamily",
+
+	healtrigger = "Princesa Yauj comienza a lanzar Gran sanación\.",
+	healbar = "Gran sanación",
+	healwarn = "¡Se lanza sanación!",
+	attack_trigger1 = "Princesa Yauj ataca",
+	attack_trigger2 = "Princess Yauj falla",
+	attack_trigger3 = "Princess Yauj golpea",
+	attack_trigger4 = "Princess Yauj golpe crítico",
+	panic_bar = "Pánico",
+	first_panic_bar = "Pánico Posible",
+	panic_message = "¡Miedo en 3 Segundos!",
+	toxicvolleyhit_trigger = "Salva tóxica golpea",
+	toxicvolleyafflicted_trigger = "sufre de Salva tóxica\.",
+	toxicvolleyresist_trigger = "Resistido Salva tóxica",
+	toxicvolleyimmune_trigger = "Salva tóxica falla(.+) inmune",
+	toxicvolley_bar = "Salva tóxica",
+	toxicvolley_message = "¡Salva tóxica en 3 segundos!",
+
+	panic_trigger = "sufre de Pánico%.",
+	panicresist_trigger = "Resistido Pánico",
+	panicimmune_trigger = "Pánico falla(.+) inmune",
+
+	toxicvaporsyou_trigger = "Sufres de Vapores tóxicos\.",
+	toxicvaporsother_trigger = "(.+) sufre de Vapores tóxicos\.",
+
+	toxicvaporsyou_trigger2 = "Sufres (%d+) de daño (.+) de los Vapores tóxicos de Lord Kri.",
+	toxicvaporsother_trigger2 = "(.+) sufre (%d+) de daño (.+) de los Vapores tóxicos de Lord Kri.",
+
+	toxicvapors_message = "¡Muévate del Nube de veneno!",
+	enrage_bar = "Enfurecer",
+	warn5minutes = "¡Enfurecer en 5 minutos!",
+	warn3minutes = "¡Enfurecer en 3 minutos!",
+	warn90seconds = "¡Enfurecer en 90 segundos!",
+	warn60seconds = "¡Enfurecer en 60 segundos!",
+	warn30seconds = "¡Enfurecer en 30 segundos!!",
+	warn10seconds = "¡Enfurecer en 10 segundos!",
+	kridead_message = "¡Lord Kri está muerto! Aparece el Nube de veneno!",
+	yaujdead_message = "¡Princesa Yauj está muerta! Matan los spawns!",
+	vemdead_message = "¡Vem está muerto!",
+	vemdeadcontkri_message = "¡Vem está muerto! Lord Kri está enfurecido!",
+	vemdeadcontyauj_message = "¡Vem está muerto! Princesa Yauj está enfurecida!",
+	vemdeadcontboth_message = "¡Vem está muerto! Lord Kri y Princesa Yauj están enfurecidos!",
+	enrage_trigger = "¡%s se enfurece!",
+	enrage_warning = "¡Efurecido!",
+
+	--panic_cmd = "panic",
+	panic_name = "Miedo",
+	panic_desc = "Avisa para Pánico de Princesa Yauj.",
+
+	--toxicvolley_cmd = "toxicvolley",
+	toxicvolley_name = "Salva tóxica",
+	toxicvolley_desc = "Avisa para Salva tóxica de Lord Kri.",
+
+	--heal_cmd = "heal",
+	heal_name = "Gran sanación",
+	heal_desc = "Anuncia la sanación de Princesa Yauj.",
+
+	--announce_cmd = "announce",
+	announce_name = "Nube de veneno",
+	announce_desc = "Susurra a los jugadores que están en el Nube de veneno.\n\n(Require asistente o líder)",
+
+	--deathspecials_cmd = "deathspecials",
+	deathspecials_name = "Especiales del Muerte",
+	deathspecials_desc = "Avisa cual jefe está muerto y sus habilidades.",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Enfurecer",
+	enrage_desc = "Temporizador para Enfurecer.",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "BugFamily",
 

@@ -34,6 +34,12 @@ L:RegisterTranslations("enUS", function() return {
 	BOSS_DOWN_NR	= "%s down after %s! This is a new record! (Old record was %s). You have %d total victories.",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	BOSS_ENGAGED    = "Entrando en combate con %s. ¡Buena suerte!",
+	BOSS_DOWN		= "¡%s matado después de %s!",
+	BOSS_DOWN_L		= "¡%s matado después de %s! La última vez estuvo %s y tu muerte más rápida estuvo %s. Lo has matado %d veces.",
+	BOSS_DOWN_NR	= "%s matado después de %s! Es un nuevo récord! (El récord pasado estuvo %s). Lo has matado %d veces.",
+} end)
 ----------------------------------
 --      Module Declaration      --
 ----------------------------------

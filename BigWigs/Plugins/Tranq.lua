@@ -19,6 +19,18 @@ L:RegisterTranslations("enUS", function() return {
 	["Bars"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	CHAT_MSG_SPELL_SELF_BUFF = "Fallas de disipar el Frenesí de (.+) ",
+	CHAT_MSG_SPELL_SELF_DAMAGE = "Lanzas Disparo tranquilizante al (.+).",
+
+	["Tranq - %s"] = "Disparo Tranquilizante - %s",
+	["%s's Tranq failed!"] = "¡Falló el Disparo tranquilizante de %s!",
+	["Tranq"] = "Tranquilizante",
+	["Options for the tranq module."] = "Opciones para el módulo tranquilizante",
+	["Toggle tranq bars on or off."] = "Alterna las barras de tranquilizante",
+	["Bars"] = "Barras",
+} end)
+
 L:RegisterTranslations("koKR", function() return {
 	CHAT_MSG_SPELL_SELF_BUFF = "(.+)의 광기|1을;를; 무효화하지 못했습니다.", --"You fail to dispel (.+)'s Frenzy.",
 	CHAT_MSG_SPELL_SELF_DAMAGE = "(.+)에게 평정의 사격|1을;를; 시전합니다.", --"You cast Tranquilizing Shot on (.+).",

@@ -31,6 +31,27 @@ L:RegisterTranslations("enUS", function() return {
 	enraged_desc = "Lets you know when boss hits harder.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Renataki",
+
+	enrage_trigger = "Renataki gana Enfurecer\.",
+	enragesoon_message = "¡Enfurecer pronto! Prepárate!",
+	enrage_message = "¡Enfurecido!",
+	vanishsoon_message = "¡Esfumar pronto!",
+	vanish_message = "¡El jefe se he esfumado!",
+	unvanish_message = "¡El jefe está revelado!",
+	vanish_bar = "Esfumarse",
+	return_bar = "Regresar",
+
+	--vanish_cmd = "vanish",
+	vanish_name = "Alerta de Esfumar",
+	vanish_desc = "Avisa para Esfumar.",
+
+	--enraged_cmd = "enraged",
+	enraged_name = "Alerta de Enfurecer",
+	enraged_desc = "Avisa para Enfurecer.",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "Renataki",
 

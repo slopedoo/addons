@@ -30,6 +30,27 @@ L:RegisterTranslations("enUS", function() return {
 	["Testing Sync"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	--["test"] = true,
+	["Test"] = "Probar",
+	["Test Bar"] = "Barra de Prueba",
+	["Test Bar 2"] = "Barra de Prueba 2",
+	["Test Bar 3"] = "Barra de Prueba 3",
+	["Test Bar 4"] = "Barra de Prueba 4",
+	["Testing"] = "Probando",
+	["OMG Bear!"] = "¡Dios mío OSO!",
+	["*RAWR*"] = "*RAWR*",
+	["Victory!"] = "¡Victoria!",
+	["Options for testing."] = "Opciones para probar",
+	["local"] = "local",
+	["Local test"] = "Prueba local",
+	["Perform a local test of BigWigs."] = "Hace una prueba local de BigWigs",
+	["sync"] = "sincronización",
+	["Sync test"] = "Prueba de sincronización",
+	["Perform a sync test of BigWigs."] = "Hace una prueba de sincronización de BigWigs",
+	["Testing Sync"] = "Probando la sincronización",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	-- ["test"] = true,
 	--["Test"] = "Test",

@@ -139,6 +139,52 @@ L:RegisterTranslations("deDE", function() return {
 	["Emphasize Bars"] = "Hervorgehobene Balken",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Bars"] = "Barras",
+
+	["bars"] = "bars",
+
+	["Options for the timer bars."] = "Opciones para las barras temporizadoras",
+	["Show the bar anchor frame."] = "Muestra el marco de ancla de la barra",
+	["Set the bar scale."] = "Define la escala de la barra",
+	["Group upwards"] = "Grupo hacia arriba",
+	["Toggle bars grow upwards/downwards from anchor."] = "Alterna que las barras crecen hacia arriba/abajo de la ancla",
+
+	["Timer bars"] = "Barras Temporizadoras",
+	["Show anchor"] = "Mostrar Ancla",
+	["Grow bars upwards"] = "Crecer las barras hacia arriba",
+	["Scale"] = "Escala",
+	["Bar scale"] = "Escala de la barra",
+
+	["Bars now grow %2$s"] = "Barras crecen %2$s",
+	["Scale is set to %2$s"] = "Escala define a %2$s",
+
+	["Up"] = "Arriba",
+	["Down"] = "Abajo",
+
+	["Test"] = "Probar",
+	["Close"] = "Cerrar",
+
+	["Texture"] = "Textura",
+	["Set the texture for the timerbars."] = "Define la textura para las barras temporizadoras",
+
+	["Reset position"] = "Restablecer posición",
+	["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla al centro de la pantalla",
+	["Reverse"] = "Revertir",
+	["Toggles if bars are reversed (fill up instead of emptying)."] = "Alterna si las barras están revertidas",
+	["Emphasize"] = "Alerta",
+	["Emphasize bars that are close to completion (<10sec). Also note that bars started at less than 15 seconds initially will be emphasized right away."] = "Barras de alerta que casi están completas (<10seg). También nota que las barras que empiezan a menos que 15 segundos estarán enfatizadas primera",
+	["Enable"] = "Activar",
+	["Enables emphasizing bars."] = "Activa las barras de alerta",
+	["Flash"] = "Brillo",
+	["Flashes the background red for bars that are emphasized."] = "Brilla al fondo el color rojo para las barras que están enfatizadas",
+	["Move"] = "Mover",
+	["Move bars that are emphasized to a second anchor."] = "Mueve las barras que están enfatizadas a la ancla segunda",
+	["Set the scale for emphasized bars."] = "Define la escala para las barras de alerta",
+	["Emphasize Bars"] = "Barras de Alerta",
+	["Enable IntervalBars"] = "Activar las Barras de Intervalo",
+	["Keep timers visible untill the timed event happens"] = "Se queda visibles los temporizadores hasta que un evento medido occura",
+} end)
 ----------------------------------
 --      Module Declaration      --
 ----------------------------------
@@ -163,7 +209,7 @@ BigWigsBars.defaultDB = {
 
 	duration = 0.5,
 
-	width = 206,
+	width = 241,
 	height = nil,
 	reverse = nil,
 	intervalbar = true,
@@ -480,7 +526,6 @@ function BigWigsBars:BigWigs_StartBar(module, text, time, icon, otherc, c1, c2, 
 	local bc, balpha, txtc
 	if BigWigsColors and type(BigWigsColors) == "table" then
 		if type(otherc) ~= "boolean" or not otherc then c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 = BigWigsColors:BarColor(time) end
-		bc, balpha, txtc = BigWigsColors.db.profile.bgc, BigWigsColors.db.profile.bga, BigWigsColors.db.profile.txtc
 	end
 
 	local groupId = self.frames.anchor.candyBarGroupId
@@ -529,11 +574,16 @@ function BigWigsBars:BigWigs_StartBar(module, text, time, icon, otherc, c1, c2, 
 	self:RegisterCandyBarWithGroup(id, groupId)
 	self:SetCandyBarTexture(id, surface:Fetch(self.db.profile.texture))
 
-	if type(colorModule) == "table" then
-		local bg = colorModule.db.profile.barBackground
-		self:SetCandyBarBackgroundColor(id, bg.r, bg.g, bg.b, bg.a)
-		local txt = colorModule.db.profile.barTextColor
-		self:SetCandyBarTextColor(id, txt.r, txt.g, txt.b, txt.a)
+	if type(BigWigsColors) == "table" then
+		local bg = BigWigsColors.db.profile.bgc
+		local bga = BigWigsColors.db.profile.bga
+		if bg and bga then
+			self:SetCandyBarBackgroundColor(id, bg, bga)
+		end
+		local txt = BigWigsColors.db.profile.txtc
+		if txt then
+			self:SetCandyBarTextColor(id, txt)
+		end
 	end
 
 	if type(self.db.profile.width) == "number" then

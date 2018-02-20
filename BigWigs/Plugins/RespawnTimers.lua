@@ -65,6 +65,52 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--["respawntimers"] = "respawntimers",
+	["Respawn Timers"] = "Temporizador de Respawn",
+	["Respawn timer bars and warnings for trash mobs."] = "Temporizador de Respawn y advertencias para mobs de porquería",
+	--["bars"] = "bars",
+	["Bars"] = "Barras",
+	["Toggles showing bars for respawn times."] = "Alterna de mostrar las barras para tiempo de respawn",
+	--["messages"] = true,
+	["Messages"] = "Mensajes",
+	["Toggles showing messages for respawn times."] = "Alterna de mostrar los mensajes para tiempo de respawn",
+
+	["%s %d respawns in %d sec"] = "%s %d respawns en %d seg",
+	["%s %d respawned!"] = "%s %d respawned!",
+	["Respawn: %s %d"] = "Respawn: %s %d",
+
+	-- Molten Core Triggers
+	["Ancient Core Hound"] = "Can del Núcleo anciano",
+	["Lava Annihilator"] = "Aniquilador de lava",
+	["Lava Surger"] = "Marea de lava",
+	["Firelord"] = "Señor del Fuego",
+	["Firewalker"] = "Caminafuego", -- Lava Pack
+	["%s collapses and begins to smolder."] = "%s colapsa y comienza a arder", -- Hound Pack, emote.
+	-- Molten Core Messages
+	["Corehound"] = "Can del Núcleo",
+	["Annihilator"] = "Aniquilador",
+	["Surger"] = "Marea",
+	-- Firelord == Firelord.
+	["Lavapack"] = "Lavapack",
+	["Houndpack"] = "Pack de Sabueso",
+
+	-- AQ Triggers
+	["Obsidian Eradicator"] = "Erradicador obsidiana",
+	["Anubisath Sentinel"] = "Centinela Anubisath",
+	-- AQ Messages
+	["Eradicator"] = "Erradicador",
+	["Sentinel"] = "Centinela",
+
+	-- BWL Triggers
+	["Death Talon Hatcher"] = "Capitán Garramortal",
+	["Blackwing Taskmaster"] = "Capataz Alanegra",
+	-- BWL Messages
+	["Death Talon"] = "Garramortal",
+	["Taskmaster"] = "Capataz",
+
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	["respawntimers"] = "respawntimers",
 	["Respawn Timers"] = "Respawn Timer",

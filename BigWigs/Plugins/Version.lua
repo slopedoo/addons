@@ -53,6 +53,50 @@ L:RegisterTranslations("enUS", function() return {
 	["List people with old versions to raid chat."] = true,
 	["Download newest version from https://github.com/Hosq/BigWigs"] = true,
 
+	["Show popup"] = true,
+	["Show popup warning on out of date version"] = true,
+
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	--["versionquery"] = true,
+	["Version Query"] = "Consulta de Versión",
+	["Commands for querying the raid for Big Wigs versions."] = "Comando para consultar la versión de Big Wigs de la banda.",
+	["Query already running, please wait 5 seconds before trying again."] = "Ya está consultando, por favor espera 5 segundos antes de probarlo de nuevo.",
+	["Querying versions for "] = "Consultando las versiones para ",
+	["Big Wigs Version Query"] = "Consulta de Versión de Big Wigs",
+	["Close window"] = "Cerrar ventana", -- I know, it's really a Tablet.
+	["Showing version for "] = "Mostrando la versión para ",
+	["Green versions are newer than yours, red are older, and white are the same."] = "Verde es una versión más nueva que la tuya, si es roja es más antigua, y si es blanca es la última actualizada hasta el momento",
+	["Player"] = "Jugador",
+	["Version"] = "Versión",
+	["Current zone"] = "Zona actual",
+	["<zone>"] = "<zona>",
+	["Version query done."] = "Consulta de versión completa",
+	["Runs a version query on your current zone."] = "Hace una consulta de versión para tu zona actual",
+	["Closes the version query window."] = "Cerra la ventana de consulta de versión",
+	["current"] = "actual",
+	["Runs a version query on the given zone."] = "Hace una consulta de versión en la zona dada",
+	["Zone"] = "Zona",
+	--["zone"] = true,
+	["N/A"] = "N/A",
+	["BigWigs"] = "BigWigs",
+	["Runs a version query on the BigWigs core."] = "Hace una consulta de versión al núcleo de BigWigs",
+	["Nr Replies"] = "Nr repuesta",
+	["Ancient"] = "Anciano",
+
+	["Your version of Big Wigs Elysium is out of date!\nPlease visit https://github.com/Hosq/BigWigs to get the latest version."] = "¡Tu versión de Big Wigs es anticuada!\n Por favor visite https://github.com/Hosq/BigWigs para descargar la última versión.",
+	["Close"] = "Cerrar",
+	["Cancel"] = "Cancelar",
+
+	["People with outdated BigWigs:"] = "Personas con BigWigs anticuado:",
+	["Notify old versions"] = "Notificar de versiones anticuadas",
+	["List people with old versions to raid chat."] = "Enumera las personas con versiones anticuadas al chat de la banda",
+	["Download newest version from https://github.com/Hosq/BigWigs"] = "Descarga la última versión en https://github.com/Hosq/BigWigs",
+
+	["Show popup"] = "Mostrar Ventana Emergente",
+	["Show popup warning on out of date version"] = "Muesta la ventana emergente para versiones anticuadas",
+
 } end )
 
 L:RegisterTranslations("deDE", function() return {
@@ -94,6 +138,9 @@ L:RegisterTranslations("deDE", function() return {
 
 BigWigsVersionQuery = BigWigs:NewModule("Version Query")
 
+BigWigsVersionQuery.defaultDB = {
+	popup = true,
+}
 BigWigsVersionQuery.consoleCmd = L["versionquery"]
 BigWigsVersionQuery.consoleOptions = {
 	type = "group",
@@ -103,22 +150,38 @@ BigWigsVersionQuery.consoleOptions = {
 		[L["BigWigs"]] = {
 			type = "execute",
 			name = L["BigWigs"],
+			order = 1,
 			desc = L["Runs a version query on the BigWigs core."],
 			func = function() BigWigsVersionQuery:QueryVersion("BigWigs") end,
 		},
 		[L["current"]] = {
 			type = "execute",
 			name = L["Current zone"],
+			order = 2,
 			desc = L["Runs a version query on your current zone."],
 			func = function() BigWigsVersionQuery:QueryVersion() end,
 		},
 		[L["zone"]] = {
 			type = "text",
 			name = L["Zone"],
+			order = 3,
 			desc = L["Runs a version query on the given zone."],
 			usage = L["<zone>"],
 			get = false,
 			set = function(zone) BigWigsVersionQuery:QueryVersion(zone) end,
+		},
+		spacer = {
+			type = "header",
+			name = " ",
+			order = 10,
+		},
+		popup = {
+			type = "toggle",
+			name = L["Show popup"],
+			desc = L["Show popup warning on out of date version"],
+			order = 12,
+			get = function() return BigWigsVersionQuery.db.profile.popup end,
+			set = function(v) BigWigsVersionQuery.db.profile.popup = v end,
 		},
 	}
 }
@@ -232,37 +295,38 @@ function BigWigsVersionQuery:IsOutOfDate()
 		self.OutOfDateShown = true
 		BigWigs:Print(L["Your version of Big Wigs Elysium is out of date!\nPlease visit https://github.com/Hosq/BigWigs to get the latest version."])
 
-		local dialog = nil
-		StaticPopupDialogs["BigWigsOutOfDateDialog"] = {
-			text = L["Your version of Big Wigs Elysium is out of date!\nPlease visit https://github.com/Hosq/BigWigs to get the latest version."],
-			button1 = L["Close"],
-			button2 = L["Cancel"],
-			OnAccept = function()
-				StaticPopup_Hide ("BigWigsOutOfDateDialog")
-			end,
-			OnCancel = function()
-				StaticPopup_Hide ("BigWigsOutOfDateDialog")
-			end,
-			OnShow = function (self, data)
-				local editbox = getglobal(this:GetName().."WideEditBox")
-				editbox:SetText("https://github.com/Hosq/BigWigs")
-				editbox:SetWidth(250)
-				editbox:ClearFocus()
-				editbox:HighlightText()
-				--self.editBox:SetText("Some text goes here")
-				getglobal(this:GetName().."Button2"):Hide()
-			end,
-			hasEditBox = true,
-			hasWideEditBox = true,
-			maxLetters = 42,
-			--EditBox:setText("Text"),
-			timeout = 0,
-			whileDead = true,
-			hideOnEscape = true,
-			preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
-		}
-		local dialog = StaticPopup_Show ("BigWigsOutOfDateDialog")
-
+		if self.db.profile.popup then
+			local dialog = nil
+			StaticPopupDialogs["BigWigsOutOfDateDialog"] = {
+				text = L["Your version of Big Wigs Elysium is out of date!\nPlease visit https://github.com/Hosq/BigWigs to get the latest version."],
+				button1 = L["Close"],
+				button2 = L["Cancel"],
+				OnAccept = function()
+					StaticPopup_Hide ("BigWigsOutOfDateDialog")
+				end,
+				OnCancel = function()
+					StaticPopup_Hide ("BigWigsOutOfDateDialog")
+				end,
+				OnShow = function (self, data)
+					local editbox = getglobal(this:GetName().."WideEditBox")
+					editbox:SetText("https://github.com/Hosq/BigWigs")
+					editbox:SetWidth(250)
+					editbox:ClearFocus()
+					editbox:HighlightText()
+					--self.editBox:SetText("Some text goes here")
+					getglobal(this:GetName().."Button2"):Hide()
+				end,
+				hasEditBox = true,
+				hasWideEditBox = true,
+				maxLetters = 42,
+				--EditBox:setText("Text"),
+				timeout = 0,
+				whileDead = true,
+				hideOnEscape = true,
+				preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+			}
+			local dialog = StaticPopup_Show ("BigWigsOutOfDateDialog")
+		end
 	end
 end
 

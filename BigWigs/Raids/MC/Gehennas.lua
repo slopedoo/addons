@@ -77,6 +77,41 @@ L:RegisterTranslations("enUS", function() return {
 	["Rain of Fire"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	curse_trigger = "sufre de Gehennas",
+	--bolt_trigger = "Gehennas comienza a lanzar Descarga de las Sombras",
+	rain_trigger = "Sufres de Lluvia de Fuego",
+	rain_run_trigger = "Lluvia de Fuego de ".. module.translatedName .." te inflige (%d+) puntos de daño (.+).",
+	curse_trigger2 = "Resistido Maldición de Gehennas de Gehennas",
+	dead1 = "Despiertallamas muere",
+	addmsg = "¡%d/2 Despiertallamas muertas!",
+	flamewaker_name = "Despiertallamas",
+
+	barNextRain = "Próximo Lluvia de Fuego",
+
+	curse_warn_soon = "¡5 segundos hasta la Maldición de Gehennas!",
+	curse_warn_now = "¡Maldición de Gehennas - Déshazla AHORA!",
+
+	curse_bar = "Maldición de Gehennas",
+	firewarn = "¡Muévense del FUEGO!",
+
+	cmd = "Gehennas",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de Despiertallamas muertas",
+	adds_desc = "Anuncia Despiertallamas muertas",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de la maldición de Gehennas",
+	curse_desc = "Avisa para la maldición de Gehennas",
+
+	--rain_cmd = "rain",
+	rain_name = "Alerta de Lluvia de Fuego",
+	rain_desc = "Muestra un aviso para Lluvia de Fuego",
+
+	["Rain of Fire"] = "Lluvia de Fuego",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	curse_trigger = "von Gehennas(.+)Fluch betroffen",
 	--bolt_trigger = "Gehennas beginnt Schattenblitz",

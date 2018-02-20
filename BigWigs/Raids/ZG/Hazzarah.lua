@@ -31,7 +31,15 @@ L:RegisterTranslations("deDE", function() return {
 	nightmaresummon_desc = "Zeigt eine Warnung wenn der Boss Alptraumillusionen beschw\195\182rt.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Hazzarah",
+	nightmaresummon_trigger = "Hazza\'rah lanza Invocar ilusiones de pesadilla\.",
+	nightmaresummon_message = "¡Matan los Ilusiones!",
 
+	--nightmaresummon_cmd = "spawns",
+	nightmaresummon_name = "Alerta de Ilusiones",
+	nightmaresummon_desc = "Avisa cuando el jefe Invoque ilusiones de pesadilla",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

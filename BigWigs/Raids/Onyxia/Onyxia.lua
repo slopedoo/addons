@@ -93,6 +93,56 @@ L:RegisterTranslations("enUS", function() return {
 	fireball_cast = "Fireball on %s",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Onyxia",
+	engage_trigger = "must leave my lair to feed",
+
+	--deepbreath_cmd = "deepbreath",
+	deepbreath_name = "Respiración",
+	deepbreath_desc = "Avisa cuando Onyxia comience a lanzar Respiración.",
+
+	--flamebreath_cmd = "flamebreath",
+	flamebreath_name = "Aliento de llamarada",
+	flamebreath_desc = "Avisa cuando Onyxia comience a lanzar Aliento de llamarada.",
+
+	--wingbuffet_cmd = "wingbuffet",
+	wingbuffet_name = "Festín de alas",
+	wingbuffet_desc = "Avisa para Festín de alas.",
+
+	--fireball_cmd = "fireball",
+	fireball_name = "Bola de Fuego",
+	fireball_desc = "Avisa para Bola de Fuego.",
+
+	--phase_cmd = "phase",
+	phase_name = "Fase",
+	phase_desc = "Avisa para cambio de fase.",
+
+	--onyfear_cmd = "onyfear",
+	onyfear_name = "Miedo",
+	onyfear_desc = "Avisa para Clamor bramante en fase 3.",
+
+	deepbreath_trigger = "takes in a deep breath",
+	flamebreath_trigger = "Onyxia comienza a lanzar Aliento de llamarada\.", 
+	wingbuffet_trigger = "Onyxia comienza a lanzar Festín de alas\.", 
+	fireball_trigger = "Onyxia comienza a lanzar Bola de Fuego.", 
+	phase2_trigger = "de encima", 
+	phase3_trigger = "It seems you'll need another lesson",
+	fear_trigger = "Onyxia comienza a lanzar Clamor bramante\.", 
+	fear_over_trigger = "Clamor bramante",
+
+	warn1 = "¡Respiración entrante!",
+	phase1text = "Fase 1",
+	phase2text = "Fase 2",
+	phase3text = "Fase 3",
+	feartext = "¡Miedo pronto!",
+	fear_cast = "Miedo",
+	fear_next = "Próximo Miedo",
+	deepbreath_cast = "Respiración",
+	flamebreath_cast = "Aliento de llamarada",
+	wingbuffet_cast = "Festín de alas",
+	fireball_cast = "Bola de Fuego a %s",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "Onyxia",
 	engage_trigger = "must leave my lair to feed",

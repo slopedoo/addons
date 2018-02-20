@@ -25,6 +25,8 @@ L:RegisterTranslations("enUS", function() return {
 	bw_bar = "Blast Wave",
 	knock_bar = "Knock Away",
 
+	["First Mortal Strike"] = true,
+
 	you = "You",
 	are = "are",
 
@@ -39,6 +41,39 @@ L:RegisterTranslations("enUS", function() return {
 	bw_cmd = "bw",
 	bw_name = "Blast Wave",
 	bw_desc = "Shows a bar with the possible Blast Wave cooldown.\n\n(Disclaimer: this varies anywhere from 8 to 15 seconds. Chosen shortest interval for safety.)",
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Broodlord",
+
+	engage_trigger = "None of your kind should be here",
+	ms_trigger = "^(.+) (.+) sufre de Golpe mortal",
+	bw_trigger = "^(.+) (.+) sufre de Ola explosiva",
+	deathyou_trigger = "Has muerto\.",
+	deathother_trigger = "(.+) ha muerto\.",
+	ms_warn_you = "¡Golpe mortal a ti!",
+	ms_warn_other = "¡Golpe mortal a %s!",
+	bw_warn = "¡Ola explosiva pronto!",
+	ms_bar = "Golpe mortal: %s",
+	bw_bar = "Ola explosiva",
+	knock_bar = "Empujar",
+	
+	["First Mortal Strike"] = "Primer Golpe mortal",
+
+	you = "Tu",
+	are = "eres",
+
+	--ms_cmd = "ms",
+	ms_name = "Golpe mortal",
+	ms_desc = "Avisa cuando alguien reciba Golpe mortal y muestra una barra cliqueable para seleccionarlo fácilmente.",
+
+	--knock_cmd = "knock",
+	knock_name = "Empujar",
+	knock_desc = "Muestra una barra con regeneración de Empujar posible.",
+
+	--bw_cmd = "bw",
+	bw_name = "Ola explosiva",
+	bw_desc = "Muestra una barra con regeneración de Ola explosiva posible.\n\n(Descargo de responsabilidad : esto varia 8 a 15 segundos. Elige el intervalo más corto para seguridad.)",
 } end )
 
 L:RegisterTranslations("deDE", function() return {
@@ -130,7 +165,7 @@ function module:OnEngage()
 		self:Bar(L["bw_bar"], timer.firstBlastWave, icon.blastWave, true, "Red")
 	end
 	if self.db.profile.ms then
-		self:Bar("First Mortal Strike", timer.firstMortal, icon.mortalStrike, true, "Black")
+		self:Bar(L["First Mortal Strike"], timer.firstMortal, icon.mortalStrike, true, "Black")
 	end
 	if self.db.profile.knock then
 		self:Bar(L["knock_bar"], timer.knockAway, icon.knockAway)

@@ -76,6 +76,41 @@ L:RegisterTranslations("enUS", function() return {
 	adds_desc = "Announces dead Flamewaker Priests",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	triggeradddead = "Sacerdote despiertallamas muere",
+	triggercast = "comienza a lanzar Alivio oscuro",
+	spear_cast = "comienza a lanzar Lanza flamígera",
+	healbar = "Alivio oscuro",
+	knockbacktimer = "Rechazo",
+	knockbackannounce = "¡3 segundos hasta rechazar!",
+	healwarn = "¡Curando!",
+	knockback1 = "Mano de Ragnaros inflige",
+	knockback11 = "Mano de Ragnaros golpea",
+	knockback2 = "Resistido Mano de Ragnaros de Sulfuron",
+	knockback3 = "Absorbido (.+) Mano de Ragnaros",
+	knockback33 = "Absorbido Mano de Ragnaros de Sulfuron",
+	knockback4 = "Mano de Ragnaros (.+) inmune",
+	flamewakerpriest_name = "Sacerdote despiertallamas",
+
+	addmsg = "¡%d/4 Sacerdotes despiertallamas muertos!",
+
+	flame_spear_bar = "Lanza flamígera",
+
+	--cmd = "Sulfuron",
+
+	--knockback_cmd = "knockback",
+	knockback_name = "Anunciar Mano de Ragnaros",
+	knockback_desc = "Muestra temporizador para rechazos",
+
+	--heal_cmd = "heal",
+	heal_name = "Curación de los Sacerdotes",
+	heal_desc = "Anuncia la curación de los Sacerdotes despiertallamas",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de Sacerdotes muertos",
+	adds_desc = "Anuncia Sacerdotes despiertallamas muertos",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	triggeradddead = "Flamewaker Priest stirbt",
 	triggercast = "beginnt Dunkle Besserung",

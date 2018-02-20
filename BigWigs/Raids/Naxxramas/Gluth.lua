@@ -65,7 +65,60 @@ L:RegisterTranslations("enUS", function() return {
 	frenzy_Nextbar = "Next Frenzy",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Gluth",
 
+	--fear_cmd = "fear",
+	fear_name = "Alerta de Miedo",
+	fear_desc = "Avisa para Miedo",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Alerta de Frenesí",
+	frenzy_desc = "Avisa para Frenesí",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Temporizador de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	--decimate_cmd = "decimate",
+	decimate_name = "Alerta de Diezmar",
+	decimate_desc = "Avisa para Diezmar",
+
+	frenzy_trigger = "¡%s entra frenesí!",
+	berserk_trigger = "gana Rabia",
+	fear_trigger = "de Clamor aterrorizador.",
+	starttrigger = "¡devora todos los zombis cercanos!",
+
+	frenzy_warn = "¡Alerta de Frenesí!",
+	fear_warn_5 = "5 segundos hasta Miedo!",
+	fear_warn = "¡Alerta de Miedo - 20 segundos hasta el próximo!",
+
+	enragewarn = "¡ENFURECER!",
+	enragebartext = "Enfurecer",
+	enrage_warn_90 = "Enfurecer en 90 segundos",
+	enrage_warn_30 = "Enfurecer en 30 segundos",
+	enrage_warn_10 = "Enfurecer en 10 segundos",
+
+	startwarn = "¡Entrando en combate con Gluth! ~1:45 hasta Diezmar!",
+	decimatesoonwarn = "¡Diezmar Pronto!",
+	decimatebar = "Diezmar Zombi",
+
+	--zombies_cmd = "zombies",
+	zombies_name = "Zombi",
+	zombies_desc = "Muestra temporizador para zombis",
+	zombiebar = "Próximo Zombi - %d",
+
+	bar1text = "Miedo",
+
+	testtrigger = "testtrigger";
+
+	frenzygain_trigger = "Gluth gana Frenesí.",
+	frenzygain_trigger2 = "Gluth entra frenzy!",
+	frenzyend_trigger = "Frenesí desaparece de Gluth.",
+	frenzy_message = "¡Frensí! Disparo tranquilizante ahora!",
+	frenzy_bar = "Frenesí",
+	frenzy_Nextbar = "Próximo Frenesí",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

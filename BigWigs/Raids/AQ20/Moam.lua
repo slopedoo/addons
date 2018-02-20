@@ -34,6 +34,30 @@ L:RegisterTranslations("enUS", function() return {
 	returnwarn = "Moam unparalyzed! 90 seconds until Mana Fiends!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Moam",
+
+	--adds_cmd = "adds",
+	adds_name = "Alerta de Maligno de maná",
+	adds_desc = "Avisa para Malignos de maná",
+
+	--paralyze_cmd = "paralyze",
+	paralyze_name = "Alerta de Paralizar",
+	paralyze_desc = "Avisa para Paralizar",
+
+	starttrigger = "%s senses your fear.",
+	startwarn = "¡Moam Efurecido! 90 Segundos hasta que aparecen los adds!",
+	addsbar = "Adds",
+	addsincoming = "¡Malignos de maná entrantes en %s segundos!",
+	addstrigger = "drains your mana and turns to stone.",
+	addswarn = "¡Aparecen los Malignos de maná! Moam Paralizado por 90 segundos!",
+	paralyzebar = "Paralizar",
+	returnincoming = "¡Moam no estará paralizado en %s segundos!",
+	returntrigger = "Energize fades from Moam.",
+	returntrigger2 = "bristles with energy",
+	returnwarn = "¡Moam no está paralizado! 90 segundos hasta que aparecen los Malignos de maná!",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	adds_name = "Elementare",
 	adds_desc = "Warnung, wenn Elementare erscheinen.",

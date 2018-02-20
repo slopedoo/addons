@@ -37,6 +37,38 @@ L:RegisterTranslations("enUS", function() return {
 	["Shown"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["BossBlock"] = "Bloque de Jefe",
+	["Suppress bossmod chat from other players."] = "Bloquea el chat de los módulos de jefes de otro jugadores",
+
+	["Suppress Raid Chat"] = "Bloquear Chat de la Banda",
+	["Suppress messages in the raid channel."] = "Bloquea los mensajes en el chat de la banda",
+
+	["Suppress RaidWarn Chat"] = "Bloquear Chat de Advertencia de la Banda",
+	["Suppress RaidWarn messages in the chat frames."] = "Bloquea mensajes de Advertencia de la Banda en el chat",
+
+	["Suppress RaidWarn"] = "Bloquear Advertencia de la Banda",
+	["Suppress RaidWarn popup messages."] = "Bloquea mensajes de Adventencia de la Banda",
+
+	["Suppress RaidSay"] = "Bloquear RaidSay",
+	["Suppress CTRA RaidSay popup messages."] = "Bloquea mensajes de CTRA RaidSay",
+	["Suppress oRA RaidSay popup messages."] = "Bloquea mensajes de oRA RaidSay",
+	["Suppress oRA2 RaidSay popup messages."] = "Bloquea mensajes de oTRA2",
+
+	["Suppress Tells"] = "Bloquear mensajes personales",
+	["Suppress Tell messages."] = "Bloquea mensajes personales",
+
+	["Debugging"] = "Depurar",
+	["Show debug messages."] = "Mostrar mensajes de depura",
+
+	["Suppressing Chatframe"] = "Bloquea el marco de chat",
+	["Suppressing RaidWarningFrame"] = "Bloquea el marco de Advertencia de la Banda",
+	["Suppressing CT_RAMessageFrame"] = "Bloquea CT_RAMessageFrame",
+
+	["Suppressed"] = "Bloqueado",
+	["Shown"] = "Mostrado",
+} end)
+
 L:RegisterTranslations("koKR", function() return {
 	["BossBlock"] = "보스차단",
 	["Suppress bossmod chat from other players."] = "타인의 보스모드 대화 차단.",

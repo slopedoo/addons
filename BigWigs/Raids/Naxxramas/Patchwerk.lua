@@ -32,7 +32,27 @@ L:RegisterTranslations("enUS", function() return {
 	warn10 = "Enrage in 10 seconds",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Patchwerk",
 
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	enragetrigger = "%s goes into a berserker rage!",
+
+	enragewarn = "¡Enfurecer!",
+	starttrigger1 = "Patchwerk want to play!",
+	starttrigger2 = "Kel'Thuzad make Patchwerk his Avatar of War!",
+	startwarn = "¡Entrando en combate con Remendejo! Enfurecer en 7 minutos!",
+	enragebartext = "Enfurecer",
+	warn5m = "Enfurecer en 5 minutos",
+	warn3m = "Enfurecer en 3 minutos",
+	warn90 = "Enfurecer en 90 segundos",
+	warn60 = "Enfurecer en 60 segundos",
+	warn30 = "Enfurecer en 30 segundos",
+	warn10 = "Enfurecer en 10 segundos",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

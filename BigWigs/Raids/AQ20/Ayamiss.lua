@@ -32,7 +32,17 @@ L:RegisterTranslations("deDE", function() return {
 	are = "seid",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Ayamiss",
+	--sacrifice_cmd = "sacrifice",
+	sacrifice_name = "Alerta de Sacrificio",
+	sacrifice_desc = "Avisa para Sacrificio",
 
+	sacrificetrigger = "^([^%s]+) ([^%s]+) sufre de Paralizar",
+	sacrificewarn = " está siendo sacrificado!",
+	you = "Tu",
+	are = "eres",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

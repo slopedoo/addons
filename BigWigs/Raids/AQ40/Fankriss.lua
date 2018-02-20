@@ -28,6 +28,24 @@ L:RegisterTranslations("enUS", function() return {
 	entanglewarn = "Entangle!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Fankriss",
+	--worm_cmd = "worm",
+	worm_name = "Alerta de Gusano",
+	worm_desc = "Avisa para Gusanos entrantes",
+
+	wormtrigger = "Fankriss el Implacable lanza Invocar gusano.",
+	wormwarn = "¡Gusano entrante! (%d)",
+	wormbar = "Gusano de arena enfurecido (%d)",
+
+	--entangle_cmd = "entangle",
+	entangle_name = "Alerta de Enredar",
+	entangle_desc = "Avisa para Enredar y insectos entrantes",
+	entangleplayer = "Sufres de Enredar.",
+	entangleplayerother = "(.*) sufre de Enredar.",
+	entanglewarn = "¡Enredado!",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	worm_name = "Wurm beschw\195\182ren",
 	worm_desc = "Warnung, wenn Fankriss einen Wurm beschw\195\182rt.",

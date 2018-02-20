@@ -33,6 +33,20 @@ L:RegisterTranslations("koKR", function() return {
 	["%s: Timer [%s] finished."] = "%s: 타이머 [%s] 종료되었습니다.",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	--["bwcb"] = "bwcb",
+	--["bwlcb"] = "bwlcb",
+	--["custombar"] = "custombar",
+	["Custom Bars"] = "Barras Personalizadas",
+	["Start a custom bar, either local or global."] = "Empieza una barra personalizada, local o global",
+	["Local"] = "Local",
+	["Global"] = "Global",
+	["<seconds> <bar text>"] = "<segundos> <texto de barra>",
+	["Starts a custom bar with the given parameters."] = "Empieza una barra personalizada con parámetros determinados",
+	["%s: %s"] = "%s: %s",
+	["%s: Timer [%s] finished."] = "%s: Temporizador [%s] terminado.",
+} end)
+
 L:RegisterTranslations("zhCN", function() return {
 	["bwcb"] = "bwcb",
 	["bwlcb"] = "bwlcb",

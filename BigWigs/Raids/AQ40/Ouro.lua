@@ -12,7 +12,7 @@ local module, L = BigWigs:ModuleDeclaration("Ouro", "Ahn'Qiraj")
 L:RegisterTranslations("enUS", function() return {
 	cmd = "Ouro",
 
-	OUROCHAMBERLOCALIZEDLOLHAX = "Kel'Thuzad Chamber",
+	OUROCHAMBERLOCALIZEDLOLHAX = "Ouro's Chamber",
 
 	sweep_cmd = "sweep",
 	sweep_name = "Sweep Alert",
@@ -63,6 +63,62 @@ L:RegisterTranslations("enUS", function() return {
 	berserktrigger = "Ouro gains Berserk.",
 	berserkannounce = "Berserk - Berserk!",
 	berserksoonwarn = "Berserk Soon - Get Ready!",
+
+
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Ouro",
+
+	--sweep_cmd = "sweep",
+	sweep_name = "Alerta de Barrido",
+	sweep_desc = "Avisa para Barrido",
+
+	--sandblast_cmd = "sandblast",
+	sandblast_name = "Alerta de Explosión de arena",
+	sandblast_desc = "Avisa para Explosión de arena",
+
+	--emerge_cmd = "emerge",
+	emerge_name = "Alerta de Emersión",
+	emerge_desc = "Alerta para Emersión",
+
+	--submerge_cmd = "submerge",
+	submerge_name = "Alerta de Sumersión",
+	submerge_desc = "Avisa para Sumersión",
+
+	--berserk_cmd = "berserk",
+	berserk_name = "Rabia",
+	berserk_desc = "Avisa para Rabia",
+
+	sweeptrigger = "Ouro comienza a lanzar Barrido",
+	sweepannounce = "¡Barrido!",
+	sweepwarn = "¡5 segundos hasta Barrido!",
+	sweepbartext = "Barrido",
+
+	sandblasttrigger = "Ouro comienza a hacer Explosión de arena",
+	sandblastannounce = "¡Explosión de arena entrante!",
+	sandblastwarn = "¡5 segundos hasta Explosión de arena!",
+	sandblastbartext = "Explosión de arena Posible",
+
+	engage_message = "¡Entrando en combate con Ouro! Sumersión Posible en 90 segundos!",
+	possible_submerge_bar = "Sumersión Posible",
+
+	--emergetrigger = "Dirt Mound casts Summon Ouro Scarabs.",
+	emergetrigger = "Ruptura terrenal",
+
+	emergeannounce = "¡Ouro se ha emergido!",
+	emergewarn = "¡15 segundos hasta Sumersión posible!",
+	emergebartext = "Ouro Sumersión",
+
+	--submergetrigger = "Ouro casts Summon Ouro Mounds.",
+	submergetrigger = "sumerge",
+	submergeannounce = "¡Ouro se ha sumergido!",
+	submergewarn = "¡5 hasta que Ouro Emerge!",
+	submergebartext = "Ouro Emerge",
+
+	berserktrigger = "Ouro gana Rabia.",
+	berserkannounce = "¡Rabia!",
+	berserksoonwarn = "¡Rabia pronto - Prepárate!",
 
 
 } end )
@@ -118,7 +174,7 @@ L:RegisterTranslations("deDE", function() return {
 ---------------------------------
 
 -- module variables
-module.revision = 20009 -- To be overridden by the module!
+module.revision = 20010 -- To be overridden by the module!
 module.enabletrigger = module.translatedName -- string or table {boss, add1, add2}
 --module.wipemobs = { L["add_name"] } -- adds which will be considered in CheckForEngage
 module.toggleoptions = {"sweep", "sandblast", -1, "emerge", "submerge", -1, "berserk", "bosskill"}
@@ -300,7 +356,9 @@ function module:Sandblast()
 end
 
 function module:DoSubmergeCheck()
-	self:ScheduleRepeatingEvent("bwourosubmergecheck", self.SubmergeCheck, 0.5, self)
+	if self:IsOuroVisible() then
+		self:ScheduleRepeatingEvent("bwourosubmergecheck", self.SubmergeCheck, 0.5, self)
+	end
 end
 function module:Emerge()
 	if self.phase ~= "berserk" then

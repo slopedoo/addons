@@ -45,6 +45,42 @@ L:RegisterTranslations("enUS", function() return {
 	frenzy_desc = "Warn when Flamegor is frenzied.",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	wingbuffet_trigger = "Flamagor comienza a lanzar Festín de alas.",
+	shadowflame_trigger = "Flamagor comienza a lanzar Llama de las Sombras.",
+	frenzygain_trigger = "Flamagor entra Frenesí.",
+	frenzygain_trigger2 = "¡Flamagor se vuelve en frenesí!",
+	frenzyend_trigger = "Frenesí desaparece de Flamagor.",
+
+
+	wingbuffet_message = "¡Festín de alas! El Próximo en 30 segundos!",
+	wingbuffet_warning = "¡IRRITA ahora! Festín de alas pronto!",
+	shadowflame_warning = "¡Llama de las Sombras entrante!",
+	frenzy_message = "¡Frenesí! Disparo tranquilizante ahora!",
+	frenzy_bar = "Frenesí",
+	frenzy_Nextbar = "Próximo Frenesí",
+
+	wingbuffetcast_bar = "Festín de alas",
+	wingbuffet_bar = "Próximo Festín de alas",
+	wingbuffet1_bar = "Festín de alas Inicial",
+	shadowflame_bar = "Llama de las Sombras",
+	shadowflame_Nextbar = "Próxima Llama de las Sombras",
+
+	--cmd = "Flamegor",
+
+	--wingbuffet_cmd = "wingbuffet",
+	wingbuffet_name = "Alerta de Festín de alas",
+	wingbuffet_desc = "Avisa cuando Flamagor lance Festín de alas.",
+
+	--shadowflame_cmd = "shadowflame",
+	shadowflame_name = "Alerta de Llama de las Sombras",
+	shadowflame_desc = "Avisa cuando Flamagor lance Llama de las Sombras.",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Alerta de Frenesí",
+	frenzy_desc = "Avisa cuando Flamagor se vuelva en frenesí.",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	wingbuffet_trigger = "Flamegor beginnt Fl\195\188gelsto\195\159 zu wirken.",
 	shadowflame_trigger = "Flamegor beginnt Schattenflamme zu wirken.",

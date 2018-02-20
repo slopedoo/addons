@@ -13,7 +13,7 @@ local module, L = BigWigs:ModuleDeclaration("C'Thun", "Ahn'Qiraj")
 L:RegisterTranslations("enUS", function() return {
 	cmd = "Cthun",
 
-	startwarn	= "C'Thun engaged! - 45 sec until Dark Glare and Eyes",
+	startwarn	= "C'Thun engaged! - 45 sec until Dark Layr and Eyes",
 	barStartRandomBeams = "Start of Random Beams!",
 
 	eye_beam_trigger = "Giant Eye Tentacle begins to cast Eye Beam.",
@@ -33,17 +33,17 @@ L:RegisterTranslations("enUS", function() return {
 	barNoRape	= "Tentacle party!",
 
 	glare_cmd = "glare",
-	glare_name = "Dark Glare Alert",
-	glare_desc = "Warn for Dark Glare",
-	glare		= "Dark Glare!",
-	msgGlareEnds	= "Dark Glare ends in 5 sec",
-	barGlare	= "Next Dark Glare!",
-	barGlareEnds = "Dark Glare ends",
-	barGlareCasting = "Casting Dark Glare",
+	glare_name = "Dark Layr Alert",
+	glare_desc = "Warn for Dark Layr",
+	glare		= "Dark Layr!",
+	msgGlareEnds	= "Dark Layr ends in 5 sec",
+	barGlare	= "Next Dark Layr!",
+	barGlareEnds = "Dark Layr ends",
+	barGlareCasting = "Casting Dark Layr",
 
 	group_cmd = "group",
-	group_name = "Dark Glare Group Warning",
-	group_desc = "Warn for Dark Glare on Group X",
+	group_name = "Dark Layr Group Warning",
+	group_desc = "Warn for Dark Layr on Group X",
 
 	phase2starting	= "The Eye is dead! Body incoming!",
 
@@ -95,10 +95,95 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Cthun",
+
+	startwarn	= "¡C'Thun enfurecido! - 45 segundos hasta Mirada oscura y Ojos",
+	barStartRandomBeams = "¡Comienza a lanzar Haz aleatorio!",
+
+	eye_beam_trigger = "Tentáculo ocular gigante comienza a lanzar Haz ocular.",
+	eye_beam_trigger_cthun = "Ojo de C'Thun comienza a lanzar Haz ocular.",
+	eyebeam		= "Haz ocular a %s",
+	Unknown = "Desconocido", -- Eye Beam on Unknown
+
+	--tentacle_cmd = "tentacle",
+	tentacle_name = "Alerta de Tentáculo",
+	tentacle_desc = "Avisa para Tentáculos",
+	--rape_cmd = "rape",
+	rape_name = "Broma",
+	rape_desc = "Bromas de C'Thun.",
+	tentacle	= "Tentáclulos en 5 segundos",
+	norape		= "¡Tentáculos en 5 segundos!",
+	barTentacle	= "¡Tentáculos!",
+	barNoRape	= "¡Montón de Tentáculos!",
+
+	--glare_cmd = "glare",
+	glare_name = "Alerta de Mirada oscura",
+	glare_desc = "Avisa para Mirada oscura",
+	glare		= "¡Mirada oscura!",
+	msgGlareEnds	= "Mirada oscura desaparecerá en 5 segundos",
+	barGlare	= "¡Próxima Mirada oscura!",
+	barGlareEnds = "Mirada oscura desaparece",
+	barGlareCasting = "Lanzando Mirada oscura",
+
+	--group_cmd = "group",
+	group_name = "Alerta de Mirada oscura al Grupo",
+	group_desc = "Avisa para Mirada oscura al Grupo X",
+
+	phase2starting	= "¡El Ojo está muerto! Cuerpo entrante!",
+
+	playersInStomach = "Jugadores en el estómago",
+
+	--giant_cmd = "giant",
+	giant_name = "Alerta de Tentáculo ocular gigante",
+	giant_desc = "Avisa para Tentáculos oculares gigantes",
+	barGiant	= "¡Tentáculo ocular gigante!",
+	barGiantC	= "¡Tentáculo garral gigante!",
+	GiantEye = "¡Tentáculo ocular gigante in 5 segundos!",
+	gedownwarn	= "¡Ha muerto Tentáculo ocular gigante!",
+
+	--weakened_cmd = "weakened",
+	weakened_name = "Alerta de Debilitado",
+	weakened_desc = "Avisa para Estado Debilitado",
+	weakenedtrigger = "está debilitado!",
+	weakened	= "C'Thun está debilitado por 45 segundos",
+	invulnerable2	= "Fiesta termina en 5 segundos",
+	invulnerable1	= "Fiesta termina - C'Thun invulnerable",
+	barWeakened	= "¡C'Thun está debilitado!",
+
+	--acid_cmd = "acid",
+	acid_name = "Alerta de Ácido digestivo",
+	acid_desc = "Avisa cuando tengas 5 montones de Ácido digestivo",
+	digestiveAcidTrigger = "sufres de Ácido digestivo [%s%(]*([%d]*).",
+	msgDigestiveAcid = "5 Montones de Ácido",
+
+	["Second TentacleHP"] = "Segundo Tentáculo %d%%",
+	["First Tentacle dead"] = "Primer Tentáculo ha muerto",
+	["First Tentacle"] = "Primer Tentáculo",
+	["Second Tentacle"] = "Segundo Tentáculo",
+
+	--[[GNPPtrigger	= "Nature Protection",
+	GSPPtrigger	= "Shadow Protection",
+	Sundertrigger	= "Sunder Armor",
+	CoEtrigger	= "Curse of the Elements",
+	CoStrigger	= "Curse of Shadow",
+	CoRtrigger	= "Curse of Recklessness",]]
+
+
+	--proximity_cmd = "proximity",
+	proximity_name = "Alerta de Proximidad",
+	proximity_desc = "Muestra marco de alerta de Proximidad",
+
+	--stomach_cmd = "stomach",
+	stomach_name = "Jugadores en Estómago",
+	stomach_desc = "Muestra jugadores en estómago en lugar de jugadores cercanos",
+
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	--cmd = "Cthun",
 
-	startwarn	= "C'Thun angegriffen! - 45 sec bis Dunkles Starren und Augen", --"C'Thun engaged! - 45 sec until Dark Glare and Eyes",
+	startwarn	= "C'Thun angegriffen! - 45 sec bis Dunkles Starren und Augen", --"C'Thun engaged! - 45 sec until Dark Layr and Eyes",
 	barStartRandomBeams = "Beginn zufälliger Strahlen!",
 
 	eye_beam_trigger = "Riesiges Augententakel beginnt Augenstrahl zu wirken", --"Giant Eye Tentacle begins to cast Eye Beam.", -- Riesiges Augententakel beginnt Augenstrahl zu wirken
@@ -118,17 +203,17 @@ L:RegisterTranslations("deDE", function() return {
 	barNoRape	= "Tentakel Party", --"Tentacle party!",
 
 	--glare_cmd = "glare",
-	glare_name = "Dunkles Starren Alarm", --"Dark Glare Alert", -- Dunkles Starren
-	glare_desc = "Warnung for Dunklem Starren", --"Warn for Dark Glare",
-	glare		= "Dunkles Starren!", -- "Dark Glare!",
-	msgGlareEnds	= "Dunkles Starren endet in 5 sec", -- "Dark Glare ends in 5 sec",
-	barGlare	= "Nächstes Dunkles Starren!", -- "Next Dark Glare!",
-	barGlareEnds = "Dunkles Starren endet", -- Dark Glare ends",
-	barGlareCasting = "Zaubert Dunkles Starren", -- "Casting Dark Glare",
+	glare_name = "Dunkles Starren Alarm", --"Dark Layr Alert", -- Dunkles Starren
+	glare_desc = "Warnung for Dunklem Starren", --"Warn for Dark Layr",
+	glare		= "Dunkles Starren!", -- "Dark Layr!",
+	msgGlareEnds	= "Dunkles Starren endet in 5 sec", -- "Dark Layr ends in 5 sec",
+	barGlare	= "Nächstes Dunkles Starren!", -- "Next Dark Layr!",
+	barGlareEnds = "Dunkles Starren endet", -- Dark Layr ends",
+	barGlareCasting = "Zaubert Dunkles Starren", -- "Casting Dark Layr",
 
 	--group_cmd = "group",
-	group_name = "Dunkles Starren Gruppenwarnung", -- "Dark Glare Group Warning",
-	group_desc = "Warnt vor Dunkles Starren auf Gruppe X", -- "Warn for Dark Glare on Group X",
+	group_name = "Dunkles Starren Gruppenwarnung", -- "Dark Layr Group Warning",
+	group_desc = "Warnt vor Dunkles Starren auf Gruppe X", -- "Warn for Dark Layr on Group X",
 
 	phase2starting	= "Das Auge ist tot! Phase 2 beginnt.", -- "The Eye is dead! Body incoming!",
 
@@ -403,6 +488,7 @@ function module:CThunStart()
 		doCheckForWipe = true
 
 		self:Message(L["startwarn"], "Attention", false, false)
+		self:Sound("Shakira")
 		self:Bar(L["barStartRandomBeams"], timer.p1RandomEyeBeams, icon.giantEye)
 
 		if self.db.profile.tentacle then
@@ -514,6 +600,7 @@ end
 function module:CThunWeakenedOver()
 	isWeakened = nil
 	self:ThrottleSync(600, syncName.weakenOver)
+	self.tentacleHP = 100
 	self:TriggerEvent("BigWigs_StartHPBar", self, L["First Tentacle"], 100)
 	self:TriggerEvent("BigWigs_SetHPBar", self, L["First Tentacle"], 0)
 	self:CancelDelayedSync(syncName.weakenOver) -- ok

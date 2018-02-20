@@ -102,6 +102,98 @@ L:RegisterTranslations("enUS", function() return {
 	["Next Bloodlust"] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Thekal",
+
+	phase2_trigger = "fill me with your RAGE!",
+	roguename = "Zelote Zath",
+	shamanname = "Zelote Lor'Khan",
+	phaseone_message = "Fase de Trol",
+	phasetwo_message = "Fase de Tigre",
+	phasetwo_bar = "Fase de Tigre",
+	tigers_trigger = "Sumo sacerdote Thekal Invoca guardianes Zulian.",
+	forcepunch_trigger = "Sumo sacerdote Thekal empieza hacer Puñetazo de fuerza.",
+	forcepunch_bar = "Puñetazo de fuerza",
+	heal_trigger = "Zelote Lor'Khan comienza a lanzar Gran sanación.",
+	enrage_trigger = "Sumo sacerdote Theka gana Enfurecer\.",
+	enrage_message = "¡Jefe está enfurecido! Cúranse!",
+	tigers_message = "¡Tigres entrantes!",
+	heal_message = "¡Zelote Lor'Khan está curando! Interrúmpela!",
+	heal_bar = "Gran sanación",
+	disarmself_trigger = "Sufres de Desactivar.",
+	disarmother_trigger = "(.+) sufre de Desactivar.",
+	mortalcleaveself_trigger = "Sufres de Mella mortal.",
+	mortalcleaveother_trigger = "(.+) sufre de Mella mortal.",
+	silenceself_trigger = "Sufres de Silencio.",
+	silenceother_trigger = "(.+) sufre de Silencio.",
+	silenceselfend_trigger = "Silencio acaba de disiparse.",
+	silenceotherend_trigger = "Silencio desaparece de (.+).",
+	silence_announce = "¡Silencio a %s! Disípalo!",
+	mortalcleave_bar = "Mella mortal: %s",
+	silence_bar = "Silencio: %s",
+	disarm_bar = "Desactivar: %s",
+	bloodlustgain = "(.+) gana Ansia de sangre.",
+	bloodlustend = "Ansia de sangre desaparece de (.+).",
+	bloodlust_bar = "Ansia de sangre: %s",
+	bloodlustannounce = "¡Disipa Ansia de sangre de %s!",
+	frenzybegin_trigger = "Sumo sacerdote Thekal gana Frenesí.",
+	frenzyend_trigger = "Frenesí desaparece de Sumo sacerdote Thekal.",
+	frenzyann = "¡Frenesí! Disparo tranquilizante ahora!",
+	frenzy_bar = "Frenesí",
+	death_trigger = "muere.",
+	zath_trigger = "Zelote Zath",
+	lorkhan_trigger = "Zelote Lor'Khan",
+	thekal_trigger = "Sumo sacerdote Thekal",
+	thekalrescast_trigger = "Sumo sacerdote Thekal comienza a lanzar Resurrección.",
+	zathrescast_trigger = "Zelote Zath comienza a lanzar Resurrección.",
+	lorkhanrescast_trigger = "Zelote Lor'Khan comienza a lanzar Resurrección.",
+
+	--heal_cmd = "heal",
+	heal_name = "Alerta de Curación",
+	heal_desc = "Avisa para la curación de Lor'Khan.",
+
+	--bloodlust_cmd = "bloodlust",
+	bloodlust_name = "Alerta de Ansia de sangre",
+	bloodlust_desc = "Anuncia cual jefe tiene Ansia de sangre.",
+
+	--silence_cmd = "silence",
+	silence_name = "Silencio",
+	silence_desc = "Muestra quien tiene Silencio.",
+
+	--disarm_cmd = "disarm",
+	disarm_name = "Desactivar",
+	disarm_desc = "Avisa para Desactivar de Zelote Lor'Khan.",
+
+	--cleave_cmd = "cleave",
+	cleave_name = "Alerta de Mella mortal",
+	cleave_desc = "Muestra quien tiene Mella mortal.",
+
+	--punch_cmd = "punch",
+	punch_name = "Alerta de Puñetazo de fuerza",
+	punch_desc = "Avisa para Puñetazo de fuerza",
+
+	--tigers_cmd = "tigers",
+	tigers_name = "Alerta de Tigres",
+	tigers_desc = "Avisa cuando aparenzcan los tigres.",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Alerta de Frenesí",
+	frenzy_desc = "Avisa para el Frenesí de Sumo sacerdote Thekal.",
+
+	--enraged_cmd = "enraged",
+	enraged_name = "Alerta de Enfurecer",
+	enraged_desc = "Avisa para Enfurecer.",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Anuncia los cambios de fase del jefe.",
+
+	["You have slain %s!"] = "¡Has matado %s!",
+	["Knockback"] = "Rechazar",
+	["New Adds"] = "Nuevos Tigres",
+	["Next Bloodlust"] = "Próxima Ansia de sangre",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "Thekal",
 

@@ -43,17 +43,63 @@ L:RegisterTranslations("enUS", function() return {
 	lifedrain_trigger = "afflicted by Life Drain",
 	lifedrain_trigger2 = "Life Drain was resisted by",
 	icebolt_trigger = "You are afflicted by Icebolt",
+	icebolt_trigger2 = "Icebolt",
 
 	deepbreath_incoming_message = "Ice Bomb casting in ~23sec!",
 	deepbreath_incoming_soon_message = "Ice Bomb casting in ~5sec!",
 	deepbreath_incoming_bar = "Ice Bomb Cast",
-	deepbreath_trigger = "%s takes in a deep breath...",
+	deepbreath_trigger = "begins to cast Frost Breath",
 	deepbreath_warning = "Ice Bomb Incoming!",
 	deepbreath_bar = "Ice Bomb Lands!",
 	icebolt_yell = "I'm an Ice Block!",
+
+	proximity_cmd = "proximity",
+	proximity_name = "Proximity Warning",
+	proximity_desc = "Show Proximity Warning Frame",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Sapphiron",
 
+	--deepbreath_cmd = "deepbreath",
+	deepbreath_name = "Alerta de Aliento de Escarcha",
+	deepbreath_desc = "Avisa para Aliento de Escarcha.",
+
+	--lifedrain_cmd = "lifedrain",
+	lifedrain_name = "Drenaje de vida",
+	lifedrain_desc = "Avisa para Drenaje de vida.",
+
+	--berserk_cmd = "berserk",
+	berserk_name = "Rabia",
+	berserk_desc = "Avisa para Rabia.",
+
+	--icebolt_cmd = "icebolt",
+	icebolt_name = "Anunciar Bloqueo de hielo",
+	icebolt_desc = "Grita cuando tengas Bloqueo de hielo.",
+
+	berserk_bar = "Rabia",
+	berserk_warn_10min = "¡10 minutos hasta Rabia!",
+	berserk_warn_5min = "¡5 minutos hasta Rabia!",
+	berserk_warn_rest = "¡%s segundos hasta Rabia!",
+
+	engage_message = "¡Entrando en combate con Sapphiron! Rabia en 15 minutos!",
+
+	lifedrain_message = "¡Drenaje de vida! El próximo posiblemente en ~24 segundos!",
+	lifedrain_warn1 = "¡Drenaje de vida en 5 segundos!",
+	lifedrain_bar = "Drenaje de vida",
+
+	lifedrain_trigger = "sufre de Drenaje de vida",
+	lifedrain_trigger2 = "Ha Resistido Drenaje de vida",
+	icebolt_trigger = "Sufres de Descarga de hielo",
+
+	deepbreath_incoming_message = "¡Lanza Aliento de Escarcha en ~23 segundos!",
+	deepbreath_incoming_soon_message = "¡Lanza Aliento de Escarcha en ~5 segundos!",
+	deepbreath_incoming_bar = "Lanza Aliento de Escarcha",
+	deepbreath_trigger = "%s takes in a deep breath...",
+	deepbreath_warning = "¡Aliento de Escarcha entrante!",
+	deepbreath_bar = "¡Lanza Aliento de Escarcha!",
+	icebolt_yell = "¡Estoy en Bloqueo de hielo!",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
@@ -62,11 +108,11 @@ L:RegisterTranslations("enUS", function() return {
 module.revision = 20003 -- To be overridden by the module!
 module.enabletrigger = module.translatedName -- string or table {boss, add1, add2}
 --module.wipemobs = { L["add_name"] } -- adds which will be considered in CheckForEngage
-module.toggleoptions = {"berserk", "lifedrain", "deepbreath", "icebolt", "bosskill"}
+module.toggleoptions = {"berserk", "lifedrain", "deepbreath", "icebolt", -1, "proximity", "bosskill"}
 
 -- Proximity Plugin
--- module.proximityCheck = function(unit) return CheckInteractDistance(unit, 2) end
--- module.proximitySilent = false
+module.proximityCheck = function(unit) return CheckInteractDistance(unit, 2) end
+module.proximitySilent = false
 
 
 -- locals
@@ -87,6 +133,8 @@ local icon = {
 local syncName = {
 	lifedrain = "SapphironLifeDrain"..module.revision,
 	flight = "SapphironFlight"..module.revision,
+	icebolt = "SapphironIcebolt"..module.revision,
+	breath = "SapphironBreath"..module.revision,
 }
 
 local timeLifeDrain = nil
@@ -109,14 +157,17 @@ function module:OnEnable()
 		self:CancelScheduledEvent("bwsapphdelayed")
 	end
 
-	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE", "CheckForDeepBreath")
-
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "CheckForLifeDrain")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE", "CheckForLifeDrain")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE", "CheckForLifeDrain")
 
+	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE", "CheckForIcebolt")
+	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE", "CheckForIcebolt")
+	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE", "CheckForIcebolt")
+
 	self:ThrottleSync(4, syncName.lifedrain)
 	self:ThrottleSync(5, syncName.flight)
+	self:ThrottleSync(30, syncName.icebolt)
 end
 
 -- called after module is enabled and after each wipe
@@ -155,6 +206,7 @@ function module:OnDisengage()
 	if self:IsEventScheduled("bwsapphdelayed") then
 		self:CancelScheduledEvent("bwsapphdelayed")
 	end
+	self:RemoveProximity()
 end
 
 
@@ -171,22 +223,18 @@ function module:CheckForLifeDrain(msg)
 	elseif string.find(msg, L["icebolt_trigger"]) and self.db.profile.icebolt then
 		SendChatMessage(L["icebolt_yell"], "YELL")
 	end
-end
-
-function module:CheckForDeepBreath(msg)
-	if msg == L["deepbreath_trigger"] then
-		if self.db.profile.deepbreath then
-			self:Message(L["deepbreath_warning"], "Important")
-			self:Bar(L["deepbreath_bar"], timer.deepbreath, icon.deepbreath)
-		end
-
-		self:RemoveBar(L["lifedrain_bar"])
-		if self.db.profile.lifedrain then
-			self:Bar(L["lifedrain_bar"], timer.lifedrainAfterFlight, icon.lifedrain)
-		end
+	if string.find(msg, L["icebolt_trigger2"]) then
+		self:Sync(syncName.icebolt)
 	end
 end
 
+function module:CheckForIcebolt(msg)
+	if string.find(msg, L["icebolt_trigger2"]) then
+		self:Sync(syncName.icebolt)
+	elseif string.find(msg, L["deepbreath_trigger"]) then
+		self:Sync(syncName.breath)
+	end
+end
 
 ------------------------------
 --      Synchronization	    --
@@ -197,6 +245,10 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		self:LifeDrain()
 	elseif sync == syncName.flight then
 		self:Flight()
+	elseif sync == syncName.icebolt then
+		self:Icebolt()
+	elseif sync == syncName.breath then
+		self:Breath()
 	end
 end
 
@@ -225,8 +277,25 @@ function module:Flight()
 		cachedUnitId = nil
 		self:ScheduleEvent("besapphdelayed", self.StartTargetScanner, timer.groundPhase, self)
 	end
+	if  self.db.profile.proximity then
+		self:Proximity()
+	end
 end
 
+function module:Icebolt()
+	if self.db.profile.deepbreath then
+		self:Bar(L["deepbreath_incoming_bar"], timer.deepbreathInc-6, icon.deepbreathInc)
+	end
+end
+
+function module:Breath()
+	if self.db.profile.deepbreath then
+		self:RemoveBar(L["deepbreath_incoming_bar"])
+		self:Message(L["deepbreath_warning"], "Important")
+		self:Bar(L["deepbreath_bar"], timer.deepbreath, icon.deepbreath)
+		self:RemoveProximity()
+	end
+end
 
 ------------------------------
 --      Target Scanning     --

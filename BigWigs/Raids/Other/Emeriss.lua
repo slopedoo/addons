@@ -69,6 +69,39 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Emeriss",
+
+	--noxious_cmd = "noxious",
+	noxious_name = "Alerta de Aliento nocivo",
+	noxious_desc = "Avisa para Aliento nocivo",
+
+	--volatileyou_cmd = "volatileyou",
+	volatileyou_name = "Alerta personal de Infección volátil",
+	volatileyou_desc = "Avisa si tienes Infección volátil",
+
+	--volatileother_cmd = "volatileother",
+	volatileother_name = "Alerta de Infección volátil",
+	volatileother_desc = "Avisa si otros jugadores tienen Infección volátil",
+
+	volatile_trigger = "^([^%s]+) ([^%s]+) sufre de Infección volátil",
+	breath_trigger = "sufre de Aliento nocivo",
+	engage_trigger = "Hope is a DISEASE of the soul! This land shall wither and die!",
+	corruption_trigger = "Taste your world's corruption!",
+
+	volatileYou_warn = "¡Sufres de Infección volátil!",
+	volatileOther_warn = " sufre de Infección volátil!",
+	breathSoon_warn = "¡Aliento nocivo pronto!",
+	breath_warn = "¡Aliento nocivo!",
+	corruption_warn = "¡Corrupción de la Tierra! Cura AHORA!",
+
+	isyou = "Tu",
+	isare = "eres",
+
+	breath_bar = "Aliento nocivo",
+	corruption_bar = "Corrupción de la Tierra",
+
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

@@ -47,6 +47,24 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	Debuff = "Debuff",
+
+	trigger1 = "sufre de %s",
+	trigger2 = "(.+) de %s falla inmune.",
+	trigger3 = "Resistido %s de Can del Núcleo",
+
+
+	-- AceConsole strings
+	cmd = "Corehound",
+
+	bars_cmd = "bars",
+	bars_name = "Alternar barras",
+	bars_desc = "Alterna que se muestra las barras temporizadoras.",
+
+
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	Debuff = "Debuff",
 

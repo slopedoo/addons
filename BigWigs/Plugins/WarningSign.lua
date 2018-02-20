@@ -46,6 +46,25 @@ L:RegisterTranslations("enUS", function() return {
 	["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	--["WarningSign"] = true, -- console cmd
+	["Warning Sign"] = "Señal de Advertencia", -- module name
+	["Options for the Warning Sign."] = "Opciones para el Señal de Advertencia",
+	["Show anchor"] = "Mostrar ancla",
+	["Show the anchor frame."] = "Muestra el marco de la ancla",
+	["Reset"] = "Restablecer",
+	["Reset the frame."] = "Restablece el marco",
+	["Test"] = "Probar",
+	["Close"] = "Cerrar",
+
+	["Disabled"] = "Desactivado",
+	["Disable the warning signs for all modules that use it."] = "Desactiva los señales de advertencia para todos los módulos que lo usan",
+	["Scale"] = "Escala",
+	["Set the warning sign scale."] = "Define la escala del señal de advertencia",
+	["Transparency"] = "Transparencia",
+	["Set the warning sign alpha value (0.1 to 1.0: transparent to opaque)."] = "Define el valor alfa del señal de advertencia (0.1 a 1.0: transparente a opaco",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	["WarningSign"] = "warnzeichen", -- console cmd
 	["Warning Sign"] = "Warnzeichen", -- module name

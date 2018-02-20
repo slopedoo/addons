@@ -52,6 +52,48 @@ L:RegisterTranslations("enUS", function() return {
 	phase_desc = "Announces the boss' phase transition",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	spawn_name = "Engendro de Mar'li",
+
+	--cmd = "Marli",
+
+	spiders_trigger = "Aid me my brood!",
+	drainlifeyoustart_trigger = "Sufres de Drenar vida\.",
+	drainlifeotherstart_trigger = "(.+) sufre de Drenar vida\.",
+	drainlifeyouend_trigger = "Drenar vida acaba de disiparse\.",
+	drainlifeotherend_trigger = "Drenar vida desaparece de (.+)\.",
+	pbv = "Lluvia de descarga de veneno",
+	pbvafflicts_trigger = "afligido por Lluvia de descarga de veneno",
+	pbvhits_trigger = "Lluvia de descarga de veneno de Suma sacerdotisa Mar'li golpea",
+	pbvresist_trigger = "Resistido (.+) Lluvia de descarga de veneno de Suma sacerdotisa Mar'li",
+	pbvimmune_trigger = "Lluvia de descarga de veneno de Suma sacerdotisa Mar'li falla(.+) inmune",
+	you = "tu",
+	drainlife = "Drenar vida",
+	spiders_message = "¡Aparecen las arañas!",
+	drainlife_message = "¡Drenar vida! Interrúmpelo/disípalo!",
+	trollphase = "Fase de Trol",
+	trollphase_trigger = "The brood shall not fall",
+	spiderphase = "Fase de Araña",
+	spiderphase_trigger1 = "Draw me to your web mistress Shadra",
+	spiderphase_trigger2 = "Shadra, make of me your avatar",
+
+	--spider_cmd = "spider",
+	spider_name = "Alerta de Araña",
+	spider_desc = "Avisa cuando aparenzcan las arañas",
+
+	--volley_cmd = "volley",
+	volley_name = "Alerta de Lluvia de descarga de veneno",
+	volley_desc = "Avisa para Lluvia de descarga de veneno\n\n(Descargo de responsabilidad: la barra tiene un error de \194\1772 segundos)",
+
+	--drain_cmd = "drain",
+	drain_name = "Alerta de Drenar vida",
+	drain_desc = "Avisa para Drenar vida",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Anuncia los cambios de fase del jefe",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	spawn_name = "Spawn of Mar'li",
 

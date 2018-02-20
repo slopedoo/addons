@@ -33,6 +33,27 @@ L:RegisterTranslations("enUS", function() return {
 	["You need to be an assistant or raid leader to use this function."] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["|cff00ff00Module running|r"] = "|cff00ff00Módulo activado|r",
+	["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "|cffeda55fHaz Clic|r para reiniciar todos los módulos activos. |cffeda55fCtrl+Clic|r para reiniciar para todos (Requiere asistente o líder). |cffeda55fAlt+Clic|r para desactivarlos. |cffeda55fCtrl+Alt+Clic|r para desactivar Big Wigs.",
+	["|cffeda55fClick|r to enable."] = "|cffeda55fHaz Clic|r para activar.",
+	["Big Wigs is currently disabled."] = "Big Wigs está desactivo",
+	["Active boss modules"] = "Módulos de Jefe Activos",
+	--["hidden"] = "oculto",
+	--["shown"] = "mostrado",
+	--["minimap"] = "minimapa",
+	["Minimap"] = "Minimapa",
+	["Toggle the minimap button."] = "Alterna el botón del minimapa",
+	["All running modules have been reset."] = "Todos los módulos activos fueron reiniciados",
+	["All running modules have been rebooted for all raid members."] = "Todos los módulos activos fueros reiniciados para todos los miembros de la banda",
+	["All running modules have been disabled."] = "Todos los módulos activos fueron desactivados",
+	["%s reset."] = "%s Reiniciado",
+	["%s disabled."] = "%s Desactivado",
+	["%s icon is now %s."] = "el icono %s ahora es %s.",
+	["Show it again with /bw plugin minimap."] = "Mostrar con /bw plugin minimap",
+	["You need to be an assistant or raid leader to use this function."] = "Tienes que ser asistente o líder para usar la función",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	["|cff00ff00Module running|r"] = "|cff00ff00Modul aktiviert|r",
 	["|cffeda55fClick|r to reset all running modules. |cffeda55fCtrl+Click|r to force reboot for everyone (Requires assistant or higher). |cffeda55fAlt+Click|r to disable them. |cffeda55fCtrl+Alt+Click|r to disable Big Wigs completely."] = "|cffeda55fKlicken|r, um alle laufenden Module zurückzusetzen. |cffeda55fStrg+Klick|r um Reset für jedermann zu erzwingen (Benötigt Assistent oder höher). |cffeda55fAlt+Klick|r um alle laufenden Module zu beenden. |cffeda55fStrg+Shift+Klick|r um BigWigs komplett zu beenden.",

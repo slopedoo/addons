@@ -67,6 +67,33 @@ L:RegisterTranslations("enUS", function() return {
 	frenzy_desc = "Warn when Magmadar goes into a frenzy",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	-- Chat message triggers
+	frenzy_trigger = "Gana Frenesí",
+	panic_trigger = "sufre de Pánico.",
+	panic_trigger2 = "falla(.+) Pánico inmune.",
+	panic_trigger3 = "Resistido Pánico de Magmadar",
+	frenzy_bar = "Frenesí",
+	frenzyfade_trigger = "Frenesí desaparece de Magmadar",
+
+	-- Warnings and bar texts
+	frenzyann = "¡Frenesí! Disparo tranquilizante ahora!",
+	fearsoon = "¡Pánico entrante pronto!",
+	feartime = "¡Miedo! 30 segundos hasta el próximo!",
+	fearbar = "Pánico",
+
+	-- AceConsole strings
+	--cmd = "Magmadar",
+
+	--panic_cmd = "panic",
+	panic_name = "Avisar para Pánico",
+	panic_desc = "Avisa cuando Magmadar lance Pánico",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Alerta de Frenesí",
+	frenzy_desc = "Avisa cuando gane Frenesí Magmadar",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	frenzy_trigger = "wird mörderisch wahnsinnig!",
 	panic_trigger = "von Panik betroffen",

@@ -53,6 +53,25 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Lethon",
+
+	--noxious_cmd = "noxious",
+	noxious_name = "Alerta de Aliento nocivo",
+	noxious_desc = "Avisa para Aliento nocivo",
+
+	engage_trigger = "I can sense the SHADOW on your hearts. There can be no rest for the wicked!",
+	breath_trigger = "sufre de Aliento nocivo",
+	shadow_trigger = "Your wicked souls shall feed my power!",
+
+	shadow_warn = "¡Aparecen las Sombras!",
+	breathSoon_warn = "¡Aliento nocivo pronto!",
+	breath_warn = "¡Aliento nocivo!",
+
+
+	breath_bar = "Aliento nocivo",
+
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

@@ -91,6 +91,48 @@ L:RegisterTranslations("enUS", function() return {
 	blink_desc = "Warn when Shazzrah Blinks",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	blink_trigger = "lanza Portal de Shazzrah",
+	deaden_trigger = "Shazzrah gana Aligerar magia",
+	curse_trigger = "sufre de Shazzrah",
+	cs_trigger2 = "Shazzrah lanza Contrahechizo",
+	cs_trigger = "Resistido Contrahechizo de Shazzrah",
+	curse_trigger2 = "Resistido Maldición de Shazzrah",
+	deaden_over_trigger = "Aligerar magia desaparece de Shazzrah",
+
+	blink_warn = "¡Traslación - 45 segundos hasta el próximo!",
+	blink_soon_warn = "¡3 segundos hasta Traslación!",
+	deaden_warn = "¡Aligerar magia está activo! Disípalo!",
+	curse_warn = "¡Maldición de Shazzrah! Déshazla AHORA!",
+	cs_now_warn = "¡Contrahechizo! ~18 segundos hasta el próximo!",
+	cs_soon_warn = "¡3 segundos hasta Contrahechizo!",
+
+	blink_bar = "Traslación Posible",
+	deaden_bar = "Aligerar magia",
+	curse_bar = "Maldición de Shazzrah",
+	cs_bar = "Contrahechizo Posible",
+
+	--cmd = "Shazzrah",
+
+
+	-- counterspell after blink 2s later
+	--counterspell_cmd = "counterspell",
+	counterspell_name = "Alerta de Contrahechizo",
+	counterspell_desc = "Avisa para Contrahechizo de Shazzrah",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de Maldición de Shazzrah",
+	curse_desc = "Avisa para Maldición de Shazzrah",
+
+	--deaden_cmd = "deaden",
+	deaden_name = "Alerta de Aligerar magia",
+	deaden_desc = "Avisa cuando Shazzrah tenga Aligerar magia",
+
+	--blink_cmd = "blink",
+	blink_name = "Alerta de Traslación",
+	blink_desc = "Avisa cuando Shazzrah lance Traslación",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	blink_trigger = "Shazzrah wirkt Portal von Shazzrah",
 	deaden_trigger = "Shazzrah bekommt \'Magie dämpfen",

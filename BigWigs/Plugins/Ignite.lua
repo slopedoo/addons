@@ -65,6 +65,47 @@ L:RegisterTranslations("enUS", function() return {
 	["Pyroblast"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Show Warnings"] = "Mostrar Advertencias",
+	["Show Warnings from other players even if the frame is hidden."] = "Muestra Advertencias de otros jugadores aún si el marco está oculto",
+	["Ignite"] = "Ignición",
+	["Disabled"] = "Desactivado",
+	["Options for the ignite Display."] = "Opciones para la muestra de Ignición",
+	["Show frame"] = "Mostrar marco",
+	["Show the ignite frame."] = "Muestra el marco de ignición",
+	["Lock frame"] = "Bloquear Marco",
+	["Lock the ignite frame."] = "Bloquea el marco de ignición",
+	["Reset position"] = "Restablecer posición",
+	["Reset the frame position."] = "Restablece la posición del marco",
+	["Send Stop"] = "Parar",
+	["Send Stop messages to all raid members"] = "Envia mensajes de parar a todos los miembros de la banda",
+	["font"] = "Fonts\\FRIZQT__.TTF",
+	["Always show in raid"] = "Siempre mostrar en la banda",
+	["Always show in raid after ignite tick"] = "Siempre muestra en la banda después de un tic de ignición",
+
+	["Stacks"] = "Montones",
+	["Damage"] = "Daño",
+	["Owner"] = "Dueño",
+	["Threat"] = "Amenaza",
+	["n/a"] = "n/a", -- no threat data available
+	["Stop"] = "Parar",
+	["your"] = "tu",
+	["Your"] = "Tu",
+
+	fire_test = "^([%w]+)([%s's]*) (.+) crits (.+) para ([%d]+) ([%w]+) daño.",
+	ignite_stack_test = "^(.+) está afligido por Igición.[%s%(]*([%d]*)",
+	ignite_damage_test = "^(.+) sufre ([%d]+) daño de fuego de ([%w]+)([%s's]*) Ignición.",
+	ignite_resist = "([%d]+) resistido",
+	ignite_fade_test = "^Ignición se desvanece de (.+).",
+
+	["Fireball"] = "Bola de Fuego",
+	["Scorch"] = "Chamuscar",
+	["Fire Blast"] = "Explosión de Fuego",
+	["Blastwave"] = "Ola explosiva",
+	["Flamestrike"] = "Fogonazo",	
+	["Pyroblast"] = "Piroexplosión",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	["Show Warnings"] = "Warnungen anzeigen",
 	["Show Warnings from other players even if the frame is hidden."] = "Warnungen von anderen Spielern anzeigen selbst wenn das Fenster versteckt ist.",

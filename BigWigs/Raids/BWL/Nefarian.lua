@@ -102,6 +102,98 @@ L:RegisterTranslations("enUS", function() return {
 	["Drakonids dead"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	engage_trigger = "Let the games begin!",
+	landing_trigger = "Enough! Now you",
+	landingNOW_trigger = "courage begins to wane",
+	zerg_trigger = "Impossible! Rise my",
+	fear_trigger = "Nefarian comienza a lanzar Clamor bramante",
+	fear_over_trigger = "Clamor bramante",
+	shadowflame_trigger = "Nefarian comienza a lanzar Llama de las Sombras",
+	shadowcurseyou_trigger = "Sufres de Velo de Sombras\.",
+	shadowcurseother_trigger = "(.+) sufre de Velo de Sombras\.",
+
+	triggerfear = "por Pánico.",
+	land = "Aterrizaje Estimado",
+	Mob_Spawn = "Aparecen los Dracónidos",
+	fear_warn = "¡Miedo AHORA!",
+
+	triggershamans	= "Shamans, show me",
+	triggerdruid	= "Druids and your silly",
+	triggerwarlock	= "Warlocks, you shouldn't be playing",
+	triggerpriest	= "Priests! If you're going to keep",
+	triggerhunter	= "Hunters and your annoying",
+	triggerwarrior	= "Warriors, I know you can hit harder",
+	triggerrogue	= "Rogues%? Stop hiding",
+	triggerpaladin	= "Paladins",
+	triggermage	= "Mages too%?",
+
+	landing_warning = "¡Nefarian está aterrizando!",
+	zerg_warning = "¡Zerg entrante!",
+	fear_warning = "¡Miedo en 2 segundos!",
+	fear_soon_warning = "Miedo posible en ~5 segundos",
+	shadowflame_warning = "¡Llama de las Sombras entrante!",
+	shadowflame_bar = "Llama de las Sombras",
+	classcall_warning = "¡Llamada de Clase entrante!",
+
+	warnshaman	= "¡Chamanes - Aparecen los Tótems!",
+	warndruid	= "¡Druidas -  No puedes cambiar de Forma felina!",
+	warnwarlock	= "¡Brujos - Infernales entrantes!",
+	warnpriest	= "¡Sacerdotes - Hace daño la curación!",
+	warnhunter	= "¡Cazadores - Arco/Armas de fuego rotos!",
+	warnwarrior	= "¡Guerreros - No puedes cambiar de Actitud rabiosa!",
+	warnrogue	= "¡Pícaros - Teletransportado y arraigado!",
+	warnpaladin	= "¡Paladines - Bendición de Protección!",
+	warnmage	= "¡Magos - Polimorfia entrante!",
+
+	classcall_bar = "Llamada de Clase",
+	fear_bar = "Miedo posible",
+
+	curse_bar = "Velo de Sombras",
+
+	--cmd = "Nefarian",
+
+	--shadowflame_cmd = "shadowflame",
+	shadowflame_name = "Alerta de Llama de las Sombras",
+	shadowflame_desc = "Avisa para Llama de las Sombras",
+
+	--fear_cmd = "fear",
+	fear_name = "Alerta para Miedo",
+	fear_desc = "Avisa cuando Nefarian lance Clamor bramante",
+
+	--classcall_cmd = "classcall",
+	classcall_name = "Alerta de Llamada de Clase",
+	classcall_desc = "Avisa para Llamada de Clase",
+
+	--otherwarn_cmd = "otherwarn",
+	otherwarn_name = "Otras alertas",
+	otherwarn_desc = "Avisa para Aterrizaje y Zerg",
+
+	--curse_cmd = "curse",
+	curse_name = "Velo de Sombras",
+	curse_desc = "Muestra una barra temporizadora para Velo de Sombras.",
+
+	--mc_cmd = "mc",
+	mc_name = "Alerta de Control mental",
+	mc_desc = "Avisa para Control mental",
+	mcwarn = "¡Se lanza Control mental!",
+	mcplayer = "^([^%s]+) ([^%s]+) sufre de Orden de las Sombras.$",
+	mcplayerwarn = " está controlado por mente!",
+	mcyou = "Tu",
+	mcare = "estás",
+
+	-- nef counter
+	["NefCounter_Trigger"] = "^([%w ]+) ha muerto.",
+
+	["NefCounter_RED"] = "Dracónido rojo",
+	["NefCounter_GREEN"] = "Dracónido verde",
+	["NefCounter_BLUE"] = "Dracónido azul",
+	["NefCounter_BRONZE"] = "Dracónido de bronce",
+	["NefCounter_BLACK"] = "Dracónido negro",
+	["NefCounter_CHROMATIC"] = "Dracónido cromático",
+	["Drakonids dead"] = "Dracónidos muertos",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	engage_trigger = "Lasst die Spiele beginnen!",
 	landing_trigger = "GENUG! Nun sollt ihr Ungeziefer",

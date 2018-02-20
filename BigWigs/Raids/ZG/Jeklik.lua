@@ -55,6 +55,10 @@ L:RegisterTranslations("enUS", function() return {
 	you = "you",
 	HighPriestessJeklik = "High Priestess Jeklik",
 
+	["Next Heal"] = true,
+	["Fire Bombs"] = true,
+	["First Silence"] = true,
+
 	cmd = "Jeklik",
 
 	phase_cmd = "phase",
@@ -85,6 +89,86 @@ L:RegisterTranslations("enUS", function() return {
 	announce_cmd = "whispers",
 	announce_name = "Whisper to burning people",
 	announce_desc = "Sends a whisper to players that stand in fire\n\n(Requires assistant or higher)\n\n(Disclaimer: to avoid spamming whispers, it will only whisper people that take damage from fire that is on the ground - aka not the Bat's throw itself)",
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	combat_trigger = "grant me wings of v",
+	swarmbat_name = "Murciélago buscasangre",
+	bombbat_name = "Murciélago buscasangre demenciado",
+	swarm_trigger = "Murciélago buscasangre gana Rondar\.",
+	bomb_trigger = "Murciélago buscasangre demenciado gana Rondar\.",
+	fearrep_trigger1 = "sufre de Chirrido terrorífico",
+	fearrep_trigger2 = "Resistido Chirrido terrorífico",
+	fearrep_trigger3 = "Chirrido terrorífico falla(.+) inmune",
+	fearrep_trigger4 = "sufre de Alarido psíquico",
+	fearrep_trigger5 = "Resistido Alarido psíquico",
+	fearrep_trigger6 = "Alarido psíquico falla(.+) inmune",
+	attack_trigger1 = "Suma sacerdotisa Jeklik ataca",
+	attack_trigger2 = "Suma sacerdotisa Jeklik falla",
+	attack_trigger3 = "Suma sacerdotisa Jeklik golpea",
+	attack_trigger4 = "Suma sacerdotisa Jeklik golpe crítico",
+	liquidfire_trigger = "Fuego líquido",
+	liquidfirehitsyou_trigger = "Lanza Fuego líquido impacta",
+	liquidfirehitsother_trigger = "Llamarada de Fuego líquido impacta (.+) por",
+	liquidfireabsorbyou_trigger = "Absorbes Llamarada de Fuego líquido\.",
+	liquidfireabsorb_trigger = "Llamarada de Fuego líquido está absorbido por (.+)\.",
+	liquidfireresistyou_trigger = "Resistido Llamarada de Fuego líquido\.",
+	liquidfireresist_trigger = "Ha resistido Llamarada de Fuego líquido (.+)\.",
+	liquidfireimmuneyou_trigger = "Llamarada de Fuego líquido ha fallado. Eres inmune\.",
+	liquidfireimmune_trigger = "Lammarada de Fuego líquido ha fallado. (.+) es inmune\.",
+	mindflayyou_trigger = "Sufres de Despelleje mental\.",
+	mindflayother_trigger = "(.+) sufre de Despelleje mental\.",
+	mindflayendyou_trigger = "Despelleje mental acaba de disiparse\.",
+	mindflayend_trigger = "Despelleje mental se desaparece de (.+)\.",
+	phasetwo_trigger = "Rondar se desaparece de Suma sacerdotisa Jeklik\.",
+	heal_trigger = "Suma sacerdotisa Jeklik empieza lanzar Gran sanación\.",
+	swarm_message = "¡Enjambre de murciélagos entrantes! Mátanlos!",
+	bomb_message = "¡Una murciélago de bomba se une la pelea! Cuida tu localización!",
+	fearinitext = "Miedo",
+	fearreptext = "Miedo Posible",
+	mindflaybar = "Despelleje mental",
+	greathealbar = "Sanación",
+	greathealtext = "¡Sanación! Interrúmpela!",
+	phaseone_message = "Fase de Murciélago",
+	phasetwo_message = "Fase de Trol",
+	firewarn = "¡Retrocede del fuego!",
+	firewarnyou = "¡Retrocede del fuego!",
+	you = "tu",
+	HighPriestessJeklik = "Suma sacerdotisa Jeklik",
+	
+	["Next Heal"] = "Próxima sanación",
+	["Fire Bombs"] = "Bombas de Fuego",
+	["First Silence"] = "Primer Silencio",
+	--cmd = "Jeklik",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Anuncia cuando cambie su fase la jefa",
+
+	--heal_cmd = "heal",
+	heal_name = "Alerta de sanación",
+	heal_desc = "Avisa para sanación",
+
+	--flay_cmd = "flay",
+	flay_name = "Alerta de Despelleje mental",
+	flay_desc = "Avisa para Despelleje mental",
+
+	--fear_cmd = "fear",
+	fear_name = "Alerta de Miedo",
+	fear_desc = "Avisa para Miedo\n\n(Descargo de responsabilidad: varia el temporizador, suele lanzar miedo dentro de 10 segundos después de que desaparezca la barra de miedo)",
+
+	--bomb_cmd = "bomb",
+	bomb_name = "Alerta de Murciélago de bomba",
+	bomb_desc = "Avisa para Murciélagos de bomba",
+
+	--swarm_cmd = "swarm",
+	swarm_name = "Alerta de Enjambre de Murciélagos",
+	swarm_desc = "Avisa para Enjambre de Murciélagos",
+	swarm_bartext = "Emjambre de Murciélagos",
+
+	--announce_cmd = "whispers",
+	announce_name = "Susurrar a los jugadores ardientes",
+	announce_desc = "Susurra a los jugadores que están en el fuego\n\n(Require asistente o líder)\n\n(Descargo de responsabilidad: para evitar spam, solamente susurrará los jugadores dañado por el fuego al suelo - no la lanza del murciélago)",
 } end )
 
 L:RegisterTranslations("deDE", function() return {
@@ -275,7 +359,7 @@ function module:OnEngage()
 	if self.db.profile.phase then
 		self:Message(L["phaseone_message"], "Attention")
 	end
-	self:Bar("First Silence", timer.firstSilence, icon.silence)
+	self:Bar(L["First Silence"], timer.firstSilence, icon.silence)
 
 	-- bats
 	if self.db.profile.swarm then
@@ -380,7 +464,7 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 			self:RemoveBar(L["fearreptext"])
 			self:Bar(L["fearreptext"], timer.fear2, icon.fear2)
 		end
-		self:Bar("Fire Bombs", timer.fireBombs, icon.bomb)
+		self:Bar(L["Fire Bombs"], timer.fireBombs, icon.bomb)
 	elseif sync == syncName.fear and self.db.profile.fear then
 		self:Bar(L["fearreptext"], timer.fear, icon.fear)
 	elseif sync == syncName.fear2 then
@@ -408,7 +492,7 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		self.lastHeal = GetTime()
 		self.castingheal = 1
 		if self.db.profile.heal then
-			self:RemoveBar("Next Heal")
+			self:RemoveBar(L["Next Heal"])
 			self:Message(L["greathealtext"], "Important", "Alarm")
 			self:Bar(L["greathealbar"], timer.healCast, icon.heal)
 		end
@@ -417,7 +501,7 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		if self.db.profile.heal then
 			self:RemoveBar(L["greathealbar"])
 			if (self.lastHeal + timer.nextHeal) > GetTime() then
-				self:Bar("Next Heal", (self.lastHeal + timer.nextHeal - GetTime()), icon.heal)
+				self:Bar(L["Next Heal"], (self.lastHeal + timer.nextHeal - GetTime()), icon.heal)
 			end
 		end
 	end

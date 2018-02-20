@@ -89,6 +89,84 @@ L:RegisterTranslations("enUS", function() return {
 	thunderfury = "Thunderfury",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Chromaggus",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Enfurecer",
+	enrage_desc = "Avisa antes de la fase de Enfurecer a 20%.",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Frenesí",
+	frenzy_desc = "Avisa para Frenesí.",
+
+	--breath_cmd = "breath",
+	breath_name = "Alientos",
+	breath_desc = "Avisa para Alientos.",
+
+	--breathcd_cmd = "breathcd",
+	breathcd_name = "Cuenta de Voz de Aliento",
+	breathcd_desc = "Aviso de Voz para los Alientos.",
+
+	--vulnerability_cmd = "vulnerability",
+	vulnerability_name = "Vulnerabilidad",
+	vulnerability_desc = "Avisa para cambios de Vulnerabilidad.",
+
+	breath_trigger = "Chromaggus comienza a lanzar (.+)\.",
+	vulnerability_direct_test = "([%w%s:]+) de ^[%w]+[%s]* inflige ([%d]+) puntos de daño de ([%w]+) a Chromaggus. [%s%(]*([%d]* resistido)", -- [Fashu's] [Firebolt] [hits] Battleguard Sartura for [44] [Fire] damage. ([14] resisted)
+	vulnerability_dots_test = "^Chromaggus sufre ([%d]+) ([%w]+) daño de [%w]+[%s]* ([%w%s:]+)%.[%s%(]*([%d]*)",
+	frenzy_trigger = "entra frenesí",
+	frenzyfade_trigger = "Frenesí desaparece de Chromaggus\.",
+	vulnerability_trigger = "flinches as its skin shimmers.", -- ***
+
+	hit = "golpea",
+	crit = "golpe crítico",
+
+	firstbreaths_warning = "¡Aliento en 5 segundos!",
+	breath_warning = "¡%s en 5 segundos!",
+	breath_message = "¡Está lanzando %s!",
+	vulnerability_message = "¡Vulnerabilidad: %s!",
+	vulnerability_warning = "¡Vulnerabilidad de Hechizo ha cambiado!",
+	frenzy_message = "¡Frenesí! Disparo tranquilizante AHORA!",
+	enrage_warning = "¡Enfurecer pronto!",
+
+	breath1 = "Lapso de tiempo",
+	breath2 = "Ácido corrosivo",
+	breath3 = "Ignición de la carne",
+	breath4 = "Incinerar",
+	breath5 = "Quemadura de Escarcha",
+
+	breathcolor1 = "negro",
+	breathcolor2 = "verde",
+	breathcolor3 = "naranja",
+	breathcolor4 = "rojo",
+	breathcolor5 = "azul",
+
+	icon1 = "Spell_Arcane_PortalOrgrimmar",
+	icon2 = "Spell_Nature_Acid_01",
+	icon3 = "Spell_Fire_Fire",
+	icon4 = "Spell_Shadow_ChillTouch",
+	icon5 = "Spell_Frost_ChillingBlast",
+
+	castingbar = "Lanza %s",
+	frenzy_bar = "Frenesí",
+	frenzy_Nextbar = "Próximo Frenesí",
+	first_bar = "Primer Aliento",
+	second_bar = "Segundo Aliento",
+	vuln_bar = "%s Vulnerabilidad",
+
+	fire = "Fuego",
+	frost = "Escharcha",
+	shadow = "Sombras",
+	nature = "Naturaleza",
+	arcane = "Arcano",
+
+	curseofdoom = "Maldición del apocalipsis",
+	ignite = "Ignición",
+	starfire = "Fuego Estelar",
+	thunderfury = "Furiatrueno",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	enrage_name = "Wutanfall",
 	enrage_desc = "Warnung, wenn Chromaggus w\195\188tend wird (ab 20%).",

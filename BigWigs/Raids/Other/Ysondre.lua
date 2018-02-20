@@ -53,6 +53,24 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	cmd = "Ysondre",
+
+	--noxious_cmd = "noxious",
+	noxious_name = "Alerta de Aliento nocivo",
+	noxious_desc = "Avisa para Aliento nocivo",
+
+	engage_trigger = "The strands of LIFE have been severed! The Dreamers must be avenged!",
+	breath_trigger = "sufre de Aliento nocivo",
+	druid_trigger = "Your wicked souls shall feed my power!",
+
+	druid_warn = "¡Aparecen los Druidas!",
+	breathSoon_warn = "¡Aliento nocivo pronto!",
+	breath_warn = "¡Aliento nocivo!",
+
+	breath_bar = "Aliento nocivo",
+
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

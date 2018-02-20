@@ -80,6 +80,46 @@ L:RegisterTranslations("enUS", function() return {
 	dmg_desc = "Warn for Damage Shield",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	disabletrigger = "¡Mis llamas!",
+	engage_trigger = "¡Imprudentes mortales! ¡Nadie puede enfrentarse a los Hijos de la Llama viviente!",
+
+	magic_trigger = "gana Refracción mágica",
+	dmg_trigger = "gana Escudo de daños",
+	magic_over_trigger = "Refracción mágica desaparece",
+	damage_over_trigger = "Escudo de daños desaparece",
+	healdead = "Sanador despiertallamas muere",
+	elitedead = "Élite despiertallamas muere",
+	elitename = "Élite despiertallamas",
+	healername = "Sanador despiertallamas",
+
+	magic_warn = "¡Refracción mágica por 10 segundos!",
+	dmg_warn = "¡Escudo de daños por 10 segundos!",
+	shield_warn_soon = "¡3 segundos hasta nuevas auras!",
+	magic_over_warn = "¡Refracción mágica no está activo!",
+	dmg_over_warn = "¡Escudo de daños no está activo!",
+	hdeadmsg = "¡%d/4 Sanador despiertallamas muertos!",
+	edeadmsg = "¡%d/4 Élite despiertallamas muertos!",
+
+	magic_bar = "Refracción mágica",
+	dmg_bar = "Escudo de daños",
+	shield_bar = "Nuevo escudo",
+
+	--cmd = "Majordomo",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de Sanadores y Élites muertos",
+	adds_desc = "Anuncia Sanadores y Élites muertos",
+
+	--magic_cmd = "magic",
+	magic_name = "Refracción mágica",
+	magic_desc = "Avisa para Refracción mágica",
+
+	--dmg_cmd = "dmg",
+	dmg_name = "Escudo de daños",
+	dmg_desc = "Avisa para Escudo de daños",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	disabletrigger = "Ich werde euch nun verlassen",
 	engage_trigger = "Niemand fordert die Söhne der Lebenden Flamme heraus", --"Reckless mortals, none may challenge the sons of the living flame!",

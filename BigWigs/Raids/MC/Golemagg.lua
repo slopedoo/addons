@@ -43,6 +43,23 @@ L:RegisterTranslations("enUS", function() return {
 	earthquake_desc = "Announces when it's time for melees to back off",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	corerager_name = "Furibundo del Núcleo",
+	earthquakesoonwarn = "Terremoto pronto",
+	golemaggenrage = "Golemagg el Incinerador gana Enfurecer",
+	enragewarn = "¡Golemagg está enfurecido!",
+
+	--cmd = "Golemagg",
+
+	--enraged_cmd = "enraged",
+	enraged_name = "Anuncia de Enfurecer",
+	enraged_desc = "Te avisa cuando se enfurezca Golemagg",
+
+	--earthquake_cmd = "earthquake",
+	earthquake_name = "Anuncia de Terremoto",
+	earthquake_desc = "Anuncia cuando los melee tienen que retroceder",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	corerager_name = "Kernw\195\188terich",
 	earthquakesoonwarn = "Erdbeben bald",

@@ -70,6 +70,70 @@ L:RegisterTranslations("enUS", function() return {
 	enrage_cmd          = "enrage",
 	enrage_name         = "Enrage Alert",
 	enrage_desc         = "Warn for Enrage",
+	["Next Holy Fire"] = true,
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	add_name                        = "Cobra Razzashi",
+	renew_trigger                   = "Sumo sacerdote Venoxis gana Renovar\.",
+	renewend_trigger                = "Renovar desaparece de Sumo sacerdote Venoxis\.",
+	enrage_trigger                  = "Sumo sacerdote Venoxis gana Enfurecer\.",
+	holyfire_trigger                = "Sumo sacerdote Venoxis comienza a lanzar Fuego Sagrado\.",
+	phase2_trigger                  = "Let the coils of hate unfurl!",
+	attack_trigger1                 = "Sumo sacerdote Venoxis ataca",
+	attack_trigger2                 = "Sumo sacerdote Venoxis falla",
+	attack_trigger3                 = "Sumo sacerdote Venoxis golpea",
+	attack_trigger4                 = "Sumo sacerdote Venoxis golpe crítico",
+	poisoncloud_trigger             = "Nube de veneno",
+	poisoncloudhitsyou_trigger      = "Sufres (.+) de daño de la Naturaleza del Nube de veneno de Sumo sacerdote Venoxis.",
+	poisoncloudhitsother_trigger    = "(.+) sufre (.+) de daño de la Naturaleza del Nube de veneno de Sumo sacerdote Venoxis.",
+	poisoncloud_on_you              = "Sufres de Nube de veneno.",
+	poisoncloudabsorbyou_trigger    = "Absorbes Nube de veneno de Sumo sacerdote Venoxis\.",
+	poisoncloudabsorb_trigger       = "Nube de veneno de Sumo sacerdote Venoxis está absorbido por (.+)\.",
+	poisoncloudresistyou_trigger    = "Resistido Nube de veneno de Sumo sacerdote Venoxis\.",
+	poisoncloudresist_trigger       = "Nube de veneno de Sumo sacerdote Venoxis fue resistido por (.+)\.",
+	poisoncloudimmuneyou_trigger    = "Nube de veneno de Sumo sacerdote Venoxis ha fallado. Eres inmune\.",
+	poisoncloudimmune_trigger       = "Nube de veneno de Sumo sacerdote Venoxis ha fallado. (.+) es inmune\.",
+	deadaddtrigger                  = "Cobra Razzashi muere",
+	deadbosstrigger                 = "Sumo sacerdote Venoxis muere",
+
+	holyfirebar         = "Fuego Sagrado",
+	renewbar            = "Renovar",
+	renew_message       = "¡Renovar! Disípala!",
+	phase1_message      = "Fase de Trol",
+	phase2_message      = "Fase de Serpiente",
+	enrage_message      = "¡El jefe está enfurecido! Cúranse!",
+	poisonyou_message   = "¡Muévate del Nube de veneno!",
+	poison_message      = "¡Muévanse del Nube de veneno!",
+	addmsg              = "¡%d/4 Cobras Razzashi muertas!",
+	you                 = "tu",
+
+	cmd                 = "Venoxis",
+
+	--adds_cmd            = "adds",
+	adds_name           = "Contador de adds muertos",
+	adds_desc           = "Anuncia Cobras Razzashi muertas",
+
+	--renew_cmd           = "renew",
+	renew_name          = "Alerta de Renovar",
+	renew_desc          = "Avisa para Renovar",
+
+	--holyfire_cmd        = "holyfire",
+	holyfire_name       = "Alerta de Fuego Sagrado",
+	holyfire_desc       = "Avisa para Fuego Sagrado",
+
+	--phase_cmd           = "phase",
+	phase_name          = "Alerta de Fase",
+	phase_desc          = "Anuncia los cambios de fase del jefe",
+
+	--announce_cmd        = "whispers",
+	announce_name       = "Susurrar a los jugadores en el Nube de veneno",
+	announce_desc       = "Susurra a los jugadores que están en el Nube de veneno\n\n(Require asistente o líder)\n\n(descargo de responsabilidad: para evitar spam, solamente susurrará a los jugadores que sufren daño del Nube de veneno)",
+
+	--enrage_cmd          = "enrage",
+	enrage_name         = "Alerta de Enfurecer",
+	enrage_desc         = "Avisa para Enfurecer",
+	["Next Holy Fire"] = "Próximo Fuego Sagrado",
 } end )
 
 L:RegisterTranslations("deDE", function() return {
@@ -330,7 +394,7 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		castingholyfire = 1
 		if self.db.profile.holyfire then
 			self:Bar(L["holyfirebar"], timer.holyfireCast, icon.holyfire, true, "red")
-			self:Bar("Next Holy Fire", timer.holyfire, icon.holyfire)
+			self:Bar(L["Next Holy Fire"], timer.holyfire, icon.holyfire)
 		end
 	elseif sync == "VenoxisHolyFireStop" then
 		castingholyfire = 0

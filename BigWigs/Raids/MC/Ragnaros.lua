@@ -106,6 +106,58 @@ L:RegisterTranslations("enUS", function() return {
 	["Combat"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	knockback_trigger = "^PROBAR LAS LLAMAS DE SULFURON", -- /script PlaySoundFile("Sound\\Creature\\Ragnaros\\RagnarosSpecialAttack02.wav")
+	submerge_trigger = "^VENID INSECTOS,", -- /script PlaySoundFile("Sound\\Creature\\Ragnaros\\RagnarosSpecialAttack03.wav")
+	submerge_trigger2 = "^YOU CANNOT DEFEAT THE LIVING FLAME,",
+	engage_trigger = "^NOW FOR YOU",
+	engage_soon_trigger1 = "Imprudent whelps!",
+	engage_soon_trigger2 = "TOO SOON! YOU HAVE AWAKENED ME TOO SOON",
+	engage_soon_trigger3 = "YOU ALLOWED THESE INSECTS",
+	hammer_trigger = "^EL FUEGO TE PURIFIQUE!", -- /script PlaySoundFile("Sound\\Creature\\Ragnaros\\RagnarosSpecialAttack01.wav")
+
+	knockback_message = "¡Rechazar!",
+	knockback_soon_message = "¡Rechazar pronto!",
+	submerge_message = "¡Ragnaros se sumerge. Hijos de la llama entrantes!",
+	emerge_soon_message = "¡15 segundos hasta que se yerga Ragnaros!",
+	emerge_message = "¡Ragnaros se yerge, 3 minutos hasta que se sumerja!",
+	submerge_60sec_message = "¡60 segundos hasta que se sumerja Ragnaros!",
+	submerge_30sec_message = "¡30 segundos hasta que se sumerja Ragnaros!",
+	submerge_10sec_message = "¡10 segundos hasta que se sumerja Ragnaros!",
+	submerge_5sec_message = "¡5 segundos hasta que se sumerja Ragnaros!",
+
+	knockback_bar = "Cólera de Ragnaros",
+	emerge_bar = "Ragnaros se yerge",
+	submerge_bar = "Ragnaros se sumerja",
+
+	sonofflame = "Hijos de la llama",
+	sonsdeadwarn = "¡%d/8 Hijos de la llama muertos!",
+
+	cmd = "Ragnaros",
+
+	--start_cmd = "start",
+	start_name = "Empezar",
+	start_desc = "Empieza una barra para estimar el comienzo de la pelea.",
+
+	--emerge_cmd = "emerge",
+	emerge_name = "Alerta de Emersión",
+	emerge_desc = "Avisa para Emersión de Ragnaros",
+
+	--adds_cmd = "adds",
+	adds_name = "Hijo de la llama muerto",
+	adds_desc = "Avisa cuando muera un hijo de la llama",
+
+	--submerge_cmd = "submerge",
+	submerge_name = "Alerta de Sumersión",
+	submerge_desc = "Avisa cuando se sumerja Ragnaros",
+
+	--aoeknock_cmd = "aoeknock",
+	aoeknock_name = "Alerta de Cólera de Ragnaros",
+	aoeknock_desc = "Avisa para el rechazo de Cólera de Ragnaros",
+
+	["Combat"] = "Combate",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	knockback_trigger = "DIE FLAMMEN VON SULFURON",
 	submerge_trigger = "^Kommt herbei, meine Diener!",

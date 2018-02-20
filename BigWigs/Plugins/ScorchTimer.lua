@@ -72,6 +72,51 @@ L:RegisterTranslations("enUS", function() return {
 	resist_test = "^Your Fire Vulnerability was resisted by (.+).",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Bars"] = "Barras",
+
+	["Gives timer for Scorch Fire Vulnerability."] = "Temporizador para vulnerabilidad al fuego de Chamuscar",
+	["Enable"] = "Activar",
+	["Enable timers."] = "Activa los temporizadores",
+	["Target only"] = "Solamente objetivo",
+	["Only show timer for the current target."] = "Solamente muestra temporizador para el objetivo actual",
+	["Show the bar anchor frame."] = "Muestra el marco de ancla de la barra",
+	["Set the bar scale."] = "Define la escala de la barra",
+	["Group upwards"] = "Crecer hacia arriba",
+	["Toggle bars grow upwards/downwards from anchor."] = "Alterna que las barras crecen hacia arriba/abajo de la ancla",
+
+	["Timer bars"] = "Barras temporizadoras",
+	["Show anchor"] = "Mostrar ancla",
+	["Grow bars upwards"] = "Crecer las barras hacia arriba",
+	["Scale"] = "Escala",
+	["Bar scale"] = "Escala de las barras",
+
+	["Bars now grow %2$s"] = "Barras se crecen a %2$s",
+	["Scale is set to %2$s"] = "Escala se define a %2$s",
+
+	["Up"] = "Arriba",
+	["Down"] = "Abajo",
+
+	["Test"] = "Probar",
+	["Close"] = "Cerrar",
+
+	["Texture"] = "Textura",
+	["Set the texture for the timerbars."] = "Define la textura para las barras del temporizador",
+
+	["Reset position"] = "Restablecer posición",
+	["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla al centro de la pantalla",
+	["Reverse"] = "Revertir",
+	["Toggles if bars are reversed (fill up instead of emptying)."] = "Alterna si las barras están revertidas (llenar en lugar de vaciar)",
+
+	--["ScorchTimer"] = true,
+
+	["Scorch Timer"] = "Temporizador de Chamuscar",
+
+	firevuln_test = "(.+) está afligido por Vulnerabilidad de Fuego.",
+	scorch_test	= "^Tu Chamuscar (%a%a?)\su (.+) para",
+	resist_test = "^Tu Vulnerabilidad de Fuego fue resistida por (.+).",
+} end)
+
 -----------------------------------------------------------------------
 --      Module Declaration
 -----------------------------------------------------------------------

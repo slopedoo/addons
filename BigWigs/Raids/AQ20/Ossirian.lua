@@ -49,6 +49,45 @@ L:RegisterTranslations("enUS", function() return {
 	["ArcaneIcon"] = "Spell_Arcane_PortalOrgrimmar",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Ossirian",
+
+	--supreme_cmd = "supreme",
+	supreme_name = "Alerta de Supremo",
+	supreme_desc = "Avisa para Modo Supremo",
+
+	--debuff_cmd = "debuff",
+	debuff_name = "Alerta de Debuff",
+	debuff_desc = "Avisa para Defuff",
+
+	supremetrigger = "Osirio el Sinmarcas gana Fuerza de Osirio.",
+	supremewarn = "¡Osirio Modo Supremo!",
+	supremedelaywarn = "¡Supremo en %d segundos!",
+	debufftrigger = "Osirio el Sinmarcas sufre de Debilidad de (.+).",
+	crystaltrigger = "Activador de cristal de Osirio muere.",
+	debuffwarn = "¡Osirio está debilidado a %s!",
+	supreme_bar = "Supremo",
+	expose = "Exponer",
+
+	["cyclone_trigger"] = "Vientos envolventes",
+	["stomp_trigger"] = "Pisotón de guerra",
+
+	["WarStomp"] = "Pisotón de guerra",
+	["Cyclone"] = "Ciclón",
+
+	["Shadow"] = "Sombras",
+	["Fire"] = "Fuego",
+	["Frost"] = "Escharcha",
+	["Nature"] = "Naturaleza",
+	["Arcane"] = "Arcano",
+
+	["ShadowIcon"] = "Spell_Shadow_ChillTouch",
+	["FireIcon"] = "Spell_Fire_Fire",
+	["FrostIcon"] = "Spell_Frost_ChillingBlast",
+	["NatureIcon"] = "Spell_Nature_Acid_01",
+	["ArcaneIcon"] = "Spell_Arcane_PortalOrgrimmar",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	supreme_name = "Stärke des Ossirian",
 	supreme_desc = "Warnung vor Stärke des Ossirian.",

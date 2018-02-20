@@ -106,6 +106,73 @@ L:RegisterTranslations("enUS", function() return {
 	puticon_name = "Raid Icon on Mark target",
 	puticon_desc = "Put a Raid Icon on the person who got Mark of Kazzak.\n\n(Requires assistant or higher)",
 } end )
+
+L:RegisterTranslations("esES", function() return {
+	cmd = "Kazzak",
+
+	starttrigger1 = "All mortals will perish!",
+	starttrigger2 = "The Legion will conquer all!",
+	markofkazzakyou_trigger = "Sufres de Marca de Kazzak.",
+	markofkazzakother_trigger = "(.*) sufre de Marca de Kazzak.",
+	markofkazzakyouend_trigger = "Marca de Kazzak acaba de disiparse.",
+	markofkazzakotherend_trigger = "Marca de Kazzak desaparece de (.*).",
+	twistedreflectionyou_trigger = "Sufres de Reflejo retorcido.",
+	twistedreflectionother_trigger = "(.*) sufre fde Reflejo retorcido.",
+	twistedreflectionyouend_trigger = "Reflejo retorcido acaba de disiparse.",
+	twistedreflectionotherend_trigger = "Reflejo retorcido desaparece de (.*).",
+	deathyou_trigger = "Mueres\.",
+	deathother_trigger = "(.*) muere.",
+	voidbolt_trigger = "Lord Kazzak comienza a lanzar Descarga del Vacío.",
+	attack_trigger1 = "Lord Kazzak ataca",
+	attack_trigger2 = "Lord Kazzak falla",
+	attack_trigger3 = "Lord Kazzak golpe",
+	attack_trigger4 = "Lord Kazzak golpe crítico",
+	enrage_trigger = "Lord Kazzak gana Berserk.",
+	enrageyell_trigger = "Kazzak está supremo!",
+	bosskill_trigger = "The Legion... will never... fall.",
+
+	engagewarn = "¡Entablado combate con Lord Kazzak! 3 minutos hasta Supremo!",
+	enrage_warm = "¡Lord Kazzak está supremo!",
+	makrofkazzak_warn = "¡%s tiene Marca de Kazzak! Déshazla!",
+	twistedreflection_warn = "¡%s tiene Reflejo retorcido! Disípalo!",
+	mark_message_you = "¡Tienes Marca de Kazzak! No pierdas maná!",
+	reflection_message_you = "Tiene Reflejo retorcido!",
+	corruptsoul_warn = "¡%s ha curado a Lord Kazzak por morirse!",
+	corruptsoul_warn_you = "¡Has curado a Lord Kazzak por morirse!",
+
+	supreme1min = "¡Modo supremo en 1 minuto!",
+	supreme30sec = "¡Modo supremo en 30 segundos!",
+	supreme10sec = "¡Modo supremo en 10 segundos!",
+
+	enrage_bar = "Modo supremo",
+	voidbolt_bar = "Descarga del Vacío",
+	mark_bar = "%s: Marca de Kazzak",
+	twisted_bar = "%s: Reflejo retorcido",
+
+	--supreme_cmd = "supreme",
+	supreme_name = "Alerta de Supremo",
+	supreme_desc = "Avisa para Modo supremo.",
+
+	--voidbolt_cmd = "voidbolt",
+	voidbolt_name = "Descarga del Vacío",
+	voidbolt_desc = "Avisa para Descarga del Vacío.",
+
+	--corruptsoul_cmd = "corruptsoul",
+	corruptsoul_name = "Alma Corrupto",
+	corruptsoul_desc = "Avisa cuando se cura el jefe porque se muere un jugador.",
+
+	--markofkazzak_cmd = "markofkazzak",
+	markofkazzak_name = "Marca de Kazzak",
+	markofkazzak_desc = "Avisa para Marca de Kazzak.",
+
+	--twistedreflection_cmd = "twistedreflection",
+	twistedreflection_name = "Reflejo retorcido",
+	twistedreflection_desc = "Avisa para Reflejo retorcido.",
+
+	--puticon_cmd = "puticon",
+	puticon_name = "Marcar para Marca de Kazzak",
+	puticon_desc = "Marca con un icono el jugador quien tiene Marca de Kazzak.\n\n(Require asistente o líder)",
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

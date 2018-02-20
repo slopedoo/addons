@@ -58,6 +58,54 @@ L:RegisterTranslations("enUS", function() return {
 	thunderclapwarn = "Thunderclap!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Defender",
+
+	--plagueyou_cmd = "plagueyou",
+	plagueyou_name = "Alerta personal del Peste",
+	plagueyou_desc = "Avisa si tienes el Peste",
+
+	--plagueother_cmd = "plagueother",
+	plagueother_name = "Alerta del Peste",
+	plagueother_desc = "Avisa si otros jugadores tienen el Peste",
+
+	--thunderclap_cmd = "thunderclap",
+	thunderclap_name = "Alerta de Trueno",
+	thunderclap_desc = "Avisa para Trueno",
+
+	--explode_cmd = "explode",
+	explode_name = "Alerta de Explotar",
+	explode_desc = "Avisa para Explotar",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	--summon_cmd = "summon",
+	summon_name = "Alerta de Invocación",
+	summon_desc = "Avisa para Guardaenjambres Anubisath invocados",
+
+	--icon_cmd = "icon",
+	icon_name = "Marcar con icono",
+	icon_desc = "Marca con un icono los jugadores con el Peste (require asistente o líder)",
+
+	explodetrigger = "Defensor Anubisath gana Explotar.",
+	explodewarn = "¡Explotando!",
+	enragetrigger = "Defensor Anubisath gana Enfurecer.",
+	enragewarn = "¡Enfurecido!",
+	summonguardtrigger = "Defensor Anubisath lanza Invocar guardaenjambre Anubisath.",
+	summonguardwarn = "Guardaenjambre Anubisath Invocado",
+	summonwarriortrigger = "Defensor Anubisath lanza Invocar guerrero Anubisath.",
+	summonwarriorwarn = "Guerrero Anubisath Invocado",
+	plaguetrigger = "^([^%s]+) ([^%s]+) sufre de Peste%.$",
+	plaguewarn = " tiene el Peste!",
+	plagueyouwarn = "¡Tienes el Peste!",
+	plagueyou = "Tu",
+	plagueare = "eres",
+	thunderclaptrigger = "^Trueno de Defensor Anubisath golpea a ([^%s]+) por %d+%.",
+	thunderclapwarn = "¡Trueno!",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	plagueyou_name = "Du hast die Seuche",
 	plagueyou_desc = "Warnung, wenn Du die Seuche hast.",

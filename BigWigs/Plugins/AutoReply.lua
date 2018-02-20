@@ -38,6 +38,21 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+
+		--statusRequest_cmd = "statusRequest",
+		statusRequest_name = "Solicita del Estado",
+		statusRequest_desc = "Permitir que inquiere el Estado del Jefe",
+
+		--healthStatus_cmd = "healthStatus",
+		healthStatus_name = "Estado de la Salud",
+		healthStatus_desc = "Permitir a los jugadores saber la Salud actual del Jefe",
+
+		--playersAlive_cmd = "playersAlive",
+		playersAlive_name = "Jugadores Vivos",
+		playersAlive_desc = "Permitir a los jugadores saber cuantos miembros de la banda están vivos",
+
+} end )
 
 ----------------------------------
 --      Module Declaration      --

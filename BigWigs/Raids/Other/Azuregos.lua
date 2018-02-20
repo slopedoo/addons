@@ -52,6 +52,29 @@ L:RegisterTranslations("enUS", function() return {
 	shield_bar = "Magic Shield",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Azuregos",
+
+	--teleport_cmd = "teleport",
+	teleport_name = "Alerta de Portal",
+	teleport_desc = "Avisa para portal",
+
+	--shield_cmd = "shield",
+	shield_name = "Alerta de Escudo",
+	shield_desc = "Avisa para escudo",
+
+	teleport_trigger = "Come, little ones",
+	shieldDown_trigger = "^Reflección desaparece de Azuregos",
+	shieldUp_trigger = "^Azuregos gana Reflección",
+
+	teleport_warn = "¡Portal!",
+	shieldDown_warn = "¡Escudo magia no está activo!",
+	shieldUp_warn = "¡Escudo magia está activo!",
+	teleport_bar = "Portal",
+	teleportSoon_warn = "Portal pronto",
+
+	shield_bar = "Escudo magia",
+} end )
 ------------------------------
 --      Initialization      --
 ------------------------------

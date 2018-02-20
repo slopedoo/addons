@@ -57,6 +57,53 @@ L:RegisterTranslations("enUS", function() return {
 	puticon_desc = "Place a raid icon on the player with Delusions of Jin'do.\n\n(Requires assistant or higher)",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	engage_trigger      = "Welcome to da great show friends",
+	triggerbrainwash = "Jin'do el Aojador lanza Invocar Tótem Lavado de cerebro.",
+	triggerhealing = "Jin'do el Aojador lanza Guarda de sanación potente.",
+	curseself_trigger = "Sufres de Ilusiones de Jin'do.",
+	curseother_trigger = "(.+) sufre de Ilusiones de Jin'do.",
+	hexself_trigger = "Sufres de Maleficio.",
+	hexother_trigger = "(.+) sufre de Maleficio.",
+	hexselfend_trigger = "Maleficio acaba de disiparse.",
+	hexotherend_trigger = "Maleficio desaparece de (.+).",
+	warnbrainwash = "¡Invocar Tótem Lavado de cerebro!",
+	warnhealing = "¡Guarda de sanación potente!",
+	jindo_death = "Jin'do el Aojador muere.",
+	brainwash_death = "Tótem Lavado de cerebro muere.",
+	healing_death = "Guarda de sanación potente muere.",
+	brainwash_bar = "Tótem Lavado de cerebro",
+	healing_bar = "Guarda de sanación potente",
+	brainwash_next_bar = "Próximo Tótem Lavado de cerebro",
+	healing_next_bar = "Próxima Guarda de sanación potente",
+	hex_bar = "Maleficio: %s",
+	cursewarn_message = "¡Estás maldito! Mata los Delusiones!",
+	cursewarn_warning = "¡%s está maldito!",
+	hexwarn_warning = "¡%s está en Maleficio! Disípalo!",
+
+	--cmd = "Jindo",
+
+	--brainwash_cmd = "brainwash",
+	brainwash_name = "Alerta de Tótem Lavado de cerebro",
+	brainwash_desc = "Avisa cuando Jin'do invoque Tótem Lavado de cerebro.",
+
+	--healingward_cmd = "healingward",
+	healingward_name = "Alerta de Guarda de sanación potente",
+	healingward_desc = "Avisa cuando Jin'do invoque Guarda de sanación potente.",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de Ilusiones de Jin'do",
+	curse_desc = "Avisa cuando jugadores tengan Ilusiones de Jin'do.",
+
+	--hex_cmd = "hex",
+	hex_name = "Alerta de Maleficio",
+	hex_desc = "Avisa cuando un jugador tenga Maleficio.",
+
+	--puticon_cmd = "puticon",
+	puticon_name = "Marcar a los jugadores con Ilusiones de Jin'do",
+	puticon_desc = "Marca con un icono el jugador con Ilusiones de Jin'do.\n\n(Require asistente o líder)",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	engage_trigger      = "Welcome to da great show friends",
 	triggerbrainwash = "von Gehirnw\195\164sche betroffen", -- Jin'do the Hexxer casts Summon Brain Wash Totem. stupid workaround

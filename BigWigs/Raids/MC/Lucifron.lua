@@ -96,6 +96,58 @@ L:RegisterTranslations("enUS", function() return {
 	shock_desc  = "Warn for Shadow Shock",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	curse_trigger = "sufre de Lucifron",
+	doom_trigger = "sufre de Condena inminente",
+	shock_trigger = "Choque de Sombras golpea",
+	shock_trigger2 = "Resistido Choque de Sombras de Lucifron",
+	curse_trigger2 = "Resistido Maldición de Lucifrón de Lucifron",
+	doom_trigger2 = "Resistido Condena inminente de Lucifron",
+	curse_warn_soon = "¡5 segundos hasta Maldición de Lucifrón!",
+	curse_warn_now = "¡Maldición de Lucifrón - 20 segundos hasta el próximo!",
+	doom_warn_soon = "¡5 segundos hasta Condena inminente!",
+	doom_warn_now = "¡Condena inminente - 15 segundos hasta el próximo!",
+	mindcontrolyou_trigger = "sufres de Subyugar mente.",
+	mindcontrolother_trigger = "(.*) sufre de Subyugar mente.",
+	mindcontrolyouend_trigger = "Subyugar mente acaba de disiparse.",
+	mindcontrolotherend_trigger = "Subyugar mente desaparece de (.*).",
+	deathyou_trigger = "Has muerto.",
+	deathother_trigger = "(.*) ha muerto.",
+	deadaddtrigger = "Protector despiertallamas muere",
+	add_name = "Protector despiertallamas",
+
+	mindcontrol_message = "¡%s tiene Subyugar mente!",
+	mindcontrol_message_you = "¡Tienes Subyugar mente!",
+	mindcontrol_bar = "Subyugar Mente: %s",
+	addmsg = "¡%d/2 Protector despiertallamas muertos!",
+
+	curse_bar = "Maldición de Lucifrón",
+	doom_bar = "Condena inminente",
+	shock_bar = "Choque de Sombras",
+
+	--cmd = "Lucifron",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de despiertallamas muertos",
+	adds_desc = "Anuncia Protector despiertallamas muertos",
+
+	--mc_cmd = "mc",
+	mc_name = "Subyugar mente",
+	mc_desc = "Alerta cuando alguien tenga Subyugar mente.",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de Maldición de Lucifrón",
+	curse_desc = "Avisa para Maldición de Lucifrón",
+
+	--doom_cmd = "doom",
+	doom_name = "Alerta de Condena inminente",
+	doom_desc = "Avisa para Condena inminente",
+
+	--shock_cmd = "shock",
+	shock_name = "Alerta de Choque de Sombras",
+	shock_desc  = "Avisa para Choque de Sombras",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	curse_trigger = "von Lucifrons Fluch betroffen",
 	doom_trigger = "von Drohende Verdammnis betroffen",

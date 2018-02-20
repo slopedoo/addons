@@ -3,6 +3,7 @@
 ## Title: Big Wigs |cff7fff7fElysium|r
 ## Title-zhCN: |cff7fff7fElysium|r Big Wigs 
 ## Notes: Boss Mods with Timer bars.
+## Notes-esES: Módulos para Jefes con barras temporizadoras.
 ## Notes-zhCN: 团队首领战信息提示插件，带有计时条。
 ## Notes-zhTW: 團隊首領戰訊息提示插件，帶有計時條。
 ## Author: Tekkub Stoutwrithe, Ammo, Shyva, Rabbit, LYQ, Dorann, Hosq & Others
@@ -68,7 +69,6 @@ Plugins\Test.lua
 Plugins\CustomBar.lua
 Plugins\Tranq.lua
 Plugins\ZombieFood.lua
-Plugins\LoathebTactical.lua
 Plugins\RespawnTimers.lua
 Plugins\WarningSign.lua
 Plugins\BossRecords.lua
@@ -78,6 +78,9 @@ Plugins\Proximity.lua
 Plugins\Ignite.lua
 Plugins\WorldBuffTimers.lua
 Plugins\ScorchTimer.lua
+Plugins\FRBuffMacro.lua
+Plugins\Farclip.lua
+Plugins\FrostBlast.lua
 
 Raids\ZG\Arlokk.lua
 Raids\ZG\Jeklik.lua
@@ -141,6 +144,7 @@ Raids\Other\Emeriss.lua
 Raids\Other\Lethon.lua
 Raids\Other\Taerar.lua
 Raids\Other\Ysondre.lua
+Raids\Other\Gordok.lua
 
 Raids\Onyxia\Onyxia.lua
 

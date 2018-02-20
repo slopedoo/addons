@@ -47,7 +47,42 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Anubrekhan",
 
+	--locust_cmd = "locust",
+	locust_name = "Alerta de Enjambre de langostas",
+	locust_desc = "Avisa para Enjambre de langostas",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer de la Guardia de la cripta",
+	enrage_desc = "Avisa para Enfurecer",
+
+	starttrigger1 = "Sólo un bocado...",
+	starttrigger2 = "¡Eso, corrid! Así la sangre singula más rápido!", -- singula?
+	starttrigger3 = "No hay salida.",
+
+	etrigger = "gana Enfurecer.",
+	enragewarn = "¡Enfurecer Guardia de la cripta - Aturde + Trampas!",
+
+	gaintrigger = "Anub'Rekhan gana Enjambre de langostas.",
+	gainendwarn = "¡Se termina Enjambre de langostas!",
+	gainnextwarn = "Próximo Enjambre de langostas en ~90 segundos",
+	gainwarn10sec = "~10 segundos hasta Enjambre de langostas",
+	gainincbar = "Enjambre de langostas Posible",
+	gainbar = "Enjambre de langostas",
+
+	casttrigger = "Anub'Rekhan comienza a lanzar Enjambre de langostas.",
+	castwarn = "¡Enjambre de langostas entrante!",
+
+	--impale_cmd = "impale",
+	impale_name = "Alerta de Clavar",
+	impale_desc = "Avisa para Clavar",
+	impaletrigger = "Anub'Rekhan comienza a lanzar Clavar", -- todo
+	impalebar = "Próximo Clavar",
+	impalesay = "Clavar en mí",
+
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
@@ -130,10 +165,10 @@ function module:CheckForLocustCast(msg)
 end
 --[[
 function module:CheckForImpale(msg)
-	if string.find(msg, L["impaletrigger"]) then
-		name = "Test" -- todo
-		self:Sync(syncName.impale .. " " .. name)
-	end
+if string.find(msg, L["impaletrigger"]) then
+name = "Test" -- todo
+self:Sync(syncName.impale .. " " .. name)
+end
 end
 ]]
 
@@ -146,8 +181,8 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		self:LocustCast()
 	elseif sync == syncName.locustGain then
 		self:LocustGain()
-	--elseif sync == syncName.impale and rest then
-	--	self:Impale(rest)
+		--elseif sync == syncName.impale and rest then
+		--	self:Impale(rest)
 	end
 end
 
@@ -186,17 +221,17 @@ function module:LocustGain()
 end
 --[[
 function module:Impale(name)
-	if self.db.profile.impale then
-		self:IntervalBar(L["impalebar"], timer.impale[1], timer.impale[2], icon.impale)
+if self.db.profile.impale then
+self:IntervalBar(L["impalebar"], timer.impale[1], timer.impale[2], icon.impale)
 
-		-- set raid icon on impale target
-		self:Icon(name)
+-- set raid icon on impale target
+self:Icon(name)
 
-		-- say warning for impale target
-		if name == UnitName("player") then
-			self:Say(L["impalesay"])
-		end
-	end
+-- say warning for impale target
+if name == UnitName("player") then
+self:Say(L["impalesay"])
+end
+end
 end
 ]]
 

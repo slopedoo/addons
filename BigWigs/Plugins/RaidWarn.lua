@@ -37,6 +37,32 @@ L:RegisterTranslations("enUS", function() return {
 	["Options for RaidWarning."] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	["RaidWarning"] = "Advertencia de la Banda",
+
+	--["raidwarn"] = "raidwarn",
+	--["broadcast"] = "transmitir",
+	--["whisper"] = "susurrar",
+	--["showwhispers"] = "mostrarsusurros",
+	--["useraidchannel"] = "useraidchannel",
+
+	["Broadcast over RaidWarning"] = "Transmite por Advertencia de la Banda",
+	["Broadcast"] = "Transmitir",
+	["Toggle broadcasting over Raidwarning."] = "Alterna la transmisión por Advertencia de la Banda",
+
+	["Whisper"] = "Susurrar",
+	["Whisper warnings"] = "Advertencias por susurro",
+	["Toggle whispering warnings to players."] = "Alterna las advertencias por susurros al jugadores",
+
+	["Show whispers"] = "Mostrar susurros",
+	["Toggle showing whispers sent by BigWigs locally."] = "Alterna los susurros enviados por BigWigs",
+
+	["Use Raidchannel"] = "Usar Canal de la Banda",
+	["Toggle using the raid channel instead of the raid warning channel for boss messages."] = "Alterna el uso del canal de la banda en lugar del canal de advertencia de la banda para los mensajes de los jefes",
+
+	["Options for RaidWarning."] = "Opciones para Advertencia de la Banda",
+} end )
+
 L:RegisterTranslations("koKR", function() return {
 	["RaidWarning"] = "공격대 경고",
 

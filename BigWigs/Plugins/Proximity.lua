@@ -101,6 +101,33 @@ L:RegisterTranslations("enUS", function() return {
 	["Reset the anchor position, moving it to the center of your screen."] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Proximity"] = "Proximidad",
+	["Close Players"] = "Jugadores cerca",
+	["Options for the Proximity Display."] = "Opciones para la Muestra de Proximidad",
+	["|cff777777Nobody|r"] = "|cff777777Nadie|r",
+	["Lock frame"] = "Bloquear marco",
+	["Lock the proximity frame."] = "Bloquea el marco de proximidad",
+	["Sound"] = "Sonido",
+	["Play sound on proximity."] = "Reproduce sonido en proximidad",
+	["Disabled"] = "Desactivado",
+	["Disable the proximity display for all modules that use it."] = "Desactiva la muestra de proximidad para todos los módulos que lo usan",
+	["The proximity display has been disabled for %s, please use the boss modules options to enable it again."] = "La muestra de proximidad se ha desactivado para %s, por favor usa las opciones de módulos de jefes para activarlo de nuevo",
+
+	["Has Debuff"] = "Tiene Debuff",
+
+	proximity = "Proximity display",
+	proximity_desc = "Muestra la ventana de proximidad cuando sea apropriado para la pelea y enumera los jugadores que están demasiado cerano a ti.",
+
+	font = "Fonts\\FRIZQT__.TTF",
+
+	["Test"] = "Probar",
+	["Perform a Proximity test."] = "Haz una prueba de Proximidad",
+
+	["Reset position"] = "Restablecer posición",
+	["Reset the anchor position, moving it to the center of your screen."] = "Restablece la posición de la ancla y muévela al centro de la pantalla",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	["Proximity"] = "Nähe",
 	["Close Players"] = "Zu nahe Spieler",

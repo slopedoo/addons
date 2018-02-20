@@ -58,6 +58,54 @@ L:RegisterTranslations("enUS", function() return {
 	whirlwind_desc = "Timers and bars for Whirlwinds.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Sartura",
+
+	add_name = "Guardia Real de Sartura",
+	starttrigger = "defiling these sacred grounds",
+	endtrigger = "I serve to the last!",
+	startwarn = "¡Entrando en combate con Sartura - 10 minutos hasta Rabia!",
+	enragetrigger = "becomes enraged",
+	enragetrigger2 = "Guardia de batalla Sartura gana Enfurecer.",
+	berserktrigger = "Guardia de batalla Sartura gana Rabia.",
+	enragewarn = "¡Enfurecer! Cúranse!",
+	berserkwarn = "¡Rabia!",
+	berserktext = "Rabia",
+	warn1 = "¡Rabia en 5 minutos!",
+	warn2 = "¡Rabia en 3 minutos!",
+	warn3 = "¡Rabia en 90 segundos!",
+	warn4 = "¡Rabia en 60 segundos!",
+	warn5 = "¡Rabia en 30 segundos!",
+	warn6 = "¡Rabia en 10 segundos!",
+	whirlwindon = "Guardia de batalla Sartura gana Torbellino.",
+	whirlwindoff = "Torbellino desaparece de Guardia de batalla Sartura.",
+	whirlwindonwarn = "¡Torbellino!",
+	whirlwindoffwarn = "¡Torbellino desaparece!",
+	whirlwindbartext = "Torbellino",
+	whirlwindnextbartext = "Torbellino Posible",
+	whirlwindfirstbartext = "Primer Torbellino",
+	whirlwindinctext = "¡Torbellino entrante!",
+	deadaddtrigger = "Guardia Real de Sartura muere.",
+	deadbosstrigger = "Guardia de batalla Sartura muere.",
+	addmsg = "¡%d/3 Guardia Real de Sartura muertas!",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de Guardias Reales muertas",
+	adds_desc = "Anuncia Guardias Reales de Sartura muertas.",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Enfurecer",
+	enrage_desc = "Anuncia Enfurecer cuando el jefe tenga 20% salud.",
+
+	--berserk_cmd = "berserk",
+	berserk_name = "Rabia",
+	berserk_desc = "Avisa para Rabia después de 10 minutos.",
+
+	--whirlwind_cmd = "whirlwind",
+	whirlwind_name = "Torbellino",
+	whirlwind_desc = "Temporizador y barras para Torbellino.",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "Sartura",
 

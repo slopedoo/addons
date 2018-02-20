@@ -44,6 +44,41 @@ L:RegisterTranslations("enUS", function() return {
 	shadowflame_desc = "Warn when Flamegor casts Shadow Flame.",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	wingbuffet_trigger = "Faucefogo comienza a lanzar Festín de alas.",
+	shadowflame_trigger = "Faucefogo comienza a lanzar Llama de las Sombras.",
+	flamebuffetafflicted_trigger = "sufre de Sacudón de llamas",
+	flamebuffetresisted_trigger = "Resistido Sacudón de llamas de Faucefogo",
+	flamebuffetimmune_trigger = "Sacudón de llamas de Faucefogo falla(.+) inmune\.",
+	flamebuffetabsorb1_trigger = "Absorbe Sacudón de llamas de Faucefogo",
+	flamebuffetabsorb2_trigger = "Sacudón de llamas de Faucefogo es absorbido",
+
+	wingbuffet_message = "¡Festín de alas! El Próximo en 30 segundos!",
+	wingbuffet_warning = "¡IRRITA ahora! Festín de alas pronto!",
+	shadowflame_warning = "¡Llama de las Sombras entrante!",
+
+	wingbuffetcast_bar = "Festín de alas",
+	wingbuffet_bar = "Próximo Festín de alas",
+	wingbuffet1_bar = "Festín de alas Inicial",
+	shadowflame_bar = "Llama de las Sombras",
+	shadowflame_Nextbar = "Próxima Llama de las Sombras",
+	flamebuffet_bar = "Sacudón de llamas",
+
+	--cmd = "Firemaw",
+
+	--flamebuffet_cmd = "flamebuffet",
+	flamebuffet_name = "Alerta de Sacudón de llamas",
+	flamebuffet_desc = "Avisa cuando Faucefogo lance Sacudón de llamas.",
+
+	--wingbuffet_cmd = "wingbuffet",
+	wingbuffet_name = "Alerta de Festín de alas",
+	wingbuffet_desc = "Avisa cuando Faucefogo lance Festín de alas.",
+
+	--shadowflame_cmd = "shadowflame",
+	shadowflame_name = "Alerta de Llama de las Sombras",
+	shadowflame_desc = "Avisa cuando Faucefogo lance Llama de las Sombras.",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	wingbuffet_trigger = "Ebonroc beginnt Fl\195\188gelsto\195\159 zu wirken.",
 	shadowflame_trigger = "Ebonroc beginnt Schattenflamme zu wirken.",

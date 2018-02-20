@@ -59,6 +59,53 @@ L:RegisterTranslations("enUS", function() return {
 	["Close"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Messages"] = "Mensajes",
+
+	["msg"] = "msg",
+	["anchor"] = "ancla",
+	["rw"] = "rw",
+	["color"] = "color",
+	["scale"] = "escala",
+
+	["Options for the message frame."] = "Opciones para el marco del mensajes",
+	["Anchor"] = "Ancla",
+	["Show the message anchor frame."] = "Muestra la ancla del marco del mensaje",
+	["Use RaidWarning"] = "Usar Advertencia de la Banda",
+	["Toggle sending messages to the RaidWarnings frame."] = "Alterna de enviar mensajes al marco Advertencia de la Banda",
+	["Use colors"] = "Usar colores",
+	["Toggles white only messages ignoring coloring."] = "Alterna solamente los mensajes blancos y ignora los coloreados.",
+	["Message frame scale"] = "Escala del marco del mensaje",
+
+	["Message frame"] = "Marco del mensaje",
+	["Show anchor"] = "Mostrar Ancla",
+	["Send messages to RaidWarning frame"] = "Envia mensajes al marco de Advertencia de la Banda",
+	["Set the message frame scale."] = "Define la escala del marco del mensaje",
+	["Colorize messages"] = "Colorea los mensajes",
+	["Scale"] = "Escala",
+
+	["|cffff0000Co|cffff00fflo|cff00ff00r|r"] = "|cffff0000Co|cffff00fflo|cff00ff00r|r",
+	["White"] = "Blanco",
+	["BigWigs frame"] = "Marco de BigWigs",
+	["RaidWarning frame"] = "Marco de Advertencia de la Banda",
+	["Scale is set to %s"] = "Escala se define a %s",
+	["Messages are now sent to the %2$s"] = "Mensajes están enviados al %2$s",
+	["Messages are currently sent to the %2$s"] = "Mensajes actuales están enviados al %2$s",
+
+	["display"] = "display",
+	["Display"] = "Muestra",
+	["Set where messages are displayed."] = "Define donde los mensajes están mostrados",
+	["Display is now set to %2$s"] = "Muestra",
+	["Display is currently set to %2$s"] = "Muestra actual define a %2$s",
+
+	["Mik's Scrolling Battle Text"] = "Flotación de texto de combate de Mik",
+	["Scrolling Combat Text"] = "Flotación de texto de combate",
+	["Floating Combat Text"] = "Flotación de texto de combate",
+
+	["Test"] = "Probar",
+	["Close"] = "Cerrar",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	["Messages"] = "Nachrichten",
 

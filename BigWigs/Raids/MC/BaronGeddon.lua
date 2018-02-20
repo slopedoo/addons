@@ -108,6 +108,67 @@ L:RegisterTranslations("enUS", function() return {
 	announce_desc = "Sends a whisper to players targetted by Living Bomb. (Requires assistant or higher)",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	inferno_trigger = "Barón Geddon gana Inferno\.",
+	service_trigger = "lleva a cabo un último servicio para Ragnaros",
+	ignitemana_trigger = "sufre de Ignición de maná",
+	bombyou_trigger = "Sufres de Bomba viviente.",
+	bombother_trigger = "(.*) sufre de Bomba viviente.",
+	bombyouend_trigger = "Bomba viviente acaba de disiparse.",
+	bombotherend_trigger = "Bomba viviente desaparece de (.*).",
+	ignitemana_trigger1 = "sufre de Ignición de maná",
+	ignitemana_trigger2 = "Resistido Ignición de maná de Barón Geddon",
+	deathyou_trigger = "Has muerto.",
+	deathother_trigger = "(.*) ha muerto",
+
+	bomb_message_you = "¡Eres la bomba!",
+	bomb_message_youscreen = "¡Eres la bomba!",
+	bomb_message_other = "¡%s es la bomba!",
+
+	bomb_bar = "Bomba viviente: %s",
+	bomb_bar1 = "Bomba viviente: %s",
+	inferno_bar = "Próximo Inferno",
+	inferno_channel = "Inferno",
+	nextinferno_message = "¡3 segundos hasta Inferno!",
+	service_bar = "Último Servicio",
+	nextbomb_bar = "Próximo Bomba viviente",
+	ignite_bar = "Ignición de maná Posible",
+
+	service_message = "¡Último servicio! Barón Geddon se explota en 8 segundos!",
+	inferno_message = "¡Inferno por 8 segundos!",
+	ignite_message = "¡Disipa AHORA!",
+
+	--cmd = "Baron",
+
+	--service_cmd = "service",
+	service_name = "Alerta de Último servicio",
+	service_desc = "Barra temporizadora para el último servicio de Barón Geddon.",
+
+	--inferno_cmd = "inferno",
+	inferno_name = "Alerta de Inferno",
+	inferno_desc = "Barra temporizadora para el Inferno de Barón Geddon.",
+
+	--bombtimer_cmd = "bombtimer",
+	bombtimer_name = "Temporizador de Bomba viviente",
+	bombtimer_desc = "Muestra una barra de 8 segundos cuando se explote la bomba.",
+
+	--bomb_cmd = "bomb",
+	bomb_name = "Alerta de Bomba viviente",
+	bomb_desc = "Avisa cuando jugadores sean la bomba",
+
+	--mana_cmd = "manaignite",
+	mana_name = "Alerta de Ignición de maná",
+	mana_desc = "Muestra temporizadores para Ignición de maná y anuncia para disiparlo",
+
+	--icon_cmd = "icon",
+	icon_name = "Marcar la bomba",
+	icon_desc = "Marca con un icono el jugador quien tiene la bomba. (Requiere asistente o líder)",
+
+	--announce_cmd = "whispers",
+	announce_name = "Susurrar a los objetivos de la Bomba",
+	announce_desc = "Susurra a los jugadores quien tienen la Bomba viviente. (Require asistente o líder)",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	inferno_trigger = "Baron Geddon bekommt \'Inferno",
 	service_trigger = "performs one last service for Ragnaros",

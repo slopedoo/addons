@@ -48,6 +48,28 @@ L:RegisterTranslations("enUS", function() return {
 	["commonauras"] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	fw_cast = "%s usa Custodia de miedo a %s.",
+	fw_bar = "%s: Regeneración de Custodia de miedo",
+
+	used_cast = "%s usa %s.",
+	used_bar = "%s: %s",
+
+	portal_cast = "¡%s abre un Portal a %s!",
+	portal_regexp = ".*: (.*)",
+	-- portal_bar is the spellname
+
+	["Toggle %s display."] = "Alterna la muestra de %s",
+	["Portal"] = "Portal",
+	--["broadcast"] = "transmitir",
+	["Broadcast"] = "Transmitir",
+	["Toggle broadcasting the messages to the raidwarning channel."] = "Alterna la transmisión de los mensajes en el canal de advertencia de la banda.",
+
+	["Gives timer bars and raid messages about common buffs and debuffs."] = "Muestra las barras temporizadoras y los mensajes de la banda sobre buffs y debuffs comunes",
+	["Common Auras"] = "Auras Comunes",
+	--["commonauras"] = "aurascomunes",
+} end )
+
 L:RegisterTranslations("koKR", function() return {
 	fw_cast = "%s님이 %s에게 공포의 수호물을 시전합니다.", --"%s|1이;가; %s에게 공포의 수호물을 시전합니다.",
 	fw_bar = "%s: FW 재사용 대기시간",

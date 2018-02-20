@@ -31,6 +31,7 @@ local sounds = {
 
 	Murloc = "Sound\\Creature\\Murloc\\mMurlocAggroOld.wav",
 	Pain = "Sound\\Creature\\Thaddius\\THAD_NAXX_ELECT.wav",
+	Shakira = "Interface\\AddOns\\BigWigs\\Sounds\\Shakira.mp3",
 }
 
 
@@ -49,6 +50,19 @@ L:RegisterTranslations("enUS", function() return {
 	["default"] = true,
 	["Default only"] = true,
 	["Use only the default sound."] = true,
+} end)
+
+L:RegisterTranslations("esES", function() return {
+	["Sounds"] = "Sonidos",
+	--["sounds"] = true,
+	["Options for sounds."] = "Opciones para sonidos",
+
+	--["toggle"] = "Alternar",
+	["Use sounds"] = "Usar sonidos",
+	["Toggle sounds on or off."] = "Alterna los sonidos activos o desactivos",
+	--["default"] = "defecto",
+	["Default only"] = "Solamente defecto",
+	["Use only the default sound."] = "Solamente usa el sonido por defecto",
 } end)
 
 L:RegisterTranslations("koKR", function() return {

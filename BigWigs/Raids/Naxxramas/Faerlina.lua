@@ -49,6 +49,44 @@ L:RegisterTranslations("enUS", function() return {
 	rain_warn = "Move from FIRE!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Faerlina",
+
+	--silence_cmd = "silence",
+	silence_name = "Alerta de Silencio",
+	silence_desc = "Avisa para silencio",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	starttrigger1 = "¡MUERE... o arrodíllate ante mí!",
+	starttrigger2 = "¡Matadlos en el nombre del maestro!",
+	starttrigger3 = "¡No puedes esconderte de mí!",
+	starttrigger4 = "¡Corred mientras podáis!",
+
+	silencetrigger = "Grand Viuda Faerlina sufre de Abrazo de la viuda.", -- EDITED it affects her too.
+	enragetrigger = "Grand Viuda Faerlina gana Enfurecer.",
+	enragefade = "Enfurecer desaparece de Grand Viuda Faerlina.",
+
+	startwarn = "¡Entrando en combate con Gran Viuda Faerlina, 60 segundos hasta enfurecer!",
+	enragewarn15sec = "¡15 segundos hasta enfurecer!",
+	enragewarn = "¡Enfurecer!",
+	enrageremovewarn = "¡Desaparece Enfurecer! %d segundos hasta el próximo!", -- added
+	silencewarn = "¡Silencio! Demora Enfurecer!",
+	silencewarnnodelay = "¡Silencio!",
+	silencewarn5sec = "Silencio desaparece en 5 secgundos",
+
+	enragebar = "Enfurecer",
+	silencebar = "Silencio",
+
+	--rain_cmd = "rain",
+	rain_name = "Alerta de Lluvia de Fuego",
+	rain_desc = "Avisa si estás en Lluvia de Fuego",
+	rain_trigger = "Sufres de Lluvia de Fuego",
+	rain_run_trigger = "Sufres (%d+) de daño (.+) de Lluvia de Fuego de " .. module.translatedName .. ".",
+	rain_warn = "¡Muévate del FUEGO!",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

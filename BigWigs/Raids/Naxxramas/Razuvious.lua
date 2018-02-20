@@ -33,7 +33,8 @@ L:RegisterTranslations("enUS", function() return {
 	starttrigger3 = "Hah hah, I'm just getting warmed up!",
 	--starttrigger4 = "Stand and fight!",
 
-	shouttrigger = "Disrupting Shout",
+	--shouttrigger = "Disrupting Shout",
+	shouttrigger = "lets loose a triumphant shout.",
 	shout7secwarn = "7 sec to Disrupting Shout",
 	shout3secwarn = "3 sec to Disrupting Shout!",
 	shoutwarn = "Disrupting Shout! Next in 25secs",
@@ -49,13 +50,49 @@ L:RegisterTranslations("enUS", function() return {
 	shieldwallbar       = "Shield Wall",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Razuvious",
 
+	--shout_cmd = "shout",
+	shout_name = "Alerta de Grito perturbador",
+	shout_desc = "Avisa para Grito perturbador",
+
+	--unbalance_cmd = "unbalancing",
+	unbalance_name = "Alerta de Golpe desequilibrante",
+	unbalance_desc = "Avisa para Golpe desequilibrante",
+
+	--shieldwall_cmd = "shieldwall",
+	shieldwall_name = "Temporizador de Muro de escudo",
+	shieldwall_desc = "Muestra un temporizador para Muro de escudo",
+
+	startwarn = "¡Entrando en combate con Instructor Razuvious! 15 segundos hasta Grito, 30 segundos hasta Golpe desequilibrante!",
+
+	starttrigger1 = "Stand and fight!",
+	starttrigger2 = "Show me what you've got!",
+	starttrigger3 = "Hah hah, I'm just getting warmed up!",
+	--starttrigger4 = "Stand and fight!",
+
+	shouttrigger = "Grito perturbador",
+	shout7secwarn = "7 segundos hasta Grito perturbador",
+	shout3secwarn = "¡3 segundos hasta Grito perturbador!",
+	shoutwarn = "¡Grito perturbador! El próximo en 25 segundos",
+	noshoutwarn = "¡No hay grito! El próximo en 20 segundos",
+	shoutbar = "Grito perturbado",
+
+	unbalance_trigger = "sufre de Golpe desequilibrante",
+	unbalancesoonwarn = "¡Golpe desequilibrante pronto!",
+	unbalancewarn = "¡Golpe desequilibrante! El próximo en ~30 segundos",
+	unbalancebar = "Golpe desequilibrante",
+
+	shieldwalltrigger   = "Caballero de la Muerte suplente gana Muro de escudo.",
+	shieldwallbar       = "Muro de escudo",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
 
 -- module variables
-module.revision = 20003 -- To be overridden by the module!
+module.revision = 20004 -- To be overridden by the module!
 module.enabletrigger = module.translatedName -- string or table {boss, add1, add2}
 module.wipemobs = {understudy} -- adds which will be considered in CheckForEngage
 module.toggleoptions = {"shout", "unbalance", "shieldwall", "bosskill"}
@@ -65,7 +102,7 @@ module.toggleoptions = {"shout", "unbalance", "shieldwall", "bosskill"}
 local timer = {
 	firstShout = 15,
 	shout = 25,
-	noShoutDelay = 5,
+	--noShoutDelay = 5,
 	unbalance = 30,
 	shieldwall = 20,
 }
@@ -90,9 +127,12 @@ module:RegisterYellEngage(L["starttrigger3"])
 
 -- called after module is enabled
 function module:OnEnable()
-	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE", "CheckForShout")
-	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE", "CheckForShout")
-	self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE", "CheckForShout")
+	--self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE", "CheckForShout")
+	--self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE", "CheckForShout")
+	--self:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE", "CheckForShout")
+
+	self:RegisterEvent("CHAT_MSG_MONSTER_EMOTE", "CheckForShout")
+	self:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE", "CheckForShout")
 
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "CheckForUnbalance")
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE", "CheckForUnbalance")
@@ -120,7 +160,7 @@ function module:OnEngage()
 		self:DelayedMessage(timer.firstShout - 3, L["shout3secwarn"], "Urgent")
 		self:Bar(L["shoutbar"], timer.firstShout, icon.shout)
 	end
-	self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self) -- praeda first no shout fix
+	--self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self) -- praeda first no shout fix
 end
 
 -- called after boss is disengaged (wipe(retreat) or victory)
@@ -145,17 +185,18 @@ function module:CheckForShout(msg)
 end
 
 -- 5s after expected shout
+--[[
 function module:NoShout()
-	self:CancelScheduledEvent("bwrazuviousnoshout")
-	self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self)
-	if self.db.profile.shout then
-		self:Message(L["noshoutwarn"], "Attention") -- is this message useful?
-		self:Bar(L["shoutbar"], timer.shout - timer.noShoutDelay, icon.shout)
-		self:DelayedMessage(timer.shout - timer.noShoutDelay - 7, L["shout7secwarn"], "Urgent")
-		self:DelayedMessage(timer.shout - timer.noShoutDelay - 3, L["shout3secwarn"], "Urgent")
-	end
+self:CancelScheduledEvent("bwrazuviousnoshout")
+self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self)
+if self.db.profile.shout then
+self:Message(L["noshoutwarn"], "Attention") -- is this message useful?
+self:Bar(L["shoutbar"], timer.shout - timer.noShoutDelay, icon.shout)
+self:DelayedMessage(timer.shout - timer.noShoutDelay - 7, L["shout7secwarn"], "Urgent")
+self:DelayedMessage(timer.shout - timer.noShoutDelay - 3, L["shout3secwarn"], "Urgent")
 end
-
+end
+]]
 function module:CheckForUnbalance(msg)
 	if string.find(msg, L["unbalance_trigger"]) then
 		self:Message(L["unbalancewarn"], "Urgent")
@@ -182,8 +223,8 @@ end
 ------------------------------
 
 function module:Shout()
-	self:CancelScheduledEvent("bwrazuviousnoshout")
-	self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self)
+	--self:CancelScheduledEvent("bwrazuviousnoshout")
+	--self:ScheduleEvent("bwrazuviousnoshout", self.NoShout, timer.shout + timer.noShoutDelay, self)
 
 	if self.db.profile.shout then
 		self:Message(L["shoutwarn"], "Attention", nil, "Alarm")

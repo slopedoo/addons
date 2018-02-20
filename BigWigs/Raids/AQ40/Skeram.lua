@@ -36,6 +36,32 @@ L:RegisterTranslations("enUS", function() return {
 	["You have slain %s!"] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	mcplayer = "Sufres de Consecución veraz.",
+	mcplayerother = "(.*) sufre de Consecución veraz.",
+	mcplayeryouend = "Consecución veraz desaparece de ti.",
+	mcplayerotherend = "Consecución veraz desaparece de (.*).",
+	mcplayer_message = "¡Estás controlado por mente!",
+	mcplayerother_message = "¡%s está controlado por mente!",
+	mindcontrol_bar = "CM: %s",
+	deathyou_trigger = "Mueres.",
+	deathother_trigger = "(.*) muere.",
+	splitsoon_message = "¡Separar pronto! Préparate!",
+	split_message = "¡Separar!",
+	kill_trigger = "You only delay",
+
+	--cmd = "Skeram",
+
+	--mc_cmd = "mc",
+	mc_name = "Alerta de Subyugar mente",
+	mc_desc = "Avisa para Subyugar mente",
+
+	--split_cmd = "split",
+	split_name = "Alerta de Separar",
+	split_desc = "Avisa antes de Separar",
+	["You have slain %s!"] = "¡Has acabado con %s!",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	mcplayer = "Ihr seid von Wahre Erf\195\188llung betroffen.",
 	mcplayerother = "(.*) ist von Wahre Erf\195\188llung betroffen.",

@@ -38,6 +38,33 @@ L:RegisterTranslations("enUS", function() return {
 	["skull"] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	["Raid Icons"] = "Iconos de Banda",
+
+	--["raidicon"] = "iconobanda",
+	--["place"] = "colocar",
+	--["icon"] = "icono",
+
+	["Place"] = "Marcar",
+	["Place Raid Icons"] = "Marcar con los iconos de banda",
+	["Toggle placing of Raid Icons on players."] = "Alterna marcar los Iconos de Banda a los jugadores",
+
+	["Icon"] = "Icono",
+	["Set Icon"] = "Definir Icono",
+	["Set which icon to place on players."] = "Define cual icono que marcar al jugador",
+
+	["Options for Raid Icons."] = "Opciones para Iconos de Banda",
+
+	["star"] = "estrella",
+	["circle"] = "círculo",
+	["diamond"] = "diamante",
+	["triangle"] = "triángulo",
+	["moon"] = "luna",
+	["square"] = "cuadrado",
+	["cross"] = "cruz",
+	["skull"] = "calavera",
+} end )
+
 L:RegisterTranslations("koKR", function() return {
 	["Raid Icons"] = "공격대 아이콘",
 

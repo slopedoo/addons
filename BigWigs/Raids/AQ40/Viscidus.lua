@@ -52,6 +52,48 @@ L:RegisterTranslations("enUS", function() return {
 	volley_bar	= "Poison Bolt Volley",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Viscidus",
+	--volley_cmd = "volley",
+	volley_name = "Alerta de Lluvia de descarga de veneno",
+	volley_desc = "Avisa para Lluvia de descarga de veneno",
+
+	--toxinyou_cmd = "toxinyou",
+	toxinyou_name = "Alerta personal de Nube de toxina",
+	toxinyou_desc = "Avisa si estás en un Nube de toxina",
+
+	--toxinother_cmd = "toxinother",
+	toxinother_name = "Alerta de Nube de toxina",
+	toxinother_desc = "Avisa si otros están en un Nube de toxina",
+
+	--freeze_cmd = "freeze",
+	freeze_name = "Alerta de estados congelados",
+	freeze_desc = "Avisa para estados congelados diferentes",
+
+	slow_trigger 	= "begins to slow",
+	freeze_trigger 	= "is freezing up",
+	frozen_trigger 	= "is frozen solid",
+	crack_trigger 	= "begins to crack",
+	shatter_trigger 	= "looks ready to shatter",
+	volley_trigger	= "sufre de Lluvia de descarga de veneno",
+	toxin_trigger 	= "^([^%s]+) ([^%s]+) sufre de Toxina%.$",
+
+	you 		= "Tu",
+	are 		= "estás",
+
+	freeze1_warn 		= "¡Primera fase congelada!",
+	freeze2_warn 		= "¡Segunda fase congelada!",
+	frozen_warn 		= "¡Viscidus está congelado!",
+	crack1_warn 		= "¡Rajadura - un poco más!",
+	crack2_warn 		= "¡Rajadura - casi!",
+	volley_warn		= "¡Lluvia de descarga de veneno!",
+	volley_soon_warn	= "¡Lluvia de descarga de veneno en ~3 segundos!",
+	toxin_warn		= " está en un Nube de toxina!",
+	toxin_self_warn		= "¡Estás en un Nube de toxina!",
+
+	volley_bar	= "Lluvia de descarga de veneno",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	volley_name = "Giftblitzsalve Alarm", -- ?
 	volley_desc = "Warnt vor Giftblitzsalve", -- ?

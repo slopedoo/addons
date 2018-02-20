@@ -43,6 +43,40 @@ L:RegisterTranslations("enUS", function() return {
 	curse_desc = "Shows a timer bar and announces who gets Shadow of Ebonroc.",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	wingbuffet_trigger = "Ebanorroca comienza a lanzar Festín de alas.",
+	shadowflame_trigger = "Ebanorroca comienza a lanzar Llama de las Sombras.",
+	shadowcurseyou_trigger = "sufres de Llama de las Sombras\.",
+	shadowcurseother_trigger = "(.+) sufre de Sombra de Ebanorroca\.",
+	wingbuffet_message = "¡Festín de alas! El Próximo en 30 segundos!",
+	wingbuffet_warning = "¡IRRITA ahora! Festín de alas pronto!",
+	shadowflame_warning = "¡Llama de las Sombras entrante!",
+	shadowfcurse_message_you = "¡Tienes Sombra de Ebanorroca!",
+	shadowfcurse_message_taunt = "¡%s tiene Sombra de Ebanorroca! IRRITA!",
+
+	wingbuffetcast_bar = "Festín de alas",
+	wingbuffet_bar = "Próximo Festín de alas",
+	wingbuffet1_bar = "Festín de alas Inicial",
+	shadowflame_bar = "Llama de las Sombras",
+	shadowflame_Nextbar = "Próxima Llama de las Sombras",
+	shadowcurse_bar = "%s - Sombra de Ebanorroca",
+	shadowcurse_Firstbar = "Sombra de Ebanorroca Inicial",
+
+	--cmd = "Ebonroc",
+
+	--wingbuffet_cmd = "wingbuffet",
+	wingbuffet_name = "Alerta de Festín de alas",
+	wingbuffet_desc = "Avisa cuando Ebanorroca lance Festín de alas.",
+
+	--shadowflame_cmd = "shadowflame",
+	shadowflame_name = "Alerta de Llama de las Sombras",
+	shadowflame_desc = "Avisa cuando Ebanorroca lance Llama de las Sombras.",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de Sombra de Ebanorroca",
+	curse_desc = "Muestra una barra temporizadora y anuncia quién tiene Sombra de Ebanorroca.",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	wingbuffet_trigger = "Schattenschwinge beginnt Fl\195\188gelsto\195\159 zu wirken.",
 	shadowflame_trigger = "Schattenschwinge beginnt Schattenflamme zu wirken.",

@@ -63,6 +63,58 @@ L:RegisterTranslations("enUS", function() return {
 	inroombartext = "In Room",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Gothik",
+
+	--room_cmd = "room",
+	room_name = "Alerta de Arribo",
+	room_desc = "Avisa para el arribo de Gothik",
+
+	--add_cmd = "add",
+	add_name = "Alerta de Adds",
+	add_desc = "Avisa para Adds",
+
+	--adddeath_cmd = "adddeath",
+	adddeath_name = "Alerta del Muerte de los Adds",
+	adddeath_desc = "Avisa cuando un add muera.",
+
+	disabletrigger = "Es... mi... fin.",
+
+	starttrigger1 = "Habéis hecho caso omiso de poderes más allá de vuestro entendimiento descaradamente.",
+	starttrigger2 = "Teamanare shi rikk mannor rikk lok karkun",
+	startwarn = "¡Entrando en combate con Gothik el Cosechador! 4:35 hasta que arribe al cuarto.",
+
+	rider_name = "Jinete inflexible",
+	spectral_rider_name = "Jinete espectral",
+	deathknight_name = "Caballero de la Muerte inflexible",
+	spectral_deathknight_name = "Caballero de la Muerte espectral",
+	trainee_name = "Practicante inflexible",
+	spectral_trainee_name = "Practicante espectral",
+
+	riderdiewarn = "¡Jinete muerto!",
+	dkdiewarn = "¡Caballero de la Muerte muerto!",
+
+	warn_inroom_3m = "Entra en 3 minutos",
+	warn_inroom_90 = "Entra en 90 segundos",
+	warn_inroom_60 = "Entra en 60 segundos",
+	warn_inroom_30 = "Entra en 30 segundos",
+	warn_inroom_10 = "Gothik entra en 10 segundos",
+
+	wave = "%d/22: ", -- its only 22 waves not 26
+
+	trawarn = "Practicantes en 3 segundos",
+	dkwarn = "Caballero de la Muerte en 3 segundos",
+	riderwarn = "Jinete en 3 segundos",
+
+	trabar = "Practicante - %d",
+	dkbar = "Caballero de la Muerte - %d",
+	riderbar = "Jinete - %d",
+
+	inroomtrigger = "Ya he esperado suficiente. Ahora os enfrentaréis al Recolector de almas.",
+	inroomwarn = "¡Está en la habitación!",
+
+	inroombartext = "En Habitación",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

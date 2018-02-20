@@ -62,7 +62,57 @@ L:RegisterTranslations("enUS", function() return {
 	["Rotting Maggot"] = true,
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Heigan",
 
+	--teleport_cmd = "teleport",
+	teleport_name = "Alerta de Teletransporte",
+	teleport_desc = "Avisa para Teletransporte.",
+
+	--engage_cmd = "engage",
+	engage_name = "Alerta de Entablar",
+	engage_desc = "Avisa cuando Heigan esté entablado.",
+
+	--disease_cmd = "disease",
+	disease_name = "Alerta de Fiebre decrépita",
+	disease_desc = "Avisa para Fiebre decrépita",
+
+	--erruption_cmd = "erruption",
+	erruption_name = "Alerta de Erupción",
+	erruption_desc = "Avisa para Eruopción",
+
+	-- [[ Triggers ]]--
+	starttrigger = "Ahora me perteneces.",
+	starttrigger2 = "Eres... mi próxima víctima.",
+	starttrigger3 = "I see you!",
+	toPlatform_trigger1 = "teleports and begins to channel a spell!",
+	toPlatform_trigger2 = "The end is upon you.",
+	toFloor_trigger = "rushes to attack once more!",
+	die_trigger = "takes his last breath.",
+	dtrigger = "sufre de Fiebre decrépita.",
+
+	-- [[ Warnings ]]--
+	engage_message = "¡Entrando en combate con Heigan el Impuro!",
+
+	dwarn = "Fiebre decrépita",
+
+	on_platform_message = "¡Teletransporte! Bailando por %d segundos!",
+
+	to_floor_30sec_message = "¡Regresa en 30 segundos!",
+	to_floor_10sec_message = "¡Regresa en 10 segundos!",
+	on_floor_message = "¡Regresó al suelo! 90 segundos hasta el próximo teletransporte!",
+
+	-- [[ Bars ]]--
+	toPlatform_bar = "¡Teletransporte!",
+	toFloor_bar = "¡Resgresó al suelo!",
+	dbar = "Fiebre decrépita",
+	erruptionbar = "Erupción",
+	dancingshoes = "¡Lleva tus zapatos de baile!",
+
+	-- [[ Dream Room Mobs ]] --
+	["Eye Stalk"] = "Ojo acechador",
+	["Rotting Maggot"] = "Cresa en podredumbre",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
@@ -70,7 +120,7 @@ L:RegisterTranslations("enUS", function() return {
 -- module variables
 module.revision = 20011 -- To be overridden by the module!
 module.enabletrigger = module.translatedName -- string or table {boss, add1, add2}
-module.wipemobs = { L["Eye Stalk"], L["Rotting Maggot"] } -- adds which will be considered in CheckForEngage
+--module.wipemobs = { L["Eye Stalk"], L["Rotting Maggot"] } -- adds which will be considered in CheckForEngage
 module.toggleoptions = {"engage", "teleport", "disease", "erruption", "bosskill"}
 
 
@@ -241,11 +291,12 @@ function module:ToPlatform()
 		self:Bar(L["erruptionbar"], timer.firstDanceErruption, icon.erruption)
 		self:ScheduleEvent("HeiganErruption", self.Erruption, timer.firstDanceErruption, self)
 	end
-	self:ScheduleEvent("bwHeiganToFloor",  self.ToFloor, self.toFloor, self )
+	self:ScheduleEvent("bwHeiganToFloor",  self.ToFloor, timer.toFloor, self )
 end
 
 function module:ToFloor()
 	self:CancelScheduledEvent("bwHeiganToFloor")
+	--self:KTM_Reset()
 	if self.db.profile.teleport then
 		self:Message(L["on_floor_message"], "Attention")
 		self:Bar(L["toPlatform_bar"], timer.toPlatform, icon.toPlatform)

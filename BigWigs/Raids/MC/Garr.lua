@@ -57,6 +57,34 @@ L:RegisterTranslations("enUS", function() return {
 	adds_desc = "Announces dead Firesworns",
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	firesworn_name = "Jurafuegos",
+	triggeradddead8 = "Garr hace ganar Enfurecer(.+)8",
+	triggeradddead7 = "Garr hace ganar Enfurecer(.+)7",
+	triggeradddead6 = "Garr hace ganar Enfurecer(.+)6",
+	triggeradddead5 = "Garr hace ganar Enfurecer(.+)5",
+	triggeradddead4 = "Garr hace ganar Enfurecer(.+)4",
+	triggeradddead3 = "Garr hace ganar Enfurecer(.+)3",
+	triggeradddead2 = "Garr hace ganar Enfurecer(.+)2",
+	triggeradddead1 = "Garr hace ganar Enfurecer.",
+
+	counterbarMsg = "Jurafuegos muertos",
+	addmsg1 = "¡1/8 Jurafuegos muertos!",
+	addmsg2 = "¡2/8 Jurafuegos muertos!",
+	addmsg3 = "¡3/8 Jurafuegos muertos!",
+	addmsg4 = "¡4/8 Jurafuegos muertos!",
+	addmsg5 = "¡5/8 Jurafuegos muertos!",
+	addmsg6 = "¡6/8 Jurafuegos muertos!",
+	addmsg7 = "¡7/8 Jurafuegos muertos!",
+	addmsg8 = "¡8/8 Jurafuegos muertos!",
+
+	--cmd = "Garr",
+
+	--adds_cmd = "adds",
+	adds_name = "Contador de Jurafuegos muertos",
+	adds_desc = "Anuncia los Jurafuegos muertos",
+} end)
+
 L:RegisterTranslations("deDE", function() return {
 	firesworn_name = "Feueranbeter",
 	triggeradddead1 = "Garr bekommt \'Wutanfall\'.",

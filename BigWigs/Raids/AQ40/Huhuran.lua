@@ -48,6 +48,44 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Huhuran",
+
+	--wyvern_cmd = "wyvern",
+	wyvern_name = "Alerta de Aguijón de dracoleón",
+	wyvern_desc = "Avisa para Aguijón de dracoleón",
+
+	--frenzy_cmd = "frenzy",
+	frenzy_name = "Alerta de Frenesí",
+	frenzy_desc = "Avisa para Frenesí",
+
+	--berserk_cmd = "berserk",
+	berserk_name = "Alerta de Rabia",
+	berserk_desc = "Avisa para Rabia",
+
+	frenzygain_trigger = "Princesa Huhuran gana Frenesí.",
+	frenzyend_trigger = "Frenesí desaparece de Princesa Huhuran.",
+	frenzy_bar = "Frenesí",
+	frenzy_Nextbar = "Frenesí Posible",
+	frenzy_message = "¡Frenesí - Disparo tranquilizante!",
+
+	berserktrigger = "goes into a berserker rage!",
+	frenzytrigger = "goes into a killing frenzy!",
+	berserkwarn = "¡Rabia!",
+	berserksoonwarn = "¡Rabia pronto!",
+	stingtrigger = "sufre de Aguijón de dracoleón",
+	stingwarn = "¡Aguijón de dracoleón!",
+	stingdelaywarn = "¡Aguijón de dracoleón Posible en ~3 segundos!",
+	bartext = "Aguijón de dracoleón",
+
+	startwarn = "¡Entrando en combate con Huhuran, 5 minutos hasta rabia!",
+	berserkbar = "Rabia",
+	berserkwarn1 = "¡Rabia en 1 minuto!",
+	berserkwarn2 = "¡Rabia en 30 segundos!",
+	berserkwarn3 = "¡Rabia en 5 segundos!",
+
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	wyvern_name = "Stich des Fl\195\188geldrachen",
 	wyvern_desc = "Warnung, wenn Huhuran Stich des Fl\195\188geldrachen wirkt.",

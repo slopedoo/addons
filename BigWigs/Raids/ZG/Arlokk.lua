@@ -47,6 +47,43 @@ L:RegisterTranslations("enUS", function() return {
 	puticon_desc = "Place a raid icon on the player with Mark of Arlokk.\n\n(Requires assistant or higher)",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	cmd = "Arlokk",
+
+	--engage_trigger = "your priestess calls upon your might",
+	--mark_trigger = "Feast on (.+), my pretties!",
+	mark_warning_self = "¡Estás marcado!",
+	mark_warning_other = "¡%s está marcado!",
+	mark_fade = "Marca de Arlokk desaparece de (.+)\.",
+	ww_trigger = "Suma sacerdotisa Arlokk gana Torbellino\.",
+	ww_bar = "Torbellino",
+	trollphase_message = "Fase de Trol",
+	pantherphase_message = "Fase de Pantera",
+	vanishphase_message = "¡Se Esfuma!",
+	vanish_bar = "Estimación de Regreso",
+	vanish_Nextbar = "Próximo Esfumar",
+
+	--vanish_cmd = "vanish",
+	vanish_name = "Alerta de Esfumar",
+	vanish_desc = "Muestra una barra para la duración de Esfumar.",
+
+	--mark_cmd = "mark",
+	mark_name = "Alerta de Marca de Arlokk",
+	mark_desc = "Avisa cuando un jugador tenga Marca de Arlokk.",
+
+	--whirlwind_cmd = "whirlwind",
+	whirlwind_name = "Alerta de Torbellino",
+	whirlwind_desc = "Muestra cuando tenga Torbellino la jefa.",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Anuncia cuando cambie la fase de la jefa.",
+
+	--puticon_cmd = "puticon",
+	puticon_name = "Marcar para Marca de Arlokk",
+	puticon_desc = "Marca los jugadores quien tienen Marca de Arlokk con un icono de la banda.\n\n(Require asistente o líder)",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	cmd = "Arlokk",
 

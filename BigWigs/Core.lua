@@ -15,7 +15,6 @@ surface:Register("Smooth", "Interface\\AddOns\\BigWigs\\Textures\\smooth")
 surface:Register("Glaze", "Interface\\AddOns\\BigWigs\\Textures\\glaze")
 surface:Register("Charcoal", "Interface\\AddOns\\BigWigs\\Textures\\Charcoal")
 surface:Register("BantoBar", "Interface\\AddOns\\BigWigs\\Textures\\default")
-surface:Register("Flat", "Interface\\AddOns\\BigWigs\\Textures\\Flat")
 
 ----------------------------
 --      Localization      --
@@ -82,8 +81,66 @@ L:RegisterTranslations("enUS", function() return {
 	["You have slain %s!"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["%s mod enabled"] = "Módulo de %s activado",
+	["Target monitoring enabled"] = "Monitorización del objetivo activado",
+	["Target monitoring disabled"] = "Monitorización del objetivo desactivado",
+	["%s engaged!"] = "¡Entrando en combate con %s!",
+	["%s has been defeated"] = "%s fue derrotado",     -- "<boss> has been defeated"
+	["%s have been defeated"] = "%s fueron derrotados",    -- "<bosses> have been defeated"
 
+	-- AceConsole strings
+	--["boss"] = "jefe",
+	["Bosses"] = "Jefes",
+	["Options for boss modules."] = "Opciones para módulos del jefe",
+	["Options for bosses in %s."] = "Opciones para jefes en %s", -- "Options for bosses in <zone>"
+	["Options for %s (r%s)."] = "Opciones para %s (r%s).",     -- "Options for <boss> (<revision>)"
+	--["plugin"] = "plugin",
+	["Plugins"] = "Plugins",
+	["Options for plugins."] = "Opciones para plugins",
+	--["extra"] = "extra",
+	["Extras"] = "Extras",
+	["Options for extras."] = "Opciones para extras",
+	--["toggle"] = "alternar",
+	["Active"] = "Activo",
+	["Activate or deactivate this module."] = "Activa o desactiva este módulo",
+	--["reboot"] = "reiniciar",
+	--["rebootall"] = "reiniciartodos",
+	["Reboot"] = "Reiniciar",
+	["Reboot All"] = "Reiniciar Todos",
+	["Reboot this module."] = "Reinicia este módulo",
+	--["debug"] = "depurar",
+	["Debugging"] = "Depurando",
+	["Show debug messages."] = "Muestra mensajes de depura",
+	["Forces the module to reset for everyone in the raid.\n\n(Requires assistant or higher)"] = "Obliga al módulo que se reinicia para todos en la banda.\n\n(Requiere que seas asistente o líder)",
+	["%s has requested forced reboot for the %s module."] = "%s solicita un reinicio para el módulo %s",
+	--bosskill_cmd = "kill",
+	bosskill_name = "Muerte del Jefe",
+	bosskill_desc = "Anuncia cuando sea derrotado el jefe",
 
+	["Other"] = "Otro",
+	["Load"] = "Cargar",
+	["Load All"] = "Cargar todos",
+	["Load all %s modules."] = "Carga todos los módulos %s",
+
+	-- AceConsole zone commands
+	["Zul'Gurub"] = "ZG",
+	["Molten Core"] = "NM",
+	["Blackwing Lair"] = "GAN",
+	["Ahn'Qiraj"] = "AQ40",
+	["Ruins of Ahn'Qiraj"] = "AQ20",
+	["Onyxia's Lair"] = "Onyxia",
+	["Naxxramas"] = "Naxxramas",
+	["Silithus"] = "Silithus",
+	["Outdoor Raid Bosses"] = "Afuera",
+	-- ["Outdoor Raid Bosses Zone"] = "Outdoor Raid Bosses", -- DO NOT EVER TRANSLATE untill I find a more elegant option
+
+	--Name for exception bosses (neutrals that enable modules)
+	["Vaelastrasz the Corrupt"] = "Vaelastrasz el Corrupto",
+	["Lord Victor Nefarius"] = "Lord Victor Nefarius",
+
+	["You have slain %s!"] = "¡Has matado %s!",
+} end)
 
 L:RegisterTranslations("deDE", function() return {
 	["%s mod enabled"] = "%s Modul aktiviert",
@@ -169,7 +226,7 @@ BigWigs.cmdtable = {type = "group", handler = BigWigs, args = {
 }}
 BigWigs:RegisterChatCommand({"/bw", "/BigWigs"}, BigWigs.cmdtable)
 BigWigs.debugFrame = ChatFrame1
-BigWigs.revision = 20019
+BigWigs.revision = 20022
 
 
 function BigWigs:DebugMessage(msg, module)

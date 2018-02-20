@@ -163,7 +163,7 @@ LunaUF.constants = {
 		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
 		tile = true,
 		tileSize = 16,
-		insets = {left = -1.5, right = -1.5, top = -1.5, bottom = -1.5},
+		insets = {left = -0.5, right = -0.5, top = -0.5, bottom = -0.5},
 	},
 	icon = "Interface\\AddOns\\LunaUnitFrames\\media\\textures\\icon",
 	AnchorPoint = {

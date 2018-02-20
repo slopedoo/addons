@@ -27,6 +27,23 @@ L:RegisterTranslations("enUS", function() return {
 	massivegeyser_desc = "Warn when the boss is casting Massive Geyser.",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Gahzranka",
+
+	frostbreath_trigger = "Gahz\'ranka comienza a lanzar Aliento de Escarcha\.",
+	frostbreath_bar = "Aliento de Escarcha",
+	massivegeyser_trigger = "Gahz\'ranka comienza a lanzar Géiser monumental\.",
+	massivegeyser_bar = "Géiser monumental",
+
+	--frostbreath_cmd = "frostbreath",
+	frostbreath_name = "Alerta de Aliento de Escarcha",
+	frostbreath_desc = "Avisa cuando el jefe lance Aliento de Escarcha.",
+
+	--massivegeyser_cmd = "massivegeyser",
+	massivegeyser_name = "Alerta de Géiser monumental",
+	massivegeyser_desc = "Avisa cuando el jefe lance Géiser monumental.",
+} end )
+
 L:RegisterTranslations("deDE", function() return {
 	--cmd = "Gahzranka",
 

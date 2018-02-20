@@ -67,7 +67,62 @@ L:RegisterTranslations("enUS", function() return {
 	wave2s_message = "Wave 2 Spawning!",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Noth",
 
+	--blink_cmd = "blink",
+	blink_name = "Alerta de Traslación",
+	blink_desc = "Avisa para Traslación",
+
+	--teleport_cmd = "teleport",
+	teleport_name = "Alerta de Teletransporte",
+	teleport_desc = "Avisa para teletransporte",
+
+	--curse_cmd = "curse",
+	curse_name = "Alerta de Maldición",
+	curse_desc = "Avisa para Maldición",
+
+	--wave_cmd = "wave",
+	wave_name = "Alerta de Oleadas",
+	wave_desc = "Avisa para Oleadas",
+
+	starttrigger1 = "¡Muere, intruso!",
+	starttrigger2 = "¡Gloria al maestro!",
+	starttrigger3 = "Your life is forfeit!",
+	startwarn = "Entrando en combate con Noth el Pesteador! 90 segundos hasta teletransporte",
+
+	addtrigger = "Rise, my soldiers! Rise and fight once more!",
+
+	blinktrigger = "Noth el Pesteador gana Traslación.",
+	blinkwarn = "¡Translación!",
+	blinkwarn5 = "¡Traslación en ~5 segundos!",
+	blinkwarn10 = "¡Traslación en ~10 segundos!",
+	blinkbar = "Traslación Posible",
+
+	teleportToBalconyTrigger = "Noth the Plaguebringer teleports to the balcony above!",
+	teleportToRoomTrigger = "Noth the Plaguebringer teleports back into the battle!",
+	teleportwarn = "¡Teletransporte! Está en el balcón!",
+	teleportwarn10 = "¡Teletransporte en 10 segundos!",
+	teleportwarn30 = "¡Teletransporte en 30 segundos!",
+
+	teleportbar = "¡Teletransporte!",
+	backbar = "¡Trasera del cuarto!",
+
+	backwarn = "¡Está en el cuarto por %d segundos!",
+	backwarn10 = "¡10 segundos hasta que regrese al cuarto!",
+	backwarn30 = "¡30 segundos hasta que regrese al cuarto!",
+
+	cursetrigger = "sufre de Maldición del Pesteador",
+	cursewarn = "¡Maldición! La próxima en ~28 segundos",
+	curse10secwarn = "Maldición en ~10 segundos",
+
+	cursebar = "Próxima Maldición",
+
+	wave1bar = "Oleada 1",
+	wave2bar = "Oleada 2",
+	wave2_message = "Oleada 2 en 10 segundos",
+	wave2s_message = "¡Aparece Oleada 2!",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
@@ -101,7 +156,10 @@ local timer = {
 	curse = {50,60},
 
 	wave1 = {5,7},
-	wave2 = {30,37},
+	wave2_1 = {30,37},
+	wave2_2 = {49,56},
+	wave2_3 = {62,69},
+	wave2 = 0,
 }
 local icon = {
 	balcony = "Spell_Magic_LesserInvisibilty",
@@ -144,6 +202,7 @@ end
 function module:OnSetup()
 	timer.room = timer.firstRoom
 	timer.balcony = timer.firstBalcony
+	timer.wave2 = timer.wave2_1
 end
 
 -- called after boss is engaged
@@ -228,8 +287,10 @@ function module:TeleportToRoom()
 	self:CancelScheduledEvent("bwnothtoroom")
 	if timer.balcony == timer.firstBalcony then
 		timer.balcony = timer.secondBalcony
+		timer.wave2 = timer.wave2_2
 	elseif timer.balcony == timer.secondBalcony then
 		timer.balcony = timer.thirdBalcony
+		timer.wave2 = timer.wave2_3
 	end
 
 	if self.db.profile.teleport then

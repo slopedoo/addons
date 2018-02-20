@@ -90,6 +90,91 @@ L:RegisterTranslations("enUS", function() return {
 	throwwarn = "Throw in ~5 seconds!",
 
 	phasebar = "Phase 2",
+
+	add1 = "Feugen",
+	add2 = "Stalagg",
+
+} end )
+
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Thaddius",
+
+	--enrage_cmd = "enrage",
+	enrage_name = "Alerta de Enfurecer",
+	enrage_desc = "Avisa para Enfurecer",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Avisa para cambios de Fase",
+
+	--polarity_cmd = "polarity",
+	polarity_name = "Alerta de Cambio de polaridad",
+	polarity_desc = "Avisa para Cambio de polaridad",
+
+	--power_cmd = "power",
+	power_name = "Alerta de Oleada de poder",
+	power_desc = "Avisa para Oleada de poder de Stalagg",
+
+	--adddeath_cmd = "adddeath",
+	adddeath_name = "Alerta del Muerte del Add",
+	adddeath_desc = "Avisa cuando muera un add.",
+
+	--charge_cmd = "charge",
+	charge_name = "Alerta de Carga",
+	charge_desc = "Avisa para Carga positiva/negativa por ti mismo.",
+
+	--throw_cmd = "throw",
+	throw_name = "Alerta de Lanzar",
+	throw_desc = "Avisa para cambios de la tarima de los tanques.",
+
+	enragetrigger = "%s goes into a berserker rage!",
+	starttrigger = "Stalagg crush you!",
+	starttrigger1 = "Feed you to master!",
+	trigger_phase2_1 = "EAT YOUR BONES",
+	trigger_phase2_2 = "BREAK YOU!",
+	trigger_phase2_3 = "KILL!",
+
+	adddeath = "No... more... Feugen...",
+	adddeath2 = "Master save me...",
+
+	teslaoverload = "overloads!",
+
+	pstrigger = "Now YOU feel pain!",
+	trigger_polarity_cast = "Thaddius comienza a lanzar Cambio de polaridad",
+	chargetrigger = "You are afflicted by (%w+) Charge.",
+	positivetype = "Spell_ChargePositive",
+	negativetype = "Spell_ChargeNegative",
+	stalaggtrigger = "Stalagg gains Power Surge.",
+
+	you = "Tu",
+	are = "estás",
+
+	enragewarn = "¡Enfurecer!",
+	startwarn = "Thaddius Fase 1",
+	startwarn2 = "¡Thaddius Fase 2, Enfurecer en 5 minutos!",
+	addsdownwarn = "¡Thaddius entrante en 14 segundos!",
+	pswarn1 = "¡Thaddius comienza a lanzar Cambio de polaridad! - COMPRUEBA CARGA!",
+	pswarn2 = "¡30 segundos hasta Cambio de polaridad!",
+	pswarn3 = "¡3 segundos hasta Cambio de polaridad!",
+	poswarn = "¡Cambias a la Carga positiva!",
+	negwarn = "¡Cambias a la Carga negativa!",
+	nochange = "¡Tu polaridad no cambió!",
+	polaritytickbar = "Tic de Polaridad",
+	enragebartext = "Enfurecer",
+	warn_enrage_3m = "Enfurecer en 3 minutos",
+	warn_enrage_90 = "Enfurecer en 90 segundos",
+	warn_enrage_60 = "Enfurecer en 60 segundos",
+	warn_enrage_30 = "Enfurecer en 30 segundos",
+	warn_enrage_10 = "Enfurecer en 10 segundos",
+	stalaggwarn = "Oleada de poder en Stalagg!",
+	powersurgebar = "Oleada de poder",
+
+	bar1text = "Cambio de polaridad",
+
+	throwbar = "Lanzar",
+	throwwarn = "¡Lanzar en ~5 segundos!",
+
+	phasebar = "Fase 2",
 } end )
 
 ---------------------------------
@@ -157,16 +242,25 @@ function module:OnSetup()
 	self.teslawarn = nil
 	self.stage1warn = nil
 	self.previousCharge = ""
+	self.add1HP = 100
+	self.add2HP = 100
 end
 
 -- called after boss is engaged
 function module:OnEngage()
+	self.add1HP = 100
+	self.add2HP = 100
+	self:TriggerEvent("BigWigs_StartHPBar", self, L["add1"], 100)
+	self:TriggerEvent("BigWigs_SetHPBar", self, L["add1"], 0)
+	self:TriggerEvent("BigWigs_StartHPBar", self, L["add2"], 100)
+	self:TriggerEvent("BigWigs_SetHPBar", self, L["add2"], 0)
 	if self.db.profile.phase and not self.stage1warn then
 		self:Message(L["startwarn"], "Important")
 	end
 	self.stage1warn = true
 	self:Throw()
 	self:ScheduleRepeatingEvent("bwthaddiusthrow", self.Throw, timer.throw, self)
+	self:ScheduleRepeatingEvent("bwThaddiusAddCheck", self.CheckAddHP, 0.5, self )
 end
 
 -- called after boss is disengaged (wipe(retreat) or victory)
@@ -288,6 +382,9 @@ function module:Transition(transitionTime)
 	self:RemoveBar(L["throwbar"])
 	self:CancelDelayedMessage(L["throwwarn"])
 	self:CancelScheduledEvent("bwthaddiusthrow")
+	self:TriggerEvent("BigWigs_StopHPBar", self, L["add1"])
+	self:TriggerEvent("BigWigs_StopHPBar", self, L["add2"])
+	self:CancelScheduledEvent("bwThaddiusAddCheck")
 	if not self.transition then
 		if self.db.profile.phase then
 			self:Message(L["addsdownwarn"], "Attention")
@@ -299,6 +396,7 @@ function module:Transition(transitionTime)
 end
 
 function module:Phase2()
+	self:KTM_Reset()
 	if self.db.profile.phase then
 		self:Message(L["startwarn2"], "Important")
 	end
@@ -343,6 +441,35 @@ function module:Throw()
 	if self.db.profile.throw then
 		self:Bar(L["throwbar"], timer.throw, icon.throw)
 		self:DelayedMessage(timer.throw - 5, L["throwwarn"], "Urgent")
+	end
+end
+
+function module:CheckAddHP()
+	local health1
+	local health2
+	if UnitName("playertarget") == L["add1"] then
+		health1 = UnitHealth("playertarget")
+	elseif UnitName("playertarget") == L["add2"] then
+		health2 = UnitHealth("playertarget")
+	end
+
+	for i = 1, GetNumRaidMembers(), 1 do
+		if UnitName("Raid"..i.."target") == L["add1"] then
+			health1 = UnitHealth("Raid"..i.."target")
+		elseif UnitName("Raid"..i.."target") == L["add2"] then
+			health2 = UnitHealth("Raid"..i.."target")
+		end
+		if health1 and health2 then break; end
+	end
+
+	if health1 then
+		self.add1HP = health1
+		self:TriggerEvent("BigWigs_SetHPBar", self, L["add1"], 100-self.add1HP)
+	end
+
+	if health2 then
+		self.add2HP = health2
+		self:TriggerEvent("BigWigs_SetHPBar", self, L["add2"], 100-self.add2HP)
 	end
 end
 

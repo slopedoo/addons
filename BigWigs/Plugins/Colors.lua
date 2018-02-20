@@ -53,6 +53,48 @@ L:RegisterTranslations("enUS", function() return {
 	["4th"] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Colors"] = "Colores",
+
+	["Messages"] = "Mensajes",
+	["Bars"] = "Barras",
+	["Shortbar"] = "BarraCorta",
+	["Longbar"] = "BarraLarga",
+	["Color %s"] = "Color %s",
+	["Color%s"] = "Color%s",
+	["Number of colors"] = "Número de colores",
+	["xColors"] = "xColores",
+	["Background"] = "Fondo",
+	["Text"] = "Texto",
+	["Reset"] = "Restablecer",
+
+	["Colors of messages and bars."] = "Color de los mensajes y barras.",
+	["Colors of messages."] = "Color de los mensajes.",
+	["Change the color for \"%s\" messages."] = "Cambia el color para mensajes \"%s\".",
+	["Colors of bars."] = "Color de las barras.",
+	["Colors for short bars (< 1 minute)."] = "Color para barras cortas (< 1 minuto).",
+	["Colors for long bars (> 1 minute)."] = "Color para barras largas (> 1 minuto).",
+	["Change the %s color."] = "Cambia el color %s",
+	["Number of colors the bar has."] = "Número de colores de la barra.",
+	["Change the background color."] = "Cambia el color del fondo.",
+	["Change the text color."] = "Cambia el color del texto.",
+	["Resets all ranges to defaults."] = "Restablece los rangos por defecto.",
+
+	["Important"] = "Importante",
+	["Personal"] = "Personal",
+	["Twilight"] = "Crepúsculo",
+	["Urgent"] = "Urgente",
+	["Attention"] = "Atención",
+	["Positive"] = "Positivo",
+	["Bosskill"] = "MataJefe",
+	["Core"] = "Núcleo",
+
+	["1st"] = "1º",
+	["2nd"] = "2º",
+	["3rd"] = "3º",
+	["4th"] = "4º",
+} end)
+
 L:RegisterTranslations("koKR", function() return {
 	["Colors"] = "색상",
 

@@ -63,6 +63,59 @@ L:RegisterTranslations("enUS", function() return {
 
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Warder",
+
+	--fear_cmd = "fear",
+	fear_name = "Temporizador de Miedo",
+	fear_desc = "Muestra regeneración de Miedo",
+
+	--silence_cmd = "silence",
+	silence_name = "Temporizador de Silencio",
+	silence_desc = "Muestra regeneración de Silencio",
+
+	--roots_cmd = "roots",
+	roots_name = "Temporizador de Enredaderas",
+	roots_desc = "Muestra regeneración de Enredederas",
+
+	--dust_cmd = "dust",
+	dust_name = "Temporizador de Nube de polvo",
+	dust_desc = "Muestra regeneración de Nube de polvo",
+
+	--warnings_cmd = "warnings",
+	warnings_name = "Mensajes de Alerta",
+	warnings_desc = "Mensajes que muestra las habilidades que tiene el Depositorio",
+
+	fearTrigger = "Depositorio Anubisath comienza a lanzar Miedo.",
+	fearBar = "¡Miedo!",
+	fearBar_next = "Miedo Posible",
+
+	silenceTrigger = "Depositorio Anubisath comienza a lanzar Silencio.",
+	silenceBar = "¡Silenencio!",
+	silenceBar_next = "Silencio Posible",
+
+	rootsTrigger = "Depositorio Anubisath comienza a lanzar Enredederas.",
+	rootsBar = "¡Enredederas!",
+	rootsBar_next = "Enredederas Posible",
+
+	dustTrigger = "Depositorio Anubisath comienza a lanzar Nube de polvo.",
+	dustBar = "¡Nube de polvo!",
+	dustBar_next = "Nube de polvo Posible",
+
+	dustWarn = "Nube de polvo",
+	dustWarn2 = "(Enrederas o Miedo)",
+
+	fearWarn = "Miedo",
+	fearWarn2 = "(Silencio o Nube de polvo)",
+
+	rootsWarn = "Enredederas",
+	rootsWarn2 = "(Silencio o Nube de polvo)",
+
+	silenceWarn = "Silencio",
+	silenceWarn2 = "(Enredederas o Miedo)",
+
+} end )
+
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------

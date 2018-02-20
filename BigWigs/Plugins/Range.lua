@@ -42,6 +42,36 @@ L:RegisterTranslations("enUS", function() return {
 	["Resets all ranges to defaults."] = true,
 } end)
 
+L:RegisterTranslations("esES", function() return {
+	["Range"] = "Rango",
+	--["range"] = true,
+	["Options for the combat log's range."] = "Opciones para el rango del registro del combate.",
+
+	--["party"] = true,
+	["Party"] = "Grupo",
+	["Party combat log range."] = "Rango del registro del combate del grupo.",
+
+	--["friend"] = true,
+	["Friendlies"] = "Aliados",
+	["Friendly players combat log range."] = "Rango del registro del combate de los jugadores aliados",
+
+	--["hostile"] = true,
+	["Hostiles"] = "Hostiles",
+	["Hostile players combat log range."] = "Rango del registro del combate de los jugadores hostiles",
+
+	--["mob"] = true,
+	["Creatures"] = "Criaturas",
+	["Creature combat log range."] = "Rango del registro del combate de las criaturas",
+
+	--["death"] = true,
+	["Deaths"] = "Muertes",
+	["Death message range."] = "Rango de los mensajes de la muerte",
+
+	--["reset"] = true,
+	["Reset to defaults"] = "Restablecer por defecto",
+	["Resets all ranges to defaults."] = "Restablece todos los rangos por defecto",
+} end)
+
 L:RegisterTranslations("koKR", function() return {
 	["Range"] = "범위",
 	["Options for the combat log's range."] = "전투 로그의 범위에 대한 설정",

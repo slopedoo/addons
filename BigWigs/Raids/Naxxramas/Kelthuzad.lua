@@ -59,10 +59,6 @@ L:RegisterTranslations("enUS", function() return {
 	addcount_name = "P1 Add counter",
 	addcount_desc = "Counts number of killed adds in P1",
 
-	ktmreset_cmd = "ktmreset",
-	ktmreset_name = "Do not reset KTM on MC",
-	ktmreset_desc = "Resets KTM on MC when disabled, does nothing when enabled.",
-
 	mc_trigger1 = "Your soul, is bound to me now!",
 	mc_trigger2 = "There will be no escape!",
 	mc_warning = "Mind Control!",
@@ -97,12 +93,10 @@ L:RegisterTranslations("enUS", function() return {
 	phase2_bar = "Kel'Thuzad Active!",
 
 	phase3_soon_warning = "Phase 3 soon!",
-	phase3_trigger = "Master, I require aid!",
-	phase3_warning = "Phase 3, Guardians in ~15sec!",
+	phase3_trigger = "Master! I require aid!",
+	phase3_warning = "Phase 3, Guardians incoming!",
 
-	guardians_trigger = "Very well. Warriors of the frozen wastes, rise up! I command you to fight, kill and die for your master! Let none survive!",
-	guardians_warning = "Guardians incoming in ~10sec!",
-	guardians_bar = "Guardians incoming!",
+	guardians_bar = "Guardian %d",
 
 	fissure_trigger = "cast Shadow Fissure.",
 	fissure_warning = "Shadow Fissure!",
@@ -120,6 +114,7 @@ L:RegisterTranslations("enUS", function() return {
 
 	frostblast_bar = "Possible Frost Blast",
 	frostblast_trigger1 = "I will freeze the blood in your veins!",
+	frostblast_trigger2 = "^([^%s]+) ([^%s]+) afflicted by Frost Blast.",
 	frostblast_warning = "Frost Blast!",
 	frostblast_soon_message = "Possible Frost Blast in ~5sec!",
 
@@ -140,16 +135,139 @@ L:RegisterTranslations("enUS", function() return {
 	proximity_desc = "Show Proximity Warning Frame",
 } end )
 
+L:RegisterTranslations("esES", function() return {
+	--cmd = "Kelthuzad",
 
+	KELTHUZADCHAMBERLOCALIZEDLOLHAX = "Cámara de Kel'Thuzad",
+
+	--phase_cmd = "phase",
+	phase_name = "Alerta de Fase",
+	phase_desc = "Avisa para cambios de Fase.",
+
+	--mc_cmd = "mindcontrol",
+	mc_name = "Alerta de Control Mental",
+	mc_desc = "Avisa cuando haya jugadores que están controlados por mente.",
+
+	--fissure_cmd = "fissure",
+	fissure_name = "Alerta de Fisura de las Sombras",
+	fissure_desc = "Avisa para Fisura de las Sombras.",
+
+	--frostblast_cmd = "frostblast",
+	frostblast_name = "Alerta de Explosión de Escarcha",
+	frostblast_desc = "Avisa para Explosión de Escarcha.",
+
+	--frostbolt_cmd = "frostbolt",
+	frostbolt_name = "Alerta de Descarga de Escarcha",
+	frostbolt_desc = "Avisa para Descarga de Escarcha",
+
+	frostboltbar_cmd = "frostboltbar",
+	frostboltbar_name = "Barra de Descarga de Escarcha",
+	frostboltbar_desc = "Muestra una barra para lanzamiento de Descarga de Escharcha",
+
+	--detonate_cmd = "detonate",
+	detonate_name = "Alerta de Detonar maná",
+	detonate_desc = "Avisa para Detonar maná.",
+
+	--detonateicon_cmd = "detonateicon",
+	detonateicon_name = "Marcar para Detonar maná",
+	detonateicon_desc = "Marca con un icono jugadores con Detonar maná.",
+
+	--guardians_cmd = "guardians",
+	guardians_name = "Alerta de Guardianes",
+	guardians_desc = "Avisa para Guardianes de Corona de Hielo en fase 3.",
+
+	--fbvolley_cmd = "fbvolley",
+	fbvolley_name = "Lluvia de descarga de Escarcha Posible",
+	fbvolley_desc = "Temporizador para Lluvia de descarga de Escarcha posible.",
+
+	--addcount_cmd = "addcount",
+	addcount_name = "Fase 1 Contador de Adds",
+	addcount_desc = "Cuenta los adds matados en Fase 1",
+
+	mc_trigger1 = "Your soul, is bound to me now!",
+	mc_trigger2 = "There will be no escape!",
+	mc_warning = "Mind Control!",
+	mc_bar = "Possible Mind Control!",
+
+	start_trigger = "Minions, servants, soldiers of the cold dark, obey the call of Kel'Thuzad!",
+	start_trigger1 = "Minions, servants, soldiers of the cold dark! Obey the call of Kel'Thuzad!",
+	start_warning = "Kel'Thuzad encounter started! ~5min till he is active!",
+	start_bar = "Phase 1 Timer",
+	attack_trigger1 = "Kel'Thuzad ataca",
+	attack_trigger2 = "Kel'Thuzad falla",
+	attack_trigger3 = "Kel'Thuzad golpea",
+	attack_trigger4 = "Kel'Thuzad golpe críticio",
+	kick_trigger1 = "Kick hits Kel'Thuzad",
+	kick_trigger2 = "Kick crits Kel'Thuzad",
+	kick_trigger3 = "Kick was blocked by Kel'Thuzad",
+	pummel_trigger1 = "Pummel hits Kel'Thuzad",
+	pummel_trigger2 = "Pummel crits Kel'Thuzad",
+	pummel_trigger3 = "Pummel was blocked by Kel'Thuzad",
+	shieldbash_trigger1 = "Shield Bash hits Kel'Thuzad",
+	shieldbash_trigger2 = "Shield Bash crits Kel'Thuzad",
+	shieldbash_trigger3 = "Shield Bash was blocked by Kel'Thuzad",
+	earthshock_trigger1 = "Earth Shock hits Kel'Thuzad",
+	earthshock_trigger2 = "Earth Shock crits Kel'Thuzad",
+
+	phase1_warn = "Fase 1 termina en 20 segunfos!",
+
+	phase2_trigger1 = "Pray for mercy!",
+	phase2_trigger2 = "Scream your dying breath!",
+	phase2_trigger3 = "The end is upon you!",
+	phase2_warning = "¡Fase 2, Kel'Thuzad entrante!",
+	phase2_bar = "¡Kel'Thuzad Activo!",
+
+	phase3_soon_warning = "¡Fase 3 pronto!",
+	phase3_trigger = "Master, I require aid!",
+	phase3_warning = "¡Fase 3, Guardianes en ~15 segundos!",
+
+
+	guardians_bar = "¡Guardianes entrantes!",
+
+	fissure_trigger = "lanza Fisura de las Sombras.",
+	fissure_warning = "¡Fisura de las Sombras!",
+
+	frostbolt_trigger = "Kel'Thuzad comienza a lanzar Descarga de Escarcha.",
+	frostbolt_warning = "¡Descarga de Escarcha! Interrúmpela!",
+	frostbolt_bar = "Descarga de Escarcha",
+
+
+	frostbolt_volley = "Lluvia Posible",
+	frostbolt_volley_trigger = "sufre de Descarga de Escarcha",
+
+	add_dead_trigger = "(.*) muere",
+	add_bar = "%d/14 %s",
+
+	frostblast_bar = "Explosión de Escarcha Posible",
+	frostblast_trigger1 = "I will freeze the blood in your veins!",
+	frostblast_warning = "¡Explosión de Escarcha!",
+	frostblast_soon_message = "¡Explosión de Escarcha Posible en ~5 segundos!",
+
+	phase2_frostblast_warning = "¡Explosión de Escarcha Posible en ~5 segundos!",
+	phase2_mc_warning = "¡Control Mental Posible en ~5 segundos!",
+	phase2_detonate_warning = "¡Detonar maná en ~5 segundos!",
+
+	detonate_trigger = "^([^%s]+) ([^%s]+) sufre de Detonar maná",
+	detonate_bar = "Detonar maná - %s",
+	detonate_possible_bar = "Detonar maná",
+	detonate_warning = "¡%s tiene Detonar maná!",
+
+	you = "Tu",
+	are = "estás",
+
+	--proximity_cmd = "proximity",
+	proximity_name = "Alerta de Proximidad",
+	proximity_desc = "Muestra marco de alerta de proximidad",
+} end )
 ---------------------------------
 --      	Variables 		   --
 ---------------------------------
 
 -- module variables
-module.revision = 20003 -- To be overridden by the module!
+module.revision = 20004 -- To be overridden by the module!
 module.enabletrigger = module.translatedName -- string or table {boss, add1, add2}
 --module.wipemobs = { L["add_name"] } -- adds which will be considered in CheckForEngage
-module.toggleoptions = {"frostbolt", "frostboltbar", -1, "frostblast", "proximity", "fissure", "mc", "ktmreset", -1, "fbvolley", -1, "detonate", "detonateicon", -1 ,"guardians", -1, "addcount", "phase", "bosskill"}
+module.toggleoptions = {"frostbolt", "frostboltbar", -1, "frostblast", "proximity", "fissure", "mc", -1, "fbvolley", -1, "detonate", "detonateicon", -1 ,"guardians", -1, "addcount", "phase", "bosskill"}
 
 -- Proximity Plugin
 module.proximityCheck = function(unit) return CheckInteractDistance(unit, 2) end
@@ -167,7 +285,7 @@ local timer = {
 	detonate = 5,
 	nextDetonate = {20,25},
 	firstFrostblast = 50,
-	frostblast = {55,65},
+	frostblast = {30,60},
 	firstMindcontrol = 60,
 	mindcontrol = {60,90},
 	firstGuardians = 5,
@@ -196,7 +314,6 @@ local syncName = {
 	soulWeaver = "KelAddDiesSoul"..module.revision,
 	phase2 = "KelPhase2"..module.revision,
 	phase3 = "KelPhase3"..module.revision,
-	guardians = "KelGuardians"..module.revision,
 }
 
 local timeLastFrostboltVolley = 0    -- saves time of first frostbolt
@@ -239,7 +356,7 @@ function module:OnEnable()
 	self:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE", "Affliction")
 
 	self:ThrottleSync(5, syncName.detonate)
-	self:ThrottleSync(5, syncName.frostblast)
+	self:ThrottleSync(0, syncName.frostblast)
 	self:ThrottleSync(2, syncName.frostbolt)
 	self:ThrottleSync(2, syncName.frostboltOver)
 	self:ThrottleSync(2, syncName.fissure)
@@ -255,10 +372,12 @@ function module:OnSetup()
 
 	self.warnedAboutPhase3Soon = nil
 	frostbolttime = 0
+	self.lastFrostBlast=0
 end
 
 -- called after boss is engaged
 function module:OnEngage()
+	self.lastFrostBlast=0
 	self:Message(L["start_warning"], "Attention")
 	self:Bar(L["start_bar"], timer.phase1, icon.phase1)
 	self:DelayedMessage(timer.phase1 - 20, L["phase1_warn"], "Important")
@@ -270,11 +389,13 @@ function module:OnEngage()
 		self:Bar(string.format(L["add_bar"], numAbominations, "Unstoppable Abomination"), timer.phase1, icon.abomination)
 		self:Bar(string.format(L["add_bar"], numWeavers, "Soul Weaver"), timer.phase1, icon.soulWeaver)
 	end
+	self:KTM_SetTarget("Unstoppable Abomination")
 end
 
 -- called after boss is disengaged (wipe(retreat) or victory)
 function module:OnDisengage()
 	self:RemoveProximity()
+	BigWigsFrostBlast:FBClose()
 end
 
 
@@ -309,14 +430,12 @@ end
 function module:CHAT_MSG_MONSTER_YELL(msg)
 	if ((msg == L["phase2_trigger1"]) or (msg == L["phase2_trigger2"]) or (msg == L["phase2_trigger3"])) then
 		self:Sync(syncName.phase2)
-	elseif msg == L["phase3_trigger"] then
+	elseif string.find(msg, L["phase3_trigger"]) then
 		self:Sync(syncName.phase3)
 	elseif msg == L["mc_trigger1"] or msg == L["mc_trigger2"] then
 		self:Sync(syncName.mindcontrol)
-	elseif msg == L["guardians_trigger"] then
-		self:Sync(syncName.guardians)
-	elseif msg == L["frostblast_trigger1"] then
-		self:Sync(syncName.frostblast)
+		--elseif msg == L["frostblast_trigger1"] then
+		--	self:Sync(syncName.frostblast)
 	end
 end
 
@@ -343,6 +462,15 @@ end
 self:Bar(L["frostbolt_volley"], 15, icon.frostboltVolley)
 end]]
 function module:Affliction(msg)
+	local _, _, sPlayer, sType = string.find(msg, L["frostblast_trigger2"])
+	if ( sPlayer and sType ) then
+		if ( sPlayer == "You" and sType == "are" ) then
+			self:Sync(syncName.frostblast.." "..UnitName("player"))
+		else
+			self:Sync(syncName.frostblast.." "..sPlayer)
+		end
+	end
+
 	if string.find(msg, L["detonate_trigger"]) then
 		local _,_, dplayer, dtype = string.find( msg, L["detonate_trigger"])
 		if dplayer and dtype then
@@ -417,12 +545,10 @@ function module:BigWigs_RecvSync(sync, rest, nick)
 		self:Phase2()
 	elseif sync == syncName.phase3 then
 		self:Phase3()
-	elseif sync == syncName.guardians then
-		self:Guardians()
 	elseif sync == syncName.mindcontrol then
 		self:MindControl()
 	elseif sync == syncName.frostblast then
-		self:FrostBlast()
+		self:FrostBlast(rest)
 	elseif sync == syncName.detonate and rest then
 		self:Detonate()
 	elseif sync == syncName.frostbolt then       -- changed from only frostbolt (thats only alert, if someone still wants to see the bar, it wouldnt work then)
@@ -445,53 +571,75 @@ end
 
 function module:Phase2()
 	self:Bar(L["phase2_bar"], timer.phase2, icon.phase2)
-	self:DelayedBar(timer.phase2, L["mc_bar"], timer.firstMindcontrol, icon.mindcontrol)
-	self:DelayedBar(timer.phase2, L["detonate_possible_bar"], timer.firstDetonate, icon.detonate)
-	self:DelayedBar(timer.phase2, L["frostblast_bar"], timer.firstFrostblast, icon.frostblast)
 	self:DelayedMessage(timer.phase2, L["phase2_warning"], "Important")
-	self:DelayedMessage(timer.firstDetonate + timer.phase2 - 5, L["phase2_detonate_warning"], "Important")
-	self:DelayedMessage(timer.firstFrostblast  + timer.phase2 - 5, L["phase2_frostblast_warning"], "Important")
-	self:DelayedMessage(timer.firstMindcontrol  + timer.phase2 - 5, L["phase2_mc_warning"], "Important")
+	if self.db.profile.mc then
+		self:DelayedBar(timer.phase2, L["mc_bar"], timer.firstMindcontrol, icon.mindcontrol)
+		self:DelayedMessage(timer.firstMindcontrol  + timer.phase2 - 5, L["phase2_mc_warning"], "Important")
+	end
+	if self.db.profile.detonate then
+		self:DelayedBar(timer.phase2, L["detonate_possible_bar"], timer.firstDetonate, icon.detonate)
+		self:DelayedMessage(timer.firstDetonate + timer.phase2 - 5, L["phase2_detonate_warning"], "Important")
+	end
+	if self.db.profile.frostblast then
+		self:DelayedBar(timer.phase2, L["frostblast_bar"], timer.firstFrostblast, icon.frostblast)
+		self:DelayedMessage(timer.firstFrostblast  + timer.phase2 - 5, L["phase2_frostblast_warning"], "Important")
+	end
 
 	if self.db.profile.fbvolley then
-		self:Bar(L["frostbolt_volley"], timer.firstFrostboltVolley, icon.frostboltVolley)
+		self:DelayedBar(timer.phase2, L["frostbolt_volley"], timer.firstFrostboltVolley, icon.frostboltVolley)
 	end
 
 	-- master target should be automatically set, as soon as a raid assistant targets kel'thuzad
+	self:KTM_SetTarget(self:ToString())
 	self:KTM_Reset()
 
 	-- proximity silent
-	self:Proximity()
+	if self.db.profile.proximity then
+		self:ScheduleEvent("bwShowProximity", self.Proximity, timer.phase2, self)
+	end
+	self:ScheduleEvent("bwShowFBFrame", function() BigWigsFrostBlast:FBShow() end, timer.phase2, self)
+
+	local function removeP1Bars()
+		self:RemoveBar(L["start_bar"])
+		self:RemoveBar(string.format(L["add_bar"], numWeavers, "Soul Weaver"))
+		self:RemoveBar(string.format(L["add_bar"], numAbominations, "Unstoppable Abomination"))
+	end
+	self:ScheduleEvent("bwKTremoveP1Bars", removeP1Bars, 1, self)
+
 end
 
 function module:Phase3()
 	if self.db.profile.phase then
 		self:Message(L["phase3_warning"], "Attention", nil, "Beware")
 	end
-end
-
-function module:MindControl()
-	self:Message(L["mc_warning"], "Urgent")
-	self:IntervalBar(L["mc_bar"], timer.mindcontrol[1], timer.mindcontrol[2], icon.mindcontrol)
-
-	self:KTM_Reset()
-end
-
-function module:Guardians()
 	if self.db.profile.guardians then
-		self:Message(L["guardians_warning"], "Important")
-		self:Bar(L["guardians_bar"], timer.firstGuardians, icon.guardians)
-		self:DelayedBar(timer.firstGuardians, L["guardians_bar"], timer.guardians, icon.guardians)
-		for i = 1,4 do
-			self:DelayedBar(timer.firstGuardians+timer.guardians*1, L["guardians_bar"], timer.guardians, icon.guardians)
+		self:Bar(string.format(L["guardians_bar"],1), timer.firstGuardians, icon.guardians)
+		for i = 0,3 do
+			self:DelayedBar(timer.firstGuardians+timer.guardians*i, string.format(L["guardians_bar"],i+2), timer.guardians, icon.guardians)
 		end
 	end
 end
 
-function module:FrostBlast()
-	self:Message(L["frostblast_warning"], "Attention")
-	self:DelayedMessage(timer.frostblast[1] - 5, L["frostblast_soon_message"])
-	self:IntervalBar(L["frostblast_bar"], timer.frostblast[1], timer.frostblast[2], icon.frostblast)
+function module:MindControl()
+	if self.db.profile.mc then
+		self:Message(L["mc_warning"], "Urgent")
+		self:IntervalBar(L["mc_bar"], timer.mindcontrol[1], timer.mindcontrol[2], icon.mindcontrol)
+	end
+	self:KTM_Reset()
+end
+
+function module:FrostBlast(name)
+	if self.db.profile.frostblast then
+		if GetTime()-self.lastFrostBlast>5 then
+			self.lastFrostBlast=GetTime()
+			self:Message(L["frostblast_warning"], "Attention")
+			self:DelayedMessage(timer.frostblast[1] - 5, L["frostblast_soon_message"])
+			self:IntervalBar(L["frostblast_bar"], timer.frostblast[1], timer.frostblast[2], icon.frostblast)
+		end
+	end
+	if name and name ~= "" then
+		BigWigsFrostBlast:AddFrostBlastTarget(name)
+	end
 end
 
 function module:Detonate(name)
@@ -539,6 +687,7 @@ function module:AbominationDies(name)
 			self:Bar(string.format(L["add_bar"], numAbominations, name), (timePhase1Start + timer.phase1 - GetTime()), icon.abomination)
 		end
 	end
+	self:KTM_Reset()
 end
 
 function module:WeaverDies(name)
